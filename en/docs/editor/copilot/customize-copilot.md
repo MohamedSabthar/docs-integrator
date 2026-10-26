@@ -1,7 +1,7 @@
 ---
 title: "Customize Copilot"
 description: "Give Copilot standing project instructions, reusable skills, and your own tools through MCP servers."
-keywords: [wso2 integrator, copilot, agents.md, skills, mcp, model context protocol, customize copilot]
+keywords: [wso2 agent builder, copilot, agents.md, skills, mcp, model context protocol, customize copilot]
 sidebar_position: 4
 slug: /editor/copilot/customize-copilot
 ---
@@ -11,19 +11,19 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Customize Copilot
 
-Customize Copilot beyond its built-in behavior: give it standing instructions for your project, define reusable skills, or extend its toolset by connecting Model Context Protocol (MCP) servers. Find all three under **Copilot** > **Settings** > **Customize Copilot**.
+Customize Copilot beyond its built-in behavior: give it standing instructions for your project, define reusable skills, or extend its toolset by connecting Model Context Protocol (MCP) servers. Find all three under **Copilot** > **Settings** > **Customize Agent Builder Copilot**.
 
 ## Project instructions
 
 Add an `AGENTS.md` file to your project root to give Copilot standing instructions for the workspace, such as preferred libraries, naming and style rules, or error-handling patterns. Copilot reads the file as project context and applies the relevant instructions on every request.
 
-To create or edit the file, open **Settings** in the Copilot panel and select the file icon on the **Agent instructions** row under **Customize Copilot**. If `AGENTS.md` does not exist yet, selecting the file icon creates it from a starter template; otherwise, it opens the existing file for editing.
+To create or edit the file, open **Settings** in the Copilot panel and select the file icon on the **Agent instructions** row under **Customize Agent Builder Copilot**. If `AGENTS.md` does not exist yet, selecting the file icon creates it from a starter template; otherwise, it opens the existing file for editing.
 
 <ThemedImage
     alt="The Customize Copilot section in Settings with the Agent instructions row."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/agents-md-settings-row.png'),
-        dark: useBaseUrl('/img/editor/copilot/agents-md-settings-row.png'),
+        light: useBaseUrl('/img/editor/copilot/agents-md-settings-row-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/agents-md-settings-row-v1.0.png'),
     }}
 />
 
@@ -39,7 +39,7 @@ Copilot organizes skills into three groups:
 
 ### Manage skills
 
-Open **Settings** in the Copilot panel and select the **Skills** row under **Customize Copilot**. The Skills panel lists each group. Enable or disable individual skills using the controls next to each skill.
+Open **Settings** in the Copilot panel and select the **Skills** row under **Customize Agent Builder Copilot**. The Skills panel lists each group. Enable or disable individual skills using the controls next to each skill.
 
 :::note
 Some built-in skills are always active and cannot be disabled.
@@ -48,14 +48,14 @@ Some built-in skills are always active and cannot be disabled.
 <ThemedImage
     alt="The Skills panel listing built-in, project, and user skills with enable toggles."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/skills-manager-panel.png'),
-        dark: useBaseUrl('/img/editor/copilot/skills-manager-panel.png'),
+        light: useBaseUrl('/img/editor/copilot/skills-manager-panel-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/skills-manager-panel-v1.0.png'),
     }}
 />
 
 ### Add your own skill
 
-Open **Settings** in the Copilot panel, select the **Skills** row under **Customize Copilot**, and select **Add skill**.
+Open **Settings** in the Copilot panel, select the **Skills** row under **Customize Agent Builder Copilot**, and select **Add skill**.
 
 - **Create new**: Enter a **Name**, a **Trigger / Description** that tells Copilot when to use the skill, and an optional **Body** with detailed rules and instructions.
 - **Import**: Drag and drop or upload a `.md` file (with the skill's name and description in its header) or a `.zip` or `.skill` file (containing a `SKILL.md`).
@@ -65,8 +65,8 @@ Choose the **Type** to control where the skill lives: **Project** saves it to `.
 <ThemedImage
     alt="The Add skill dialog with the Create new and Import tabs."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/add-skill-modal.png'),
-        dark: useBaseUrl('/img/editor/copilot/add-skill-modal.png'),
+        light: useBaseUrl('/img/editor/copilot/add-skill-modal-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/add-skill-modal-v1.0.png'),
     }}
 />
 
@@ -106,56 +106,75 @@ If a skill with the same name already exists, Copilot asks you to rename the ski
 
 ### How Copilot uses skills
 
-When a skill is enabled and your request matches its trigger, Copilot applies the skill automatically. If a matching skill is disabled, Copilot pauses and asks whether to enable it. Select **Enable** to turn it on, or **Skip** to continue without it for that message.
+When a skill is enabled and your request matches its trigger, Copilot applies the skill automatically. If a matching skill is disabled, Copilot pauses and asks whether to enable it. Select **Enable skill** to turn it on, or **Continue without it** to skip it for that message.
 
 <ThemedImage
     alt="The prompt asking whether to enable a matching skill for the current request."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/enable-skill-prompt.png'),
-        dark: useBaseUrl('/img/editor/copilot/enable-skill-prompt.png'),
+        light: useBaseUrl('/img/editor/copilot/enable-skill-prompt-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/enable-skill-prompt-v1.0.png'),
     }}
 />
 
 ## Copilot MCP tools
 
-WSO2 Integrator Copilot ships with a built-in set of tools for building integrations. You can extend that toolset by connecting your own [Model Context Protocol](https://modelcontextprotocol.io) (MCP) servers. Once a server is connected and enabled, the tools it exposes become available to Copilot during a chat turn, and the agent can call them like any built-in tool.
+WSO2 Agent Builder Copilot ships with a built-in set of tools for building agents. You can extend that toolset by connecting your own [Model Context Protocol](https://modelcontextprotocol.io) (MCP) servers. Once a server is connected and enabled, the tools it exposes become available to Copilot during a chat turn, and the agent can call them like any built-in tool.
 
 This lets you and your team extend Copilot with the tools your work needs, whether they run as a local process or a remote service.
 
 :::note
-This section is about giving *Copilot* extra tools. To make *your own integrations* speak MCP, whether by exposing a service as an MCP server or by consuming MCP from an AI agent, see [MCP integration](../../develop-and-test/integration-artifacts/ai-integrations/mcp/mcp.md).
+This section is about giving *Copilot* extra tools. To make *your own agents and services* speak MCP, whether by exposing a service as an MCP server or by consuming MCP from an AI agent, see [MCP integration](../../develop-and-test/integration-artifacts/ai-integrations/mcp/mcp.md).
 :::
 
 ### Enable MCP tools
 
-To enable MCP tools, open **Copilot** > **Settings** > **Customize Copilot** > **MCP servers**, then turn on MCP tools.
+To enable MCP tools, open **Copilot** > **Settings** > **Customize Agent Builder Copilot** > **MCP servers**, then turn on MCP tools.
 
 Once enabled, the MCP chip appears in the Copilot chat input and you can add and manage servers. While MCP is off, the chip stays hidden and no servers connect.
 
 <ThemedImage
     alt="Customize Copilot settings showing the MCP servers entry."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-customize-copilot.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-customize-copilot.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-customize-copilot-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-customize-copilot-v1.0.png'),
     }}
 />
 
 ### Add a server
 
-Open the MCP servers manager from **Copilot** > **Settings** > **Customize Copilot** > **MCP servers**. The MCP chip in the chat input gives a compact view of the same servers.
+Open the MCP servers manager from **Copilot** > **Settings** > **Customize Agent Builder Copilot** > **MCP servers**. The MCP chip in the chat input gives a compact view of the same servers.
 
 In the manager panel, select **+ Add server** and choose a transport:
 
 - **Stdio**: A local process. Enter the **command** and its **arguments**, plus any environment variables the process needs.
-- **HTTP**: A remote endpoint. Enter the **URL** and any headers.
+- **Streamable HTTP**: A remote endpoint. Enter the **URL** and any headers.
 
 Enter a name, then select **Add**. Copilot connects to the server and lists its tools. The status dot shows the result: connecting, connected, or failed with an error tooltip.
 
 <ThemedImage
     alt="Add MCP server form with scope, name, transport, command, and arguments fields."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-add-server.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-add-server.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-add-server-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-add-server-v1.0.png'),
+    }}
+/>
+
+### Connect Copilot to Agent Manager
+
+The MCP servers manager also lists two Agent Manager servers under **Agent Manager**. Add them so that Copilot can work with the agents you run there:
+
+- **Agents & Deployments**: Create, build, and deploy agents.
+- **Observability**: Read logs, metrics, and traces.
+
+Select **Add** next to a server. If you are not signed in to Agent Manager yet, Copilot first asks for your Agent Manager console URL. Copilot then adds the server to your **User** scope and turns on MCP tools. If you turned MCP tools off earlier, Copilot asks you to turn them on first. Your browser then opens so that you can sign in when the server first connects.
+
+Copilot keeps that sign-in on your machine and removes it when you sign out of Agent Manager. The servers stay in the list, so select **Sign In** on a server to sign in again.
+
+<ThemedImage
+    alt="The Agent Manager section in the MCP servers manager with the Agents & Deployments and Observability servers."
+    sources={{
+        light: useBaseUrl('/img/editor/copilot/agent-manager-mcp-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/agent-manager-mcp-v1.0.png'),
     }}
 />
 
@@ -171,13 +190,13 @@ A server is defined in one of the following scopes.
 
 The project file uses the bare filename `.mcp.json`, following a common convention, so the same file is portable across tools that support MCP. Commit it to share a consistent set of servers with your team.
 
-Built-in servers are provided by WSO2, so you add them from the manager rather than defining them in a config file. They appear in their own group when available.
+Built-in servers are provided by WSO2 and appear in their own group when available. You turn them on or off from the manager; they are not defined in a config file.
 
 <ThemedImage
     alt="MCP servers manager grouping servers under Project and User scopes."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-server-scopes.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-server-scopes.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-server-scopes-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-server-scopes-v1.0.png'),
     }}
 />
 
@@ -199,8 +218,8 @@ From the manager, you can:
 <ThemedImage
     alt="Edit MCP server form pre-filled with a stdio command and arguments."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-edit-server.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-edit-server.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-edit-server-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-edit-server-v1.0.png'),
     }}
 />
 
@@ -211,8 +230,8 @@ The MCP chip in the chat input mirrors these controls in a popover: the global t
 <ThemedImage
     alt="MCP chip popover in the chat input with per-scope server toggles and a Manage button."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-chip-popover.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-chip-popover.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-chip-popover-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-chip-popover-v1.0.png'),
     }}
 />
 
@@ -227,11 +246,11 @@ A project `.mcp.json` is committed to the repository, so never put secrets direc
 
 On each chat turn, Copilot automatically adds the tools from every connected and enabled server to its toolset. No further configuration is needed.
 
-- Tool calls render in the chat stream and respect the existing approval flow, including auto-approve.
+- Tool calls appear in the chat stream like built-in tool calls. Copilot runs them without asking first, so connect only servers you trust.
 - Tools are namespaced as `mcp__<server>__<tool>` so tools from different servers never collide.
 - A broken or unreachable server fails gracefully. It shows a failed status with an error message and does not affect the rest of Copilot. A connection timeout stops a slow server from hanging a turn.
 
-Copilot prefers its built-in integration tools for core work and uses MCP tools when they add a capability relevant to your request.
+Copilot prefers its built-in tools for core work and uses MCP tools when they add a capability relevant to your request.
 
 ### Configuration reference
 
@@ -240,8 +259,8 @@ Servers live in a `mcpServers` object. The `type` field is optional and is infer
 <ThemedImage
     alt="A project .mcp.json file open in the editor with a stdio server entry."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/mcp-config-json.png'),
-        dark: useBaseUrl('/img/editor/copilot/mcp-config-json.png'),
+        light: useBaseUrl('/img/editor/copilot/mcp-config-json-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/mcp-config-json-v1.0.png'),
     }}
 />
 
@@ -285,13 +304,14 @@ HTTP server with an environment-backed header:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| The MCP chip doesn't appear. | MCP tool support is off. | Turn on MCP tools in **Copilot** > **Settings** > **Customize Copilot** > **MCP servers**. |
+| The MCP chip doesn't appear. | MCP tool support is off. | Turn on MCP tools in **Copilot** > **Settings** > **Customize Agent Builder Copilot** > **MCP servers**. |
 | A server shows a failed status. | The command can't be found, or the URL is unreachable. | Check the command, arguments, and URL. Select **Reload** after fixing. |
 | A warning banner appears for a scope. | The `mcp.json` or `.mcp.json` file has invalid JSON. | Select the banner to open the file and fix the syntax. |
 | Project servers don't load. | The workspace isn't trusted. | Grant workspace trust. The servers come online without a reload. |
+| An Agent Manager server shows that you are not signed in. | You signed out of Agent Manager, or the browser sign-in did not finish. | Select **Sign In** on the server row. |
 
 ## See also
 
 - [Built-in Capabilities](capabilities.md) — Explore planning, review, testing, and more.
-- [MCP integration](../../develop-and-test/integration-artifacts/ai-integrations/mcp/mcp.md) — Expose your integrations as MCP servers or consume MCP from an AI agent.
+- [MCP integration](../../develop-and-test/integration-artifacts/ai-integrations/mcp/mcp.md) — Expose your services as MCP servers or consume MCP from an AI agent.
 - [Copilot architecture and data handling](copilot-architecture.md) — How Copilot handles your data.
