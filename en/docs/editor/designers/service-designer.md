@@ -50,8 +50,6 @@ The body of the designer lists every endpoint the service exposes. The label of 
 - **HTTP services** show **Resources**, one row per resource function (`GET`, `POST`, `PUT`, `DELETE`, and so on).
 - **Event-driven and file-driven services** (for example, Kafka, RabbitMQ, FTP, local files) show **Handlers**, one row per remote function the listener invokes.
 
-For GraphQL services, use the [GraphQL Canvas](../canvases/graphql-canvas.md) instead.
-
 Each row identifies the resource or handler by its HTTP method (or event name) and its path or signature.
 
 ### Add a resource or handler

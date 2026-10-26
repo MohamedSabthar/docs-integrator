@@ -1,8 +1,8 @@
 ---
 sidebar_position: 2
 title: Node Palette
-description: Every node you can add to a flow in WSO2 Integrator, organized by category, with the fields exposed on each node's configuration form.
-keywords: [wso2 integrator, node palette, flow canvas, connections, statement, control, ai, error handling, concurrency, logging]
+description: Every node you can add to a flow in WSO2 Agent Builder, organized by category, with the fields exposed on each node's configuration form.
+keywords: [wso2 agent builder, node palette, flow canvas, connections, statement, control, ai, error handling, concurrency, logging]
 slug: /editor/canvases/flow-canvas/node-palette
 ---
 
@@ -64,7 +64,11 @@ Select a category below to jump to its nodes.
     <PaletteChip href="#model-provider">Model Provider</PaletteChip>
     <PaletteChip href="#knowledge-base">Knowledge Base</PaletteChip>
     <PaletteChip href="#data-loader">Data Loader</PaletteChip>
+    <PaletteChip href="#recursive-document-chunker">Recursive Document Chunker</PaletteChip>
+    <PaletteChip href="#chunker">Chunker</PaletteChip>
     <PaletteChip href="#augment-query">Augment Query</PaletteChip>
+    <PaletteChip href="#vector-store">Vector Store</PaletteChip>
+    <PaletteChip href="#embedding-provider">Embedding Provider</PaletteChip>
     <PaletteChip href="#agent">Agent</PaletteChip>
   </div>
 </PaletteCard>
@@ -119,21 +123,21 @@ A connection is a reusable, pre-configured client to an external system such as 
 Selecting a connection in the node panel adds a step bound to that connection.
 
 <ThemedImage
-    alt="mysqlClient connection in the Connections section"
+    alt="httpClient connection in the Connections section"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/connection-node.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/connection-node.png'),
     }}
 />
 
-To create a new connection, select **+** next to **Connections**. For details on connection types, scopes, and credential management, see the [Connections](product://integrator/develop-and-test/integration-artifacts/supportive-artifacts/connections) reference.
+To create a new connection, select **+** next to **Connections**, or **Add Connection** when the project has no connections yet. For details on connection types, scopes, and credential management, see the [Connections](product://integrator/develop-and-test/integration-artifacts/supportive-artifacts/connections) reference.
 
 ### Connection actions
 
-Selecting a connection lists every action it supports. Choosing an action drops it into the flow as a step bound to that connection. The action set depends on the connection type. For a database client, the actions are `Query`, `Query Row`, `Execute`, `Batch Execute`, `Call`, and `Close`.
+Selecting a connection lists every action it supports. Choosing an action drops it into the flow as a step bound to that connection. The action set depends on the connection type. For an HTTP client, the actions include `Get`, `Post`, `Put`, `Delete`, `Patch`, `Head`, `Options`, `Execute`, and `Forward`. For a database client, the actions are `Query`, `Query Row`, `Execute`, `Batch Execute`, `Call`, and `Close`.
 
 <ThemedImage
-    alt="Actions available on the mysqlClient connection: Query, Query Row, Execute, Batch Execute, Call, Close"
+    alt="Actions available on the httpClient connection, starting with Get, Post, Put, Delete, Patch, Head, Options, Execute, and Forward"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/connection-actions.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/connection-actions.png'),
@@ -384,9 +388,9 @@ The **AI** section of the node panel lets you build AI-powered integrations dire
 |---|---|---|
 | **Direct LLM** | Send a prompt to an LLM and bind the response to a typed variable. | [Direct LLM calls](../../../develop-and-test/integration-artifacts/ai-integrations/direct-llm/direct-llm.md) |
 | **RAG** | Ground LLM responses in your own documents by retrieving relevant chunks at query time. | [RAG](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag.md) |
-| **AI Agent** | Run multi-turn workflows where an LLM plans the next step, calls tools, and uses memory. | [AI agents](../../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md) |
+| **Agent** | Run multi-turn workflows where an LLM plans the next step, calls tools, and uses memory. | [AI agents](../../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md) |
 
-For an end-to-end orientation to the AI building blocks in WSO2 Integrator, see the [AI Integrations overview](../../../develop-and-test/integration-artifacts/ai-integrations/ai-integrations.md).
+For an end-to-end orientation to the AI building blocks in WSO2 Agent Builder, see the [AI Integrations overview](../../../develop-and-test/integration-artifacts/ai-integrations/ai-integrations.md).
 
 ### Model Provider
 
@@ -400,12 +404,14 @@ A model provider is the connection that abstracts a specific LLM behind a consis
     }}
 />
 
-When you add a Model Provider, the picker lists the supported provider implementations. Select one and configure its credentials.
+Selecting **Model Provider** lists the model providers already in the project. Select **Add Model Provider** to open the picker with the supported provider implementations, then select one and configure its credentials.
 
 | Provider | Description |
 |---|---|
+| **WSO2 Agent Manager** | Models your organization added to Agent Manager, served through its AI Gateway with platform-issued keys. Requires signing in. |
 | **Default Model Provider (WSO2)** | WSO2-managed model provider that supports chat completion. Useful when you don't have your own provider account. |
 | **Anthropic Model Provider** | Client for Anthropic Claude models. |
+| **Bedrock Model Providers** | Model providers from the `ballerinax/ai.aws.bedrock` module, grouped under one entry. |
 | **Azure OpenAI Model Provider** | Client for Azure-hosted OpenAI models. |
 | **Deepseek Model Provider** | Client for Deepseek models. |
 | **Google Vertex Model Provider** | Client for models hosted on Google Vertex AI. |
@@ -415,7 +421,7 @@ When you add a Model Provider, the picker lists the supported provider implement
 | **OpenRouter Model Provider** | Client for interacting with LLMs via OpenRouter. |
 
 <ThemedImage
-    alt="Model providers list with Default, Anthropic, Azure OpenAI, Deepseek, Google Vertex, Mistral, Ollama, OpenAI, and OpenRouter providers"
+    alt="Model providers list with WSO2 Agent Manager, Default, Anthropic, Bedrock, Azure OpenAI, Deepseek, Google Vertex, Mistral, Ollama, OpenAI, and OpenRouter providers"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/model-providers-offered.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/model-providers-offered.png'),
@@ -436,15 +442,17 @@ A knowledge base is the central abstraction for RAG. It owns three things: a **V
     }}
 />
 
-The picker lists the supported knowledge base implementations.
+Select **Add Knowledge Base** to open the picker with the supported knowledge base implementations.
 
 | Knowledge base | Description |
 |---|---|
 | **Vector Knowledge Base** | Generic vector knowledge base for managing chunk indexing and retrieval. Plug in any supported [Vector Store](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/vector-stores.md), [Embedding Provider](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/embedding-providers.md), and [Chunker](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/chunkers.md). |
+| **Bedrock Knowledge Bases** | Knowledge bases from the `ballerinax/ai.aws.bedrock` module, grouped under one entry. |
 | **Azure AI Search Knowledge Base** | Implementation backed by Azure AI Search. |
+| **WSO2 Cloud Knowledge Base** | Knowledge base hosted on WSO2 Cloud, used for retrieval. |
 
 <ThemedImage
-    alt="Knowledge bases list with Vector Knowledge Base and Azure AI Search Knowledge Base"
+    alt="Knowledge bases list with Vector, Bedrock, Azure AI Search, and WSO2 Cloud knowledge bases"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/knowledge-bases-offered.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/knowledge-bases-offered.png'),
@@ -465,12 +473,17 @@ A data loader reads documents from disk into memory so the knowledge base can in
     }}
 />
 
+Select **Add Data Loader** to open the picker with the supported data loaders.
+
 | Data loader | Description |
 |---|---|
-| **Text Data Loader** | Loads supported file types as `TextDocument` for indexing. |
+| **Text Data Loader** | Loads supported file types (PDF, DOCX, Markdown, HTML, and PPTX) as `TextDocument` for indexing. |
+| **AWS S3 Text Data Loader** | Loads text documents from AWS S3 buckets. |
+| **Devant Binary Data Loader** | Loads documents from a file or directory as `ai:BinaryDocument` values, for use with the **Devant Chunker**. |
+| **Microsoft SharePoint Text Data Loader** | Loads documents from SharePoint document libraries as text. |
 
 <ThemedImage
-    alt="Data loaders list with Text Data Loader"
+    alt="Data loaders list with Text, AWS S3 Text, Devant Binary, and Microsoft SharePoint Text data loaders"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/data-loaders-offered.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/data-loaders-offered.png'),
@@ -478,6 +491,63 @@ A data loader reads documents from disk into memory so the knowledge base can in
 />
 
 For the ingestion flow, supported formats, and how to point the loader at a directory of documents, see the [RAG ingestion](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag-ingestion.md).
+
+### Recursive Document Chunker
+
+`chunkDocumentRecursively` splits a text document into chunks before it is embedded. It starts with the selected strategy and falls back to finer-grained strategies when the content exceeds **Max Chunk Size**.
+
+<ThemedImage
+    alt="Recursive Document Chunker button under RAG"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/recursive-document-chunker-node.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/recursive-document-chunker-node.png'),
+    }}
+/>
+
+| Field | Description |
+|---|---|
+| **Document** | The input document or string to be chunked. |
+| **Max Chunk Size** | Maximum number of characters allowed per chunk. Defaults to `200`. |
+| **Max Overlap Size** | Maximum number of characters to reuse from the end of the previous chunk. Defaults to `40`. |
+| **Strategy** | The recursive chunking strategy to use. Defaults to `PARAGRAPH`. |
+| **Result** | Name of the result variable. |
+
+<ThemedImage
+    alt="Recursive Document Chunker form with Document, Max Chunk Size, Max Overlap Size, and Strategy fields"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/recursive-document-chunker-form.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/recursive-document-chunker-form.png'),
+    }}
+/>
+
+### Chunker
+
+A chunker is a reusable component that splits documents into chunks, for example the chunker a knowledge base uses before embedding.
+
+<ThemedImage
+    alt="Chunker button under RAG"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/chunker-node.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/chunker-node.png'),
+    }}
+/>
+
+Select **Add Chunker** to open the picker with the supported chunkers.
+
+| Chunker | Description |
+|---|---|
+| **AI Chunkers** | Chunkers from the `ballerina/ai` module, grouped under one entry. |
+| **Devant Chunker** | Splits documents loaded by the **Devant Binary Data Loader** into chunks using the Devant AI service. |
+
+<ThemedImage
+    alt="Chunkers list with AI Chunkers and Devant Chunker"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/chunkers-offered.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/chunkers-offered.png'),
+    }}
+/>
+
+For the full reference, see [Chunkers](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/chunkers.md).
 
 ### Augment Query
 
@@ -508,6 +578,54 @@ For the ingestion flow, supported formats, and how to point the loader at a dire
 
 For the full RAG query flow (retrieve, augment, generate), see [RAG query](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag-query.md).
 
+### Vector Store
+
+A vector store holds the embeddings of your chunks so a knowledge base can retrieve the most relevant ones at query time.
+
+<ThemedImage
+    alt="Vector Store button under RAG"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/vector-store-node.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/vector-store-node.png'),
+    }}
+/>
+
+Select **Add Vector Store** to open the picker with the supported vector stores: **In Memory Vector Store**, **Amazon S3 Vectors Vector Store**, **Milvus Vector Store**, **Pgvector Vector Store**, **Pinecone Vector Store**, and **Weaviate Vector Store**.
+
+<ThemedImage
+    alt="Vector stores list with In Memory, Amazon S3 Vectors, Milvus, Pgvector, Pinecone, and Weaviate vector stores"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/vector-stores-offered.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/vector-stores-offered.png'),
+    }}
+/>
+
+For the full reference, see [Vector stores](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/vector-stores.md).
+
+### Embedding Provider
+
+An embedding provider turns text into vectors, for both the chunks you ingest and the queries you retrieve with.
+
+<ThemedImage
+    alt="Embedding Provider button under RAG"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/embedding-provider-node.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/embedding-provider-node.png'),
+    }}
+/>
+
+Select **Add Embedding Provider** to open the picker with the supported embedding providers: **Default Embedding Provider (WSO2)**, **Bedrock Embedding Providers**, **Azure Embedding Provider**, **Google Vertex Embedding Provider**, **OpenAI Embedding Provider**, and **OpenRouter Embedding Provider**.
+
+<ThemedImage
+    alt="Embedding providers list with Default (WSO2), Bedrock, Azure, Google Vertex, OpenAI, and OpenRouter providers"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/embedding-providers-offered.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/embedding-providers-offered.png'),
+    }}
+/>
+
+For the full reference, see [Embedding providers](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/embedding-providers.md).
+
 ### Agent
 
 An agent runs an autonomous workflow against a model and a set of tools. Given a query, it plans the next step, calls tools or other integrations, observes the results, and iterates until the task is complete or the iteration budget is reached.
@@ -520,23 +638,35 @@ An agent runs an autonomous workflow against a model and a set of tools. Given a
     }}
 />
 
+Selecting **Agent** lists the agents already defined in the agentic integration. Select **+** to create a new agent, or select an existing agent to run it from the flow.
+
+<ThemedImage
+    alt="Agents list with an existing aiAgent and a + action"
+    sources={{
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/agents-list.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/agents-list.png'),
+    }}
+/>
+
+Selecting an agent opens the **AI Agent** form, which runs the agent for a given query.
+
 | Field | Description |
 |---|---|
-| **Role** | The agent's primary function. For example, *Customer Support Assistant*, *Sales Advisor*, or *Data Analyst*. |
-| **Instructions** | Detailed system instructions that govern the agent's behavior. |
-| **Query** | The natural language input provided to the agent. |
-| **Advanced Configurations** | Tools, model selection, max iterations, and memory settings. |
+| **Query** | A query to start a new turn, or a `Resume` value to continue a paused run. |
+| **Session ID** | The ID associated with the agent memory. Defaults to `"sessionId"`. |
+| **Context** | Additional context available during agent tool execution. Defaults to `new ()`. |
+| **Advanced Configurations** | Additional run options for the agent. |
 | **Result** | Name of the result variable. |
 
 <ThemedImage
-    alt="Agent form with Role, Instructions, Query, Advanced Configurations, and Result fields"
+    alt="AI Agent form with Query, Session ID, Context, Advanced Configurations, and Result fields"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/agent-form.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/agent-form.png'),
     }}
 />
 
-For tool binding, memory, and observability, see [AI agents](../../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md). For a stand-alone chat agent service, create the **AI Chat Agent** artifact from the **Artifacts** panel instead of adding the node by hand. To reach the same agent over a voice call instead, add this node to a [Voice Agent Service](../../../develop-and-test/integration-artifacts/ai-integrations/voice-agent/voice-agent.md) instead of a chat service.
+For tool binding, memory, and observability, see [AI agents](../../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md). To expose an agent as a chat service, select **Add Trigger** on the agent card in the [Integration view](../../views/integration-view.md) and pick **Agent Chat**, instead of adding the node by hand. To reach the same agent over a voice call instead, add this node to a [Voice Agent Service](../../../develop-and-test/integration-artifacts/ai-integrations/voice-agent/voice-agent.md) instead of a chat service.
 
 ## Error Handling
 
@@ -667,16 +797,15 @@ Joins one or more worker strands started by **Fork** and collects their return v
     }}
 />
 
-Each row in the form pairs a **Key** with the worker whose result should be bound to that key. Select **+ Add** to add more key/worker pairs.
+The **Future** field is a map that pairs each key with the worker whose result should be bound to that key. Select **+ Initialize Map** to start adding key/worker pairs.
 
 | Field | Description |
 |---|---|
-| **Key** | Name of the field in the joined result record. |
-| **Variable** | Worker whose result is bound to the key. |
+| **Future** | Map of keys to the workers whose results are bound to them. |
 | **Variable Name** | Name of the variable that holds the joined result on the canvas. |
 
 <ThemedImage
-    alt="Wait form with Key and Variable pairs"
+    alt="Wait form with Future and Variable Name fields"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/wait-form.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/wait-form.png'),
@@ -719,7 +848,7 @@ For most integration flows, prefer immutable values to avoid the need for locks 
 
 The **Logging** section of the node panel emits a message to the integration's log output at a specific severity level. Use it to trace execution, surface errors, and aid debugging in development and production.
 
-The four logging nodes are shortcuts to the corresponding `log:print*` functions in the Ballerina `log` library. Each form takes a single required **Msg** field. Additional options (an attached error, a stack trace, structured key-value pairs) are available under **Advanced Configurations** in the form.
+The four logging nodes are shortcuts to the corresponding `log:print*` functions in the Ballerina `log` library. Each form takes a single required **Msg** field, followed by optional **Error**, **Stack Trace**, and **Additional Values** (structured key-value pairs) fields.
 
 ### Log Info
 
@@ -738,7 +867,7 @@ Prints info logs. Use **Log Info** for routine progress updates such as "request
 | **Msg** | The message to be logged. Supports Ballerina string templates with embedded expressions; author them in the [Expression Panel](../../panels/expression-panel.md). |
 
 <ThemedImage
-    alt="Log Info form with Msg field and Advanced Configurations"
+    alt="Log Info form with Msg, Error, Stack Trace, and Additional Values fields"
     sources={{
         light: useBaseUrl('/img/editor/canvases/flow-canvas/log-info-form.png'),
         dark: useBaseUrl('/img/editor/canvases/flow-canvas/log-info-form.png'),
