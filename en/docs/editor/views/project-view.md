@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
 title: Project View
-description: Manage projects with multiple integrations and libraries in WSO2 Integrator.
-keywords: [wso2 integrator, editor, project view, integrations, libraries]
+description: Manage projects with multiple agentic integrations and libraries in WSO2 Agent Builder.
+keywords: [wso2 agent builder, editor, project view, agentic integrations, libraries]
 slug: /editor/views/project-view
 ---
 
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Project View
 
-The Project view is the top-level view in WSO2 Integrator. It appears when you open a project that contains multiple integrations or libraries, giving you an overview of everything in the project, deployment options, and project-level actions in one place.
+The Project view is the top-level view in WSO2 Agent Builder. It appears when you open a project that contains multiple agentic integrations or libraries, giving you an overview of everything in the project and project-level deployment actions in one place.
 
 <ThemedImage
     alt="Project view overview"
@@ -23,7 +23,7 @@ The Project view is the top-level view in WSO2 Integrator. It appears when you o
 
 ## Project overview canvas
 
-The project overview canvas is the central area of the Project view. It displays the project name as a heading and provides a unified dashboard for managing all integrations and libraries in the project.
+The project overview canvas is the central area of the Project view. It displays the project name as a heading and lists every agentic integration and library in the project.
 
 <ThemedImage
     alt="Project overview canvas"
@@ -33,25 +33,25 @@ The project overview canvas is the central area of the Project view. It displays
     }}
 />
 
-### Integrations and libraries
+### Agentic integrations and libraries
 
-The **Integrations & Libraries** section displays a card grid showing each integration and library in the project. Each card shows:
+The **Agentic Integrations & Libraries** section displays a card grid showing each agentic integration and library in the project. Each card shows:
 
-- The name (for example, `commons` or `FileTracker`).
-- A type badge indicating the entry category. It displays `Library` for libraries or the integration style, such as `API Integration` or `File Integration`, for integrations.
+- The name (for example, `Common Utils` or `Support Assistant`).
+- For a library, a `Library` badge. For an agentic integration, the agents it contains, or `No agents yet` if it has none.
 
 Click any card to navigate to the [Integration view](integration-view.md) or [Library view](library-view.md), where you can build and manage its artifacts.
 
-### Add integration or library
+### Add agentic integration or library
 
-Click the **+ Add** button at the top of the canvas to add a new integration or library to the project. Select the type, provide a name and configuration, and the new entry appears in the card grid and project explorer.
+Click the **+ Add** button at the top of the canvas to add a new agentic integration or library to the project. Select the type, provide a name and configuration, and the new entry appears in the card grid and project explorer.
 
-## Deployment options panel
+## Deploy menu
 
-The deployment options panel appears on the right sidebar and provides shortcuts to deploy your integrations to different environments.
+Click **Deploy** at the top right of the Project view to deploy or package the agentic integrations in the project.
 
 <ThemedImage
-    alt="Deployment options"
+    alt="Deploy menu"
     sources={{
         light: useBaseUrl('/img/editor/views/project-view/deployment-options-v5.1.png'),
         dark: useBaseUrl('/img/editor/views/project-view/deployment-options-v5.1.png'),
@@ -60,28 +60,11 @@ The deployment options panel appears on the right sidebar and provides shortcuts
 
 | Option | Target |
 |---|---|
-| [**Deploy to WSO2 Cloud**](../../deploy-and-run/deploy-to-wso2-cloud/deploy-to-wso2-cloud.md) | Fully managed cloud platform for hosting and running integrations. |
-| [**Deploy with Docker**](product://integrator/deploy-and-run/self-hosted/containerized-deployment) | Build Docker images and deploy integrations to Docker, Kubernetes, or OpenShift. |
-| [**Deploy on a VM**](product://integrator/deploy-and-run/self-hosted/vm-deployment) | Deploy integrations as standalone JAR files on virtual machines. |
-| [**Integration Control Plane (ICP)**](product://integrator/icp) | Monitor and manage running integrations from a centralized dashboard. |
-
-At the project level, click **Enable ICP for all integrations** to activate ICP monitoring for every integration in the project at once.
-
-## README section
-
-The README section at the bottom of the Project view displays the contents of your project's `README.md` file. Use it to document the purpose, setup instructions, and usage notes for your project, integrations, and libraries.
-
-<ThemedImage
-    alt="README"
-    sources={{
-        light: useBaseUrl('/img/editor/views/project-view/readme-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/project-view/readme-v5.1.png'),
-    }}
-/>
-
-Click **Edit** to modify the README directly. If the project does not have a README yet, click **Add a README** to create one.
+| [**Deploy to WSO2 Cloud**](../../deploy-and-run/deploy-to-wso2-cloud/deploy-to-wso2-cloud.md) | Fully managed cloud platform for hosting and running agentic integrations. |
+| [**Build Docker Image**](product://integrator/deploy-and-run/self-hosted/containerized-deployment) | Build Docker images to deploy on Docker, Kubernetes, or OpenShift. |
+| [**Build Executable**](product://integrator/deploy-and-run/self-hosted/vm-deployment) | Build standalone JAR files to run on virtual machines. |
 
 ## What's next
 
-- [Integration view](integration-view.md) — The primary development interface for individual integrations.
+- [Integration view](integration-view.md) — The primary development interface for individual agentic integrations.
 - [Library view](library-view.md) — Build and manage reusable libraries.
