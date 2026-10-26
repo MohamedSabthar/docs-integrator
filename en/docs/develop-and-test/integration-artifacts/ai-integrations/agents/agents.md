@@ -36,8 +36,8 @@ Open the **Add Agent** dialog from the **Add Agent** button on your agentic inte
 <ThemedImage
     alt="The Add Agent dialog with Create Agent, Create Durable Agent, and Create Agent Definition under Create New, and a Pre-built Agents section with All, Project, and Organization filters."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/01-add-agent-dialog.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/01-add-agent-dialog.png'),
+        light: useBaseUrl('/img/genai/develop/agents/01-add-agent-dialog-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/01-add-agent-dialog-v1.0.png'),
     }}
 />
 
@@ -75,8 +75,8 @@ Select an agent under **Agents** in the side bar, or on the agentic integration'
 <ThemedImage
     alt="The agent canvas for supportAgent, showing an Agent Chat trigger on /support-agent connected to the AI Agent node, which has an Add Memory button and the agent's role and instructions, and is connected to the Default WSO2 Model Provider. Add Trigger and Add Tool buttons sit beside the node, and Evaluations and Tracing: Off buttons are at the top right."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/02-agent-flow-canvas.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/02-agent-flow-canvas.png'),
+        light: useBaseUrl('/img/genai/develop/agents/02-agent-flow-canvas-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/02-agent-flow-canvas-v1.0.png'),
     }}
 />
 
@@ -103,8 +103,8 @@ The **Agent Chat** panel opens next to the canvas. Send a message to see the age
 <ThemedImage
     alt="The Chat Agent Service view with Tracing: Off and Chat buttons, next to the Agent Chat panel where the agent has replied to a user's message."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/03-agent-chat.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/03-agent-chat.png'),
+        light: useBaseUrl('/img/genai/develop/agents/03-agent-chat-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/03-agent-chat-v1.0.png'),
     }}
 />
 
