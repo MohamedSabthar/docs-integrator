@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Explore Sample Integrations
-description: Browse and open pre-built sample integrations to accelerate your development.
+description: Browse and open pre-built sample agents to accelerate your development.
 slug: /develop-and-test/create-workspace/explore-sample-integrations
 ---
 
@@ -10,25 +10,25 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Explore Sample Integrations
 
-WSO2 Integrator includes a curated collection of pre-built integration samples that you can download and open as ready-to-use projects. Use these samples to learn common integration patterns or as starting points for your own projects.
+WSO2 Agent Builder includes a curated collection of pre-built agent samples that you can download and open as ready-to-use projects. Use these samples to learn common agent patterns or as starting points for your own projects.
 
 ## Open the sample gallery
 
-On the WSO2 Integrator home screen, click **Explore** on the **Explore Pre-built Integrations and Samples** card.
+On the WSO2 Agent Builder home screen, click **Explore** on the **Pre-built Agents and Samples** card.
 
 <ThemedImage
-    alt="WSO2 Integrator home screen"
+    alt="WSO2 Agent Builder home screen"
     sources={{
         light: useBaseUrl('/img/explore-samples/home-screen.png'),
         dark: useBaseUrl('/img/explore-samples/home-screen.png'),
     }}
 />
 
-The home screen also shows the **Create a Project** card, along with a **Recent Projects** list for projects you've opened recently.
+The home screen also shows the **Start Building your Agent** card, along with a **Recent Projects** list for projects you've opened recently.
 
 ## Browse samples
 
-The **Browse Samples** view opens with the prompt `Start quickly by downloading a curated integration sample for your selected profile.` Each card shows the sample name, a type tag (for example, **ai-agent**, **service**, **scheduled-task**, **automation**), a brief description, and a **Use** action.
+The **Browse Samples** view opens with the prompt `Start quickly by downloading a curated integration sample for your selected profile.` Each card shows the sample name, a type tag (for example, **ai-agent**), a brief description, and a **Use this** action.
 
 <ThemedImage
     alt="Browse Samples gallery"
@@ -41,15 +41,13 @@ The **Browse Samples** view opens with the prompt `Start quickly by downloading 
 Use the controls at the top of the view to find samples:
 
 - **Search bar** — Search by name, description, application, or category.
-- **Type filter** — Filter by **All**, **Sample**, or **Pre-built Integrations**.
-- **Category filter** — Narrow results by category (for example, **AI Agent**, **File Integration**, **Integration as API**).
-- **Clear all filters** — Reset every filter and search term.
+- **Clear all filters** — Reset the search term.
 
-The result count appears below the controls (for example, `25 results`).
+The result count appears below the controls (for example, `4 results`).
 
 ## Use a sample
 
-Click **Use** on a sample card. A native file browser appears so you can choose the directory where the sample project will be created.
+Click **Use this** on a sample card. A native file browser appears so you can choose the directory where the sample project will be created.
 
 <ThemedImage
     alt="Select folder"
@@ -59,15 +57,15 @@ Click **Use** on a sample card. A native file browser appears so you can choose 
     }}
 />
 
-Select a folder and click **Select Folder**. WSO2 Integrator downloads the sample and opens it as an integration.
+Select a folder and click **Select Folder**. WSO2 Agent Builder downloads the sample and opens it as an agentic integration.
 
 What you do next depends on where you saved the sample.
 
 ### Add the sample to an existing project
 
-If you saved the sample inside an existing project folder inside the `WSO2Integrator` folder, the sample isn't part of that project yet.
+If you saved the sample inside an existing project folder inside the `WSO2AgentBuilder` folder, the sample isn't part of that project yet.
 
-1. In the side panel, click the **+** icon next to the integration name.
+1. In the side panel, click the **Add to Project** (**+**) icon next to the integration name.
 
    <ThemedImage
        alt="Add to Project icon in the side panel"
@@ -110,7 +108,7 @@ If you saved the sample outside a project, convert it to a new project.
    | **Project Name** | The name of the new project. Your current integration becomes the first member of this project. |
    | **Project Location** | The directory where the project folder is created. Click **Browse** to select a location. Your current integration is moved into this folder. |
 
-3. Optionally, check the **Also add a new integration or library** checkbox to add another integration or library to the project at the same time.
+3. Optionally, check the **Also add a new agentic integration or library** checkbox to add another integration or library to the project at the same time.
 
 4. Click **Convert to Project**.
 
@@ -122,7 +120,7 @@ If you saved the sample outside a project, convert it to a new project.
        }}
    />
 
-The integration now opens inside the new project. An **Overview** link appears at the top of the view, which takes you to the project view. From there, you can [add more integrations and libraries](create-a-project.md#add-more-integrations-and-libraries).
+The integration now opens inside the new project. A home icon appears at the top of the view, which takes you to the project view. From there, you can [add more agentic integrations and libraries](create-a-project.md#add-more-integrations-and-libraries).
 
 ## What's next
 
