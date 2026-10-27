@@ -10,7 +10,7 @@ slug: /develop-and-test/integration-artifacts/ai-integrations/mcp
 
 The **Model Context Protocol** (MCP) is an open standard that lets AI assistants discover and call tools exposed by external servers. See the [MCP specification](https://modelcontextprotocol.io) for the protocol details.
 
-WSO2 Agent Builder can act as both an **MCP server** (exposing your integrations as standardized tools for AI assistants) and an **MCP client** (using tools published by other MCP servers from inside your own AI agents).
+With WSO2 Agent Builder, you can build both sides of MCP: an **MCP server** (an MCP service that exposes your tools to AI assistants) and an **MCP client** (an agent that uses tools from other MCP servers).
 
 ## Features at a glance
 
@@ -23,7 +23,7 @@ WSO2 Agent Builder can act as both an **MCP server** (exposing your integrations
 
 | Use MCP when... | Look elsewhere when... |
 |---|---|
-| You want your integration's capabilities reusable by Claude Desktop, GitHub Copilot, or any other MCP client. | Only your own agents will consume the tools. Local function tools work fine. |
+| You want your tools reusable by Claude Desktop, GitHub Copilot, or any other MCP client. | Only your own agents will consume the tools. Local function tools work fine. |
 | You want to consume tools published by community or vendor MCP servers. | The tools live behind a normal HTTP API and a connector already covers them. |
 | You need a standard, governed boundary between the AI surface and your tools (auth, rate limits, audit). | Tooling is internal-only and ephemeral. |
 
@@ -56,7 +56,7 @@ flowchart TB
 </div>
 </div>
 
-You can do both in the same project. A single integration might expose a few tools (your CRM lookups) over MCP for outside assistants while also consuming Slack and GitHub MCP servers from its own AI agents.
+You can do both in the same project. A single project might expose a few tools (your CRM lookups) over MCP for outside assistants while its agents use Slack and GitHub MCP servers.
 
 ## Where MCP lives in WSO2 Agent Builder
 
@@ -89,6 +89,6 @@ Because the transport is HTTP, the listener accepts any `http:ListenerConfigurat
 
 ## What's next
 
-- **[Exposing a service as MCP](exposing-as-mcp.md)** — turn your integration into an MCP server.
+- **[Exposing a service as MCP](exposing-as-mcp.md)** — expose your tools as an MCP server.
 - **[Consuming MCP from an agent](consuming-mcp-from-agent.md)** — let your agent use tools from any MCP server.
 - **[MCP specification](https://modelcontextprotocol.io)** — the protocol spec.
