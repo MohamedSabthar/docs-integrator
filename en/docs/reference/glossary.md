@@ -17,6 +17,7 @@ slug: /reference/glossary
 | **Ballerina** | The cloud-native programming language powering WSO2 Agent Builder. Designed for network-distributed applications with built-in support for HTTP, data types, and concurrency. |
 | **Ballerina Central** | The package registry at [central.ballerina.io](https://central.ballerina.io) where connectors and libraries are published and discovered. |
 | **Ballerina.toml** | The package manifest file that declares metadata, dependencies, and build options for a Ballerina package (an agentic integration or library). |
+| **CDC** | Change Data Capture. A pattern for streaming database changes (inserts, updates, deletes) in real time. Supported by MySQL, PostgreSQL, and MS SQL connectors. |
 | **check** | A Ballerina keyword that propagates errors. If the expression evaluates to an error, the enclosing function returns it immediately. Eliminates the need for verbose try-catch blocks. |
 | **Client** | A Ballerina object that provides remote method calls to external systems such as databases, APIs, and message brokers. Remote methods are invoked using the `->` operator. |
 | **Cloud.toml** | Configuration file for cloud deployment settings including Docker image details, Kubernetes resource limits, autoscaling, and health probes. |
@@ -31,6 +32,8 @@ slug: /reference/glossary
 | **Error** | A Ballerina basic type representing an error condition. Carries a message (`string`), optional cause (`error?`), and optional detail record. Errors are values, not exceptions. |
 | **Evalset** | A set of sample conversations with your agent that you have reviewed and approved. Evaluations replay them to check the agent's behavior. |
 | **Evaluation** | A function that scores your agent's behavior, created from a prebuilt template or built in the visual designer, with or without an evalset. |
+| **Event Source** | A trigger that runs an agent when something happens in another system, such as a message on Kafka, RabbitMQ, or MQTT, or a database change captured by CDC. |
+| **File Source** | A trigger that runs an agent when a file becomes available in a location, such as an FTP/SFTP server or a local folder. |
 | **Guardrail** | A safety mechanism that constrains what an AI agent can take as input or produce as output. Used to enforce content policies and prevent unsafe responses. |
 | **ICP** | Integration Control Plane. A dashboard for monitoring, managing, and troubleshooting running integrations in production. Provides metrics, logs, and artifact discovery. |
 | **json** | A Ballerina union type: `()\|boolean\|int\|float\|decimal\|string\|json[]\|map<json>`. Represents any value serializable to JSON format. |
