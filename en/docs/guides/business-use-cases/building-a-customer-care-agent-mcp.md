@@ -98,12 +98,7 @@ WSO2 Agent Builder adds the `CustomerCareAgent` agent under **Agents** and opens
 
 8. Select **Add Trigger** to the left of the **AI Agent** node.
 9. In the **Add Trigger** dialog, under **Chat Channels**, select **Agent Chat**.
-
-<!-- TODO: add a screenshot of the Add Trigger dialog with Agent Chat under Chat Channels. -->
-
 10. Leave **Service Path** as `/customer-care-agent` and select **Create**.
-
-<!-- TODO: add a screenshot of the Agent Chat form with Service Path set to /customer-care-agent. -->
 
 The **Agent Chat** trigger connects to the **AI Agent** node, and an **AI Agent Services - /customer-care-agent** entry point with a `chat` resource appears under **Entry Points**. The **AI Agent** node has a **+ Add Memory** button and an **Add Tool** button at its bottom-right corner.
 
@@ -132,9 +127,6 @@ Select **Add Tool** at the bottom-right corner of the **AI Agent** node. The **A
 ### 2.2 Configure the server URL
 
 1. Select **Connect Manually**. (The other option, **WSO2 Agent Manager**, lists MCP servers that your organization added to WSO2 Agent Manager.)
-
-<!-- TODO: add a screenshot of the Use MCP Server panel with the Connect Manually and WSO2 Agent Manager options. -->
-
 2. Set **Server Url** to `http://localhost:8080/mcp`.
 3. Leave **Requires Authentication** off.
 
@@ -171,8 +163,6 @@ Try the following messages to exercise all three tools:
 - *"Do you have any wireless headphones in stock?"*
 - *"What is the status of my order ORD-042?"*
 - *"I want to return ORD-001. The item arrived damaged."*
-
-<!-- TODO: add the Run and Agent Chat screenshots captured in WSO2 Agent Builder, and verify the Run and Chat steps above against them. -->
 
 </TabItem>
 <TabItem value="code" label="Ballerina Code">
