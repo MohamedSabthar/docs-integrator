@@ -23,8 +23,8 @@ If you are already signed in with your WSO2 Cloud account, WSO2 Agent Builder Co
      <ThemedImage
          alt="The Copilot composer on the overview of a new integration."
          sources={{
-             light: useBaseUrl('/img/editor/copilot/copilot-composer.png'),
-             dark: useBaseUrl('/img/editor/copilot/copilot-composer.png'),
+             light: useBaseUrl('/img/editor/copilot/copilot-composer-v1.0.png'),
+             dark: useBaseUrl('/img/editor/copilot/copilot-composer-v1.0.png'),
          }}
      />
 
@@ -33,8 +33,8 @@ If you are already signed in with your WSO2 Cloud account, WSO2 Agent Builder Co
      <ThemedImage
          alt="The WSO2 Agent Builder Copilot orb on the integration overview."
          sources={{
-             light: useBaseUrl('/img/editor/copilot/copilot-orb.png'),
-             dark: useBaseUrl('/img/editor/copilot/copilot-orb.png'),
+             light: useBaseUrl('/img/editor/copilot/copilot-orb-v1.0.png'),
+             dark: useBaseUrl('/img/editor/copilot/copilot-orb-v1.0.png'),
          }}
      />
 
@@ -45,8 +45,8 @@ If you are already signed in with your WSO2 Cloud account, WSO2 Agent Builder Co
    <ThemedImage
        alt="WSO2 Agent Builder Copilot welcome screen with the sign-in options."
        sources={{
-           light: useBaseUrl('/img/editor/copilot/copilot-sign-in.png'),
-           dark: useBaseUrl('/img/editor/copilot/copilot-sign-in.png'),
+           light: useBaseUrl('/img/editor/copilot/copilot-sign-in-v1.0.png'),
+           dark: useBaseUrl('/img/editor/copilot/copilot-sign-in-v1.0.png'),
        }}
    />
 
@@ -61,8 +61,8 @@ If you are already signed in with your WSO2 Cloud account, WSO2 Agent Builder Co
    <ThemedImage
        alt="WSO2 Agent Builder Copilot signed in"
        sources={{
-           light: useBaseUrl('/img/editor/copilot/copilot-welcome.png'),
-           dark: useBaseUrl('/img/editor/copilot/copilot-welcome.png'),
+           light: useBaseUrl('/img/editor/copilot/copilot-welcome-v1.0.png'),
+           dark: useBaseUrl('/img/editor/copilot/copilot-welcome-v1.0.png'),
        }}
    />
 
