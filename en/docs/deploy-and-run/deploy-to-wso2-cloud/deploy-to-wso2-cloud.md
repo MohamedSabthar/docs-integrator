@@ -13,7 +13,6 @@ You can deploy your agents to WSO2 Cloud directly from WSO2 Agent Builder. WSO2 
 
 :::info Prerequisites
 - A project with at least one agentic integration that has something to run: an [agent](../../develop-and-test/integration-artifacts/ai-integrations/agents/create-an-agent.md) with a trigger, or a [durable agent](../../develop-and-test/integration-artifacts/ai-integrations/agents/gated-tools-or-durable-agentic-workflow.md). Until it has one, **Deploy to WSO2 Cloud** is unavailable and shows "No deployable integration found".
-- You're signed in to WSO2 Agent Builder. If you aren't, WSO2 Agent Builder prompts you to sign in when you deploy.
 :::
 
 ## Deploy an agentic integration
@@ -23,9 +22,12 @@ You can deploy your agents to WSO2 Cloud directly from WSO2 Agent Builder. WSO2 
 
     ![The Deploy panel on an agentic integration's overview, with WSO2 Cloud expanded and the Deploy to WSO2 Cloud button highlighted](/img/deploy-and-run/deploy-to-wso2-cloud/01-deploy-panel-v1.0.png)
 
+3. If you are not already signed in to WSO2 Cloud, WSO2 Agent Builder prompts you to sign in. Click **Sign In** and complete the authentication in the browser, then return to WSO2 Agent Builder.
+4. When prompted, select the organization on WSO2 Cloud. You can select an existing project or click **Create New** to create one.
+
     A **Deploy Integration** tab opens. It shows the WSO2 Cloud organization you're deploying to, and the agentic integration to deploy.
 
-3. If your project isn't a Git repository yet, the tab shows "Please initialize the selected directory as a Git repository to proceed." You need to publish it to GitHub before continuing. If it's already connected to a remote repository, skip to step 4.
+5. If your project isn't a Git repository yet, the tab shows "Please initialize the selected directory as a Git repository to proceed." You need to publish it to GitHub before continuing. If it's already connected to a remote repository, skip to step 6.
 
     ![The Deploy Integration tab with the Git repository warning and the Source Control button highlighted](/img/deploy-and-run/deploy-to-wso2-cloud/03-deploy-tab-no-repository-v1.0.png)
 
@@ -45,14 +47,16 @@ You can deploy your agents to WSO2 Cloud directly from WSO2 Agent Builder. WSO2 
     Your agentic integration's `Config.toml` can hold secrets, such as the access token for the Default WSO2 Model Provider. Add `Config.toml` to your `.gitignore` before you commit, and set those values in WSO2 Cloud instead.
     :::
 
-4. Under **Git Configuration**, check the **Repository** and **Branch** that WSO2 Cloud builds from.
+6. Under **Git Configuration**, check the **Repository** and **Branch** that WSO2 Cloud builds from.
 
     ![The Deploy Integration tab with the Repository and Branch fields and the Deploy button highlighted](/img/deploy-and-run/deploy-to-wso2-cloud/04-deploy-tab-ready-v1.0.png)
 
-5. If WSO2 Cloud doesn't have access to your repository, a warning appears. Select **Grant Access**, complete the authorization on GitHub, then return to WSO2 Agent Builder and refresh the tab.
-6. Select **Deploy**.
+7. If WSO2 Cloud does not have access to your remote repository, a warning appears. Click the link to grant access on GitHub, complete the authorization, then return to WSO2 Agent Builder and click **Refresh** to validate access.
+8. Select **Deploy**.
 
-    WSO2 Cloud builds and deploys the agentic integration.
+    WSO2 Cloud builds and deploys the agentic integration. Once the deployment is complete, click **View in Console**.
+
+A browser opens showing the deployed agentic integration directly on WSO2 Cloud.
 
 Once it's deployed, the **WSO2 Cloud** section of the **Deploy** panel is marked **Deployed**. Select **Open in Console** to see the agentic integration in WSO2 Cloud.
 
@@ -70,6 +74,10 @@ To deploy later changes, commit and push them. When you have local changes, the 
 3. Follow the same steps as for a single agentic integration. The tab lists every agentic integration in the project, and all of them are selected by default.
 4. Select **Deploy All**.
 
+    WSO2 Cloud creates the agentic integrations. Once the deployment is complete, click **View in Console**.
+
+A browser opens showing your project on WSO2 Cloud.
+
 ## Other ways to deploy
 
 The **Deploy** panel also lets you deploy to WSO2 Agent Manager, or package an agentic integration to run on your own infrastructure:
@@ -85,4 +93,5 @@ On the project overview, the same build options are **Build Docker Image** and *
 - <CloudDocsLink to="/manage/integrations">View and manage integrations</CloudDocsLink> — Check build and deployment status, and manage the lifecycle of what you deployed.
 - <CloudDocsLink to="/manage/configurations/runtime-configurations">Runtime configurations</CloudDocsLink> — Set configurable values, such as API keys, for each environment.
 - <CloudDocsLink to="/manage/configurations/security-configurations">Security configurations</CloudDocsLink> — Secure your agent's endpoints with API key or OAuth2 authentication.
+- <CloudDocsLink to="/manage/configurations/endpoint-configurations">Endpoint configurations</CloudDocsLink> — Control endpoint visibility levels for agentic integrations deployed as APIs.
 - [Concepts](../../get-started/concepts/concepts.mdx) — Environments, promotion, and configurations.
