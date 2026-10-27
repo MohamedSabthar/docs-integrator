@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 title: "Usage Limits"
-description: "See how much of your WSO2 Agent Builder Copilot limit you have used, what happens when you reach it, and how to ask for more."
+description: "See how much of your WSO2 Agent Builder Copilot usage remains, what happens when you reach the limit, and how to ask for more."
 keywords: [wso2 agent builder, copilot, usage, usage limit, quota, fair usage]
 slug: /editor/copilot/usage-limits
 ---
@@ -19,7 +19,7 @@ If you signed in with your own AI provider credentials, Copilot shows your provi
 
 ## Check your usage
 
-The Copilot panel header shows **Usage** with how much of your limit you have used so far. Point at it to see how long it is until your usage resets. If your account does not have a limit, **Usage** shows **Unlimited**, and your use is subject to the fair usage policy.
+The Copilot panel header shows **Usage** with how much of your limit you have used so far. Point at it to see when your usage resets.
 
 <ThemedImage
     alt="The usage indicator in the Copilot panel header."
