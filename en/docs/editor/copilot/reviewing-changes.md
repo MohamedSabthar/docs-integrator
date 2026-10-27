@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Reviewing Changes
 
-When a Copilot run changes your project, it records a change set and shows a **Changes made** card in the chat. Select **Review** on that card to open the Reviewing Changes view, where you inspect exactly what was built or changed before moving on. You can also revert the whole change set from the card if the result isn't what you wanted.
+When Copilot changes your agent, it records a change set and shows a **Changes made** card in the chat. Select **Review** on that card to open the Reviewing Changes view, where you inspect exactly what was built or changed before moving on. You can also revert the whole change set from the card if the result isn't what you wanted.
 
 ## The unified diff diagram
 
