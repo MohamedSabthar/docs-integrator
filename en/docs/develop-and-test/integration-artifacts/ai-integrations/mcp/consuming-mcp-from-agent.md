@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Consuming MCP from an Agent
-description: Reference for using MCP servers as tool sources for WSO2 Agent Builder AI agents. Covers the Add MCP Server panel, filters, and combining with local tools.
+description: Reference for using MCP servers as tool sources for WSO2 Agent Builder AI agents. Covers the Use MCP Server panel, tool filtering, and combining MCP tools with local tools.
 slug: /develop-and-test/integration-artifacts/ai-integrations/mcp/consuming-mcp-from-agent
 ---
 
@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # Consuming MCP from an Agent
 
-An [AI Agent](../agents/agents.md) in WSO2 Agent Builder can use any MCP server as a tool source. Add the server once; the agent picks up every tool the server advertises (or only the ones you select) and treats them exactly like local function tools.
+An [AI agent](../agents/agents.md) in WSO2 Agent Builder can use any MCP server as a tool source. Add the server once, and the agent picks up every tool the server advertises (or only the ones you select) and treats them exactly like local function tools.
 
 ## Adding an MCP server to an agent
 
@@ -32,22 +32,22 @@ On the agent canvas, select **Add Tool** at the bottom-right corner of the **AI 
 | Field | What it does |
 |---|---|
 | **Server Url** | The MCP endpoint, for example `http://localhost:8080/mcp`. |
-| **Requires Authentication** | Enable if the server requires authentication, to reveal the auth configuration fields. |
+| **Requires Authentication** | Select this if the server requires authentication. The panel then shows the authentication fields. |
 | **Tools to Include** | `All` to expose every tool the server advertises, or `Selected` to expose only some. |
-| **Available Tools** (shown when **Selected**) | Lists every tool the server advertises, with its description and a **Read more** link. Check the ones the agent should have access to; **Select All** / **Deselect All** toggles everything at once. |
-| **Advanced Configurations → Info → name/version** | The MCP client identifier and version sent to the server. |
-| **Advanced Configurations → HTTP Version** | `HTTP/2_0` for modern Streamable HTTP servers; `HTTP/1_1` for older ones. |
-| **Advanced Configurations → HTTP1 / HTTP2 Settings** | Protocol tuning such as keep-alive, header sizes, and frame sizes. |
-| **Advanced Configurations → Timeout** | Per-call timeout. Default 30 s; increase for slow tools. |
-| **Advanced Configurations → Forwarded** | Whether to send `Forwarded` / `X-Forwarded-For` when sitting behind a proxy. |
+| **Available Tools** (shown when **Selected**) | Lists every tool the server advertises, with its description and a **Read more** link. Select the tools the agent can use. **Select All** and **Deselect All** change every tool at once. |
+| **Advanced Configurations** > **Info** | The client name and version sent to the server. |
+| **Advanced Configurations** > **HTTP Version** | The HTTP version the client uses to connect (`HTTP/2_0` or `HTTP/1_1`). |
+| **Advanced Configurations** > **HTTP1 / HTTP2 Settings** | Protocol tuning such as keep-alive, header sizes, and frame sizes. |
+| **Advanced Configurations** > **Timeout** | Per-call timeout. Defaults to 30 seconds. Increase it for slow tools. |
+| **Advanced Configurations** > **Forwarded** | Whether to add `Forwarded` or `X-Forwarded-For` headers when the agent runs behind a proxy. |
 | **Result** | The variable name for the generated toolkit instance (for example, `aiMcpbasetoolkit`). |
 
-After **Save**, every selected tool from the MCP server appears in the agent's tool list. They are indistinguishable to the agent's LLM from any other tool.
+After you select **Save**, the toolkit appears on the canvas, connected to the **AI Agent** node by a dashed line. The agent's LLM sees the selected MCP tools the same way it sees any other tool.
 
 </TabItem>
 <TabItem value="code" label="Ballerina Code">
 
-Saving the **Add MCP Server** panel generates a toolkit class named `McpToolKit` that implements `ai:McpBaseToolKit`, plus a module-level instance that connects at startup. The agent receives the toolkit through its `tools` list.
+Saving the **Add Tool - Use MCP Server** panel generates a toolkit class named `McpToolKit` that implements `ai:McpBaseToolKit`, plus a module-level instance that connects at startup. The agent receives the toolkit through its `tools` list.
 
 In `agents.bal`, WSO2 Agent Builder generates the toolkit class and the agent declaration:
 
@@ -91,19 +91,24 @@ In `connections.bal`, it instantiates the toolkit with the server URL from the p
 final McpToolKit aiMcpbasetoolkit = check new ("http://localhost:8080/mcp");
 ```
 
-Settings from the panel land in this generated code as follows: **Server Url** is the first argument in `connections.bal`; **Info** maps to the `info` parameter; **Tools to Include** is enforced by the `permittedTools` argument to `ai:getPermittedMcpToolConfigs`; and the **Advanced Configurations** (`HTTP Version`, `HTTP1/HTTP2 Settings`, `Timeout`, `Forwarded`) are passed through `mcp:StreamableHttpClientTransportConfig`.
+The panel settings map to the generated code as follows:
+
+- **Server Url** is the first argument in `connections.bal`.
+- **Info** maps to the `info` parameter.
+- **Tools to Include** sets the third argument of `ai:getPermittedMcpToolConfigs`. See [Filtering tools](#filtering-tools).
+- The **Advanced Configurations** settings (**HTTP Version**, **HTTP1 / HTTP2 Settings**, **Timeout**, and **Forwarded**) are passed through `mcp:StreamableHttpClientTransportConfig`.
 
 </TabItem>
 </Tabs>
 
 ## Filtering tools
 
-When an MCP server exposes many tools, do not pull them all in. Pick the few you actually want.
+When an MCP server exposes many tools, include only the ones the agent needs.
 
 <Tabs>
 <TabItem value="ui" label="Visual Designer" default>
 
-In the **Edit MCP Server** panel, set **Tools to Include** to **Selected** and check the tools the agent should have access to. The panel queries the server and lists every tool it advertises under **Available Tools**, with a **Select All** / **Deselect All** shortcut and a running count (for example, "1 of 3 selected").
+In the **Edit MCP Server** panel, set **Tools to Include** to **Selected** and select the tools the agent can use. The panel queries the server and lists every tool it advertises under **Available Tools**, with a **Select All** / **Deselect All** shortcut and a running count (for example, "1 of 3 selected").
 
 <ThemedImage
     alt="The Edit MCP Server panel with Tools to Include set to Selected, showing the Available Tools list (1 of 3 selected) with getTextStatistics checked and getReadabilityScore and analyzeStructure unchecked, each with a Read more link. On the canvas, aiMcpbasetoolkit connects to the AI Agent node with a dashed line."
@@ -116,7 +121,7 @@ In the **Edit MCP Server** panel, set **Tools to Include** to **Selected** and c
 </TabItem>
 <TabItem value="code" label="Ballerina Code">
 
-When you select tools in the panel, the generator extends the toolkit class with one `@ai:AgentTool`-annotated dispatcher per permitted tool and registers them in a `map<ai:FunctionTool>`. The map is then passed to `ai:getPermittedMcpToolConfigs`, which filters the server's tool list to those keys.
+When you select tools in the panel, WSO2 Agent Builder adds one `@ai:AgentTool` function per selected tool to the toolkit class and registers them in a `map<ai:FunctionTool>`. The map is then passed to `ai:getPermittedMcpToolConfigs`, which filters the server's tool list to those keys.
 
 ```ballerina
 public isolated function init(string serverUrl, mcp:Implementation info = {name: "MCP", version: "1.0.0"},
@@ -162,7 +167,7 @@ Why it matters:
 - **Tool selection accuracy.** LLMs choose better with fewer options.
 - **Prompt size.** Every tool's name, description, and parameter schema is sent on every call. Filtering trims the prompt.
 - **Cost.** Smaller prompts cost less.
-- **Security.** Don't expose the agent to mutation tools you didn't design for.
+- **Security.** Don't give the agent tools that change data unless you designed for it.
 
 ## Combining MCP servers, local tools, and toolkits
 
@@ -196,16 +201,16 @@ Local tools and MCP tools are completely interchangeable from the agent's perspe
 
 ## Production tips
 
-- **`configurable` for endpoints.** Hard-coding MCP URLs makes environments harder to manage. Expose the URL as a `configurable` variable (listed under **Configurations** in the project sidebar) so it can be set per environment without changing source code.
+- **Make endpoints configurable.** Hard-coding MCP URLs makes environments harder to manage. Expose the URL as a `configurable` variable (listed under **Configurations** in the project sidebar) so it can be set per environment without changing source code.
 
-- **Run MCP servers close to the agent.** MCP calls are on the agent's hot path. Network latency between agent and server directly increases user-perceived response time.
+- **Run MCP servers close to the agent.** The agent waits for every MCP call before it responds, so network latency between the agent and the server adds directly to the response time users see.
 
-- **Authenticate the connection.** If the MCP server is yours, put auth in front. If it's external, follow the vendor's auth scheme. Most use OAuth or bearer tokens passed via headers.
+- **Authenticate the connection.** If the MCP server is yours, put authentication in front of it. If it's external, follow the vendor's authentication scheme. Most use OAuth or bearer tokens passed in headers.
 
-- **Watch token bills.** Every tool the toolkit advertises is included in every reasoning step's prompt. A 50-tool MCP server, unfiltered, is a real prompt-token cost.
+- **Watch token costs.** Every tool the toolkit advertises is included in every reasoning step's prompt. A 50-tool MCP server, unfiltered, is a real prompt-token cost.
 
-## What's Next
+## What's next
 
-- **[Exposing a Service as MCP](exposing-as-mcp.md)** — the other side of MCP.
-- **[Tools (in AI Agents)](../agents/tools.md)** — back to the Add Tool dialog.
-- **[Creating an Agent](../agents/create-an-agent.md)** — the agent that consumes the MCP tools.
+- **[Exposing a service as MCP](exposing-as-mcp.md)** — the other side of MCP.
+- **[Tools (in AI agents)](../agents/tools.md)** — every option in the **Add Tool** panel.
+- **[Creating an agent](../agents/create-an-agent.md)** — create the agent that uses the MCP tools.
