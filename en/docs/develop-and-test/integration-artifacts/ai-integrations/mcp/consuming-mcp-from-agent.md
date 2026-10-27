@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: Consuming MCP from an Agent
-description: Reference for using MCP servers as tool sources for WSO2 Integrator AI agents. Covers the Add MCP Server panel, filters, and combining with local tools.
+description: Reference for using MCP servers as tool sources for WSO2 Agent Builder AI agents. Covers the Add MCP Server panel, filters, and combining with local tools.
 slug: /develop-and-test/integration-artifacts/ai-integrations/mcp/consuming-mcp-from-agent
 ---
 
@@ -12,17 +12,17 @@ import TabItem from '@theme/TabItem';
 
 # Consuming MCP from an Agent
 
-An [AI Agent](../agents/agents.md) in WSO2 Integrator can use any MCP server as a tool source. Add the server once; the agent picks up every tool the server advertises (or only the ones you select) and treats them exactly like local function tools.
+An [AI Agent](../agents/agents.md) in WSO2 Agent Builder can use any MCP server as a tool source. Add the server once; the agent picks up every tool the server advertises (or only the ones you select) and treats them exactly like local function tools.
 
 ## Adding an MCP server to an agent
 
 <Tabs>
 <TabItem value="ui" label="Visual Designer" default>
 
-On the agent canvas, click **+ Add Tool** → **Use MCP Server**. The **Add Tool - Use MCP Server** panel opens:
+On the agent canvas, select **Add Tool** at the bottom-right corner of the **AI Agent** node, then select **Use MCP Server**. In the **Add Tool - Use MCP Server** panel, select **Connect Manually** to enter a server URL. To use an MCP server that your organization added to WSO2 Agent Manager, select **WSO2 Agent Manager** instead. The manual connection form opens:
 
 <ThemedImage
-    alt="The Add Tool - Use MCP Server panel showing Server URL (http://localhost:8080/mcp), a Requires Authentication checkbox, Tools to Include set to Selected, and the Available Tools list (3 of 3 selected: getTextStatistics, getReadabilityScore, analyzeStructure, each with a Read more link), a collapsed Advanced Configurations section, and Result (default aiMcpbasetoolkit)."
+    alt="The agent canvas with the Add Tool - Use MCP Server panel open, showing Server Url (http://localhost:8080/mcp), a Requires Authentication checkbox, Tools to Include set to Selected, the Available Tools list (3 of 3 selected: getTextStatistics, getReadabilityScore, and analyzeStructure, each with a Read more link) with a Deselect All button, a collapsed Advanced Configurations section, and Result (default aiMcpbasetoolkit)."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents-v5.1/consuming-mcp-from-agent/01-add-mcp-server-v5.1.png'),
         dark: useBaseUrl('/img/genai/develop/agents-v5.1/consuming-mcp-from-agent/01-add-mcp-server-v5.1.png'),
@@ -31,7 +31,7 @@ On the agent canvas, click **+ Add Tool** → **Use MCP Server**. The **Add Tool
 
 | Field | What it does |
 |---|---|
-| **Server URL** | The MCP endpoint, for example `http://localhost:8080/mcp`. |
+| **Server Url** | The MCP endpoint, for example `http://localhost:8080/mcp`. |
 | **Requires Authentication** | Enable if the server requires authentication, to reveal the auth configuration fields. |
 | **Tools to Include** | `All` to expose every tool the server advertises, or `Selected` to expose only some. |
 | **Available Tools** (shown when **Selected**) | Lists every tool the server advertises, with its description and a **Read more** link. Check the ones the agent should have access to; **Select All** / **Deselect All** toggles everything at once. |
@@ -49,7 +49,7 @@ After **Save**, every selected tool from the MCP server appears in the agent's t
 
 Saving the **Add MCP Server** panel generates a toolkit class named `McpToolKit` that implements `ai:McpBaseToolKit`, plus a module-level instance that connects at startup. The agent receives the toolkit through its `tools` list.
 
-In `agents.bal`, WSO2 Integrator generates the toolkit class and the agent declaration:
+In `agents.bal`, WSO2 Agent Builder generates the toolkit class and the agent declaration:
 
 ```ballerina
 import ballerina/ai;
@@ -91,7 +91,7 @@ In `connections.bal`, it instantiates the toolkit with the server URL from the p
 final McpToolKit aiMcpbasetoolkit = check new ("http://localhost:8080/mcp");
 ```
 
-Settings from the panel land in this generated code as follows: **Server URL** is the first argument in `connections.bal`; **Info** maps to the `info` parameter; **Tools to Include** is enforced by the `permittedTools` argument to `ai:getPermittedMcpToolConfigs`; and the **Advanced Configurations** (`HTTP Version`, `HTTP1/HTTP2 Settings`, `Timeout`, `Forwarded`) are passed through `mcp:StreamableHttpClientTransportConfig`.
+Settings from the panel land in this generated code as follows: **Server Url** is the first argument in `connections.bal`; **Info** maps to the `info` parameter; **Tools to Include** is enforced by the `permittedTools` argument to `ai:getPermittedMcpToolConfigs`; and the **Advanced Configurations** (`HTTP Version`, `HTTP1/HTTP2 Settings`, `Timeout`, `Forwarded`) are passed through `mcp:StreamableHttpClientTransportConfig`.
 
 </TabItem>
 </Tabs>
@@ -106,7 +106,7 @@ When an MCP server exposes many tools, do not pull them all in. Pick the few you
 In the **Edit MCP Server** panel, set **Tools to Include** to **Selected** and check the tools the agent should have access to. The panel queries the server and lists every tool it advertises under **Available Tools**, with a **Select All** / **Deselect All** shortcut and a running count (for example, "1 of 3 selected").
 
 <ThemedImage
-    alt="The Edit MCP Server panel with Tools to Include set to Selected, showing the Available Tools list (1 of 3 selected) with getTextStatistics checked and getReadabilityScore and analyzeStructure unchecked, each with a Read more link."
+    alt="The Edit MCP Server panel with Tools to Include set to Selected, showing the Available Tools list (1 of 3 selected) with getTextStatistics checked and getReadabilityScore and analyzeStructure unchecked, each with a Read more link. On the canvas, aiMcpbasetoolkit connects to the AI Agent node with a dashed line."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents-v5.1/consuming-mcp-from-agent/02-mcp-filter-tools-v5.1.png'),
         dark: useBaseUrl('/img/genai/develop/agents-v5.1/consuming-mcp-from-agent/02-mcp-filter-tools-v5.1.png'),
