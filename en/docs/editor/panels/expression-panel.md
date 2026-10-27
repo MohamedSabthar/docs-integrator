@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Expression Panel
 
-The Expression Panel is the inline value-input surface used throughout the WSO2 Integrator wherever a field accepts an expression. It provides syntax highlighting, inline validation, and a UI that adapts to the type expected at the cursor, so you can supply values without remembering the full Ballerina syntax for each context.
+The Expression Panel is the inline value-input surface used throughout WSO2 Agent Builder wherever a field accepts an expression. It provides syntax highlighting, inline validation, and a UI that adapts to the type expected at the cursor, so you can supply values without remembering the full Ballerina syntax for each context.
 
 You can recognize the panel by the `fx` icon next to a field. Selecting it opens the inline panel. The expand control opens the same panel in a larger view for longer expressions.
 
@@ -54,7 +54,7 @@ Lists every variable that is in scope at the cursor, together with its type. Use
 
 ### Configurables
 
-Lists configurable variables defined for the integration. Use this category when an expression should read a value supplied through `Config.toml` or the runtime configuration, instead of being hardcoded.
+Lists configurable variables defined for the project. Use this category when an expression should read a value supplied through `Config.toml` or the runtime configuration, instead of being hardcoded.
 
 ### Functions
 
@@ -116,7 +116,7 @@ The Expression Panel adapts its UI to the type expected at the cursor. The follo
 
 ### How a variation produces its value
 
-Each variation contributes its value to the underlying integration in a slightly different way:
+Each variation contributes its value to the generated Ballerina code in a slightly different way:
 
 - **Text mode** wraps the value in a Ballerina template string (`` string `...` ``) and inserts variables as `${variable}` interpolations.
 - **SQL mode** wraps the value in a SQL template (`` sql `...` ``) and likewise inserts variables as `${variable}` interpolations so they bind as parameters.
@@ -202,7 +202,7 @@ Appears for fields whose type is an enum or any other fixed set of values. The p
 
 ### SQL
 
-Appears when you author SQL queries, for example in database connector parameters. The panel provides SQL-aware highlighting and lets you bind integration variables as query parameters. Variables you insert from the helper pane are added as `${variable}` interpolations inside the `` sql `...` `` template, which the database connector then binds as prepared-statement parameters. Inserting the same variable from the **Expression** toggle drops a bare reference instead.
+Appears when you author SQL queries, for example in database connector parameters. The panel provides SQL-aware highlighting and lets you bind variables as query parameters. Variables you insert from the helper pane are added as `${variable}` interpolations inside the `` sql `...` `` template, which the database connector then binds as prepared-statement parameters. Inserting the same variable from the **Expression** toggle drops a bare reference instead.
 
 ### Prompt
 

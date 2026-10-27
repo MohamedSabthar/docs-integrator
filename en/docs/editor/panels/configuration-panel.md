@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 title: Configuration Panel
-description: Configure integrations, services, and functions through a unified configuration view.
+description: Configure projects, services, and functions through a unified configuration view.
 slug: /editor/panels/configuration-panel
 ---
 
@@ -10,7 +10,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Configuration Panel
 
-The Configuration Panel is the side panel you open whenever you select **Configure** in the editor. It groups the settings that apply to the current artifact (an integration, a service, or a function) into a single form, so you can review and update them without editing source code. The panel adapts its content to the level you opened it from.
+The Configuration Panel is the side panel you open whenever you select **Configure** in the editor. It groups the settings that apply to the project, service, or function you're working on into a single form, so you can review and update them without editing source code. The panel adapts its content to the level you opened it from.
 
 <ThemedImage
     alt="Service configuration in the Configuration Panel"
@@ -33,13 +33,13 @@ The Configuration Panel can be reached from many places in the editor. The level
 
 The panel exposes configuration at four levels. Each level scopes the settings to the artifact you opened it from.
 
-### Integration-level configurations
+### Project-level configurations
 
-Apply to the entire integration and are available from every place in the editor that can open the Configuration Panel. Use this level for values that should be shared across all services, automations, and functions in the integration, such as configurable variables sourced from `Config.toml`, runtime defaults, and integration-wide environment settings.
+Apply to the entire project and are available from every place in the editor that can open the Configuration Panel. Use this level for values that should be shared across all agents, entry points, and functions in the project, such as configurable variables sourced from `Config.toml`, runtime defaults, and project-wide environment settings.
 
 ### Service-level configurations
 
-Apply only to the selected service and override or extend the integration-level settings for that service. The form is split into the service's own settings and the configuration of every listener attached to it. For an HTTP service, this includes:
+Apply only to the selected service and override or extend the project-level settings for that service. The form is split into the service's own settings and the configuration of every listener attached to it. For an HTTP service, this includes:
 
 - **Base Path**: the path the service is exposed on.
 - **Service Configuration**: advanced service-level options such as service-level security.

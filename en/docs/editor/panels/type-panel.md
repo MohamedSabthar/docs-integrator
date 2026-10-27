@@ -1,8 +1,8 @@
 ---
 sidebar_position: 4
 title: Type Panel
-description: Define and edit records, enums, unions, arrays, and service classes used across your integration.
-keywords: [wso2 integrator, type panel, record, enum, union, array, service class, import json, import xml]
+description: Define and edit records, enums, unions, arrays, and service classes used across your project.
+keywords: [wso2 agent builder, type panel, record, enum, union, array, service class, import json, import xml]
 slug: /editor/panels/type-panel
 ---
 
@@ -11,9 +11,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Type Panel
 
-The Type Panel is the side panel you open whenever you create or change a custom type in WSO2 Integrator. It gives you one form to define records, enums, unions, arrays, and service classes, configure each member or field, and toggle advanced options such as additional fields and read-only types. Every change you save in the panel updates the type's Ballerina source and the type card on the [Type Canvas](../canvases/type-canvas.md).
+The Type Panel is the side panel you open whenever you create or change a custom type in WSO2 Agent Builder. It gives you one form to define records, enums, unions, arrays, and service classes, configure each member or field, and toggle advanced options such as additional fields and read-only types. Every change you save in the panel updates the type's Ballerina source and the type card on the [Type Canvas](../canvases/type-canvas.md).
 
-For an introduction to types and how an integration uses them, see [Concepts](product://integrator/get-started/concepts#types). For a canvas-level view of how all the types in your integration relate to each other, see the [Type Canvas](../canvases/type-canvas.md).
+For a canvas-level view of how all the types in your project relate to each other, see the [Type Canvas](../canvases/type-canvas.md).
 
 ## Open the panel
 
@@ -88,7 +88,7 @@ Select **+** next to **Fields** to add a new field. Each field row exposes the f
 | **? (optional)** | Mark the field as optional. An optional field is allowed to be missing or `null` when a value of the record is constructed. |
 | **Delete** | Removes the field from the record. |
 
-To make a field reference another type in the integration, set the field type to the name of that type. The [Type Canvas](../canvases/type-canvas.md) draws the connecting line when you save.
+To make a field reference another type in the project, set the field type to the name of that type. The [Type Canvas](../canvases/type-canvas.md) draws the connecting line when you save.
 
 ### Enum
 
@@ -116,7 +116,7 @@ A union defines a value that can be one of several types. Use it when a field or
     }}
 />
 
-Select **+** under **Members** to add a member type, and the **delete** icon to remove one. Each member can be a primitive (`string`, `int`, `boolean`, and so on) or another type you have already defined in the integration.
+Select **+** under **Members** to add a member type, and the **delete** icon to remove one. Each member can be a primitive (`string`, `int`, `boolean`, and so on) or another type you have already defined in the project.
 
 ### Array
 
@@ -132,12 +132,12 @@ An array defines a list of values of the same type, with an optional fixed size.
 
 | Field | Description |
 |---|---|
-| **Type** | The type of each element in the array. Can be a primitive or a custom type defined in the integration. |
+| **Type** | The type of each element in the array. Can be a primitive or a custom type defined in the project. |
 | **Size** | Optional fixed size for the array. Leave empty for a dynamically sized array. |
 
 ### Service class
 
-A service class defines a class with one or more resource methods. Use it as the return type of a [GraphQL service](product://integrator/develop-and-test/integration-artifacts/integration-as-api/graphql) resolver, or anywhere you need a typed object that exposes behavior alongside data.
+A service class defines a class with one or more resource methods. Use it as the return type of a GraphQL resolver, or anywhere you need a typed object that exposes behavior alongside data.
 
 <ThemedImage
     alt="Create a service class type"
@@ -175,11 +175,11 @@ The **Advanced Options** section at the bottom of the form exposes type-level to
 |---|---|---|
 | **Allow Additional Fields** | Records | Generates an open record instead of a closed one. Open records accept extra fields at runtime; closed records reject them. Use this when the payload may carry keys you don't want to model explicitly. |
 | **Is Readonly Type** | All kinds | Marks the type as read-only. Values of a read-only type cannot be modified after construction. |
-| **Accessible by other integrations** | All kinds | Marks the type as public so other integrations and libraries can import and reuse it. The generated Ballerina source uses the `public` qualifier. |
+| **Accessible by other integrations** | All kinds | Marks the type as public so other projects and libraries can import and reuse it. The generated Ballerina source uses the `public` qualifier. |
 
 ## Import a type from JSON or XML
 
-When you already have a sample payload, you can let the Type Panel generate the matching record types for you instead of defining each field by hand. The panel inspects the sample, infers a record for the top-level object, and adds nested records for any embedded objects or arrays. The generated records are added to the integration and appear on the [Type Canvas](../canvases/type-canvas.md) as soon as you save.
+When you already have a sample payload, you can let the Type Panel generate the matching record types for you instead of defining each field by hand. The panel inspects the sample, infers a record for the top-level object, and adds nested records for any embedded objects or arrays. The generated records are added to the project and appear on the [Type Canvas](../canvases/type-canvas.md) as soon as you save.
 
 In the new-type form, open the kind picker and select **Import from Json** or **Import from Xml**. You then provide the sample in one of two ways:
 
@@ -245,17 +245,17 @@ For an XML sample such as:
 The panel generates a `Library` record with a `book` array field and a nested record for each book element, with one field per child element.
 
 
-Once the records look right, save the form. The new types are added to the integration and become available everywhere a custom type can be used.
+Once the records look right, save the form. The new types are added to the project and become available everywhere a custom type can be used.
 
 :::tip Common next steps after import
-- Use the generated record as a request or response payload in a [service](product://integrator/develop-and-test/integration-artifacts/integration-as-api/http).
+- Use the generated record as a request or response payload in the [Service Designer](../designers/service-designer.md).
 - Map fields from the imported record onto another type in the [Data Mapper](../designers/data-mapper.md).
-- Expose the record from a [GraphQL service](product://integrator/develop-and-test/integration-artifacts/integration-as-api/graphql) resolver.
+- Expose the record from a GraphQL resolver in the [GraphQL Canvas](../canvases/graphql-canvas.md).
 :::
 
 ## What's next
 
-- [Type Canvas](../canvases/type-canvas.md): visualize every type in the integration and the relationships between them.
+- [Type Canvas](../canvases/type-canvas.md): visualize every type in the project and the relationships between them.
 - [Service Designer](../designers/service-designer.md): use the types you defined as request and response payloads for a service.
 - [GraphQL Canvas](../canvases/graphql-canvas.md): expose service classes and records as GraphQL types.
 - [Data Mapper](../designers/data-mapper.md): map fields between the types you defined here.
