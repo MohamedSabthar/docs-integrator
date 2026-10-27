@@ -205,10 +205,7 @@ The trigger appears on the canvas, connected to the agent.
 
 ## Step 5: Deploy to WSO2 Cloud
 
-Deploy your integration to WSO2 Cloud - Integration Platform in any of the following ways:
-
-- If you're using the cloud editor, see [Save and deploy](product://integrator/deploy-and-run/deploy-to-wso2-cloud/deploy-from-cloud-editor#save-and-deploy).
-- If you're using WSO2 Agent Builder on your machine, see [Deploy from WSO2 Integrator](product://integrator/deploy-and-run/deploy-to-wso2-cloud/push-from-ide).
+Deploy your integration to WSO2 Cloud. See [Deploy to WSO2 Cloud](../../deploy-and-run/deploy-to-wso2-cloud/deploy-to-wso2-cloud.md).
 
 <div class="skip-ahead-card">
 
