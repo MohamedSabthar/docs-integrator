@@ -22,20 +22,20 @@ You can open the Type Panel from two places, depending on where you are working.
 - **From the project explorer.** Select **+** next to **Types** to add a new type, or select an existing type name to edit it.
 
     <ThemedImage
-        alt="Add a type from the project explorer"
+        alt="The project explorer with the Add Type button next to Types outlined and its Add Type tooltip showing."
         sources={{
-            light: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v5.1.png'),
-            dark: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v5.1.png'),
+            light: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v1.0.png'),
+            dark: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v1.0.png'),
         }}
     />
 
 - **From the Type Canvas.** Select **+ Add Type** in the header to add a new type, or select **Edit** from the three-dot menu on a type card to edit an existing one.
 
     <ThemedImage
-        alt="Add a type from the Type Canvas"
+        alt="The Type Canvas showing the Task and genValue type cards, with the Add Type button at the top right outlined."
         sources={{
-            light: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram.png'),
-            dark: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram.png'),
+            light: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram-v1.0.png'),
+            dark: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram-v1.0.png'),
         }}
     />
 
@@ -65,20 +65,20 @@ Every type form shares the same header fields:
 A record defines a structured value with named fields. Each field has a name, a type, and an optional flag, and the panel renders one row per field under the **Fields** section.
 
 <ThemedImage
-    alt="Create a record type"
+    alt="The New Type panel on the Create from scratch tab, with Kind set to Record, Name set to Person, a nic field of type int, and Advanced Options expanded to show Allow Additional Fields, Is Readonly Type, and Accessible by Other Integrations."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/03-create-record.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/03-create-record.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/03-create-record-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/03-create-record-v1.0.png'),
     }}
 />
 
 Select **+** next to **Fields** to add a new field. Each field row exposes the following options.
 
 <ThemedImage
-    alt="Field options on a record"
+    alt="The nic field row of the Person record expanded to show Default Value, Description, and Readonly, with the Create Inline Record, Set as an Optional Field, and Delete Field icons outlined."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record-v1.0.png'),
     }}
 />
 
@@ -88,6 +88,8 @@ Select **+** next to **Fields** to add a new field. Each field row exposes the f
 | **? (optional)** | Mark the field as optional. An optional field is allowed to be missing or `null` when a value of the record is constructed. |
 | **Delete** | Removes the field from the record. |
 
+Select the arrow at the start of a field row to set the field's **Default Value** and **Description**, or to make the field **Readonly**.
+
 To make a field reference another type in the project, set the field type to the name of that type. The [Type Canvas](../canvases/type-canvas.md) draws the connecting line when you save.
 
 ### Enum
@@ -95,55 +97,55 @@ To make a field reference another type in the project, set the field type to the
 An enum defines a fixed set of named members. Use it for closed sets of values such as status codes, channels, or roles.
 
 <ThemedImage
-    alt="Create an enum type"
+    alt="The New Type panel with Kind set to Enum, Name set to Status, and the members DRAFT, SUBMITTED, APPROVED, and REJECTED."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/04-create-enum.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/04-create-enum.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/04-create-enum-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/04-create-enum-v1.0.png'),
     }}
 />
 
-Select **+** under **Members** to add a member, and the **delete** icon on a row to remove it. Each member has a single name (for example, `DRAFT`, `SUBMITTED`, `APPROVED`, `REJECTED`).
+Select **+** next to **Members** to add a member, and the **delete** icon on a row to remove it. Each member has a single name (for example, `DRAFT`, `SUBMITTED`, `APPROVED`, `REJECTED`).
 
 ### Union
 
 A union defines a value that can be one of several types. Use it when a field or variable can legitimately hold more than one shape, for example, a response that is either a success record or an error.
 
 <ThemedImage
-    alt="Create a union type"
+    alt="The New Type panel with Kind set to Union, Name set to TaskResult, and the members Task and error."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/05-create-union.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/05-create-union.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/05-create-union-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/05-create-union-v1.0.png'),
     }}
 />
 
-Select **+** under **Members** to add a member type, and the **delete** icon to remove one. Each member can be a primitive (`string`, `int`, `boolean`, and so on) or another type you have already defined in the project.
+Select **+** next to **Members** to add a member type, and the **delete** icon to remove one. Each member can be a primitive (`string`, `int`, `boolean`, and so on) or another type you have already defined in the project.
 
 ### Array
 
 An array defines a list of values of the same type, with an optional fixed size.
 
 <ThemedImage
-    alt="Create an array type"
+    alt="The New Type panel with Kind set to Array, Name set to TaskList, Type of the Array set to Task, and an empty Size of the Array field."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/06-create-array.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/06-create-array.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/06-create-array-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/06-create-array-v1.0.png'),
     }}
 />
 
 | Field | Description |
 |---|---|
-| **Type** | The type of each element in the array. Can be a primitive or a custom type defined in the project. |
-| **Size** | Optional fixed size for the array. Leave empty for a dynamically sized array. |
+| **Type of the Array** | The type of each element in the array. Can be a primitive or a custom type defined in the project. |
+| **Size of the Array** | Optional fixed size for the array. Leave empty for a dynamically sized array. |
 
 ### Service class
 
 A service class defines a class with one or more resource methods. Use it as the return type of a GraphQL resolver, or anywhere you need a typed object that exposes behavior alongside data.
 
 <ThemedImage
-    alt="Create a service class type"
+    alt="The New Type panel with Kind set to Service Class, Name set to TaskQuery, and a tasks resource method that returns Task[], expanded to show Add Parameter."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/07-create-service-class.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/07-create-service-class.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/07-create-service-class-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/07-create-service-class-v1.0.png'),
     }}
 />
 
@@ -155,38 +157,38 @@ For each resource method, configure:
 | **Return Type** | The type the resource method returns. |
 | **Parameters** | Parameters the resource method accepts. Select **Add Parameter** to add one, and the **delete** icon to remove. |
 
-Select **+** under **Resource Methods** to add a new method, and the **delete** icon on a row to remove one.
+Select **+** next to **Resource Methods** to add a new method, and the **delete** icon on a row to remove one. Select the arrow at the start of a method row to add its parameters.
 
-Once you save the service class, it appears as a card on the Type Canvas next to records and enums. Select the card to open the **Service Class Designer**, where you can edit resource methods, parameters, and the implementation of each method.
+Once you save the service class, it appears as a card on the Type Canvas next to records and enums. Select the card to open the **Service Class Designer**, where you can edit the constructor, add class variables and methods, and implement each method.
 
 <ThemedImage
-    alt="Service Class Designer for the service class"
+    alt="The Service Class Designer for TaskQuery, showing the init constructor, an empty Class Variables section with a + Variable button, and the GET tasks method under Methods."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/09-service-class-designer-for-service-class-type.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/09-service-class-designer-for-service-class-type.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/09-service-class-designer-for-service-class-type-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/09-service-class-designer-for-service-class-type-v1.0.png'),
     }}
 />
 
 ## Advanced options
 
-The **Advanced Options** section at the bottom of the form exposes type-level toggles. The available options depend on the kind of type you are editing.
+The **Advanced Options** section at the bottom of the form exposes type-level toggles. The available options depend on the kind of type you are editing. Enums and service classes don't have this section.
 
 | Option | Applies to | Description |
 |---|---|---|
 | **Allow Additional Fields** | Records | Generates an open record instead of a closed one. Open records accept extra fields at runtime; closed records reject them. Use this when the payload may carry keys you don't want to model explicitly. |
-| **Is Readonly Type** | All kinds | Marks the type as read-only. Values of a read-only type cannot be modified after construction. |
-| **Accessible by other integrations** | All kinds | Marks the type as public so other projects and libraries can import and reuse it. The generated Ballerina source uses the `public` qualifier. |
+| **Is Readonly Type** | Records, unions, and arrays | Marks the type as read-only. Values of a read-only type cannot be modified after construction. |
+| **Accessible by Other Integrations** | Records, unions, and arrays | Marks the type as public so other projects and libraries can import and reuse it. The generated Ballerina source uses the `public` qualifier. |
 
 ## Import a type from JSON or XML
 
-When you already have a sample payload, you can let the Type Panel generate the matching record types for you instead of defining each field by hand. The panel inspects the sample, infers a record for the top-level object, and adds nested records for any embedded objects or arrays. The generated records are added to the project and appear on the [Type Canvas](../canvases/type-canvas.md) as soon as you save.
+When you already have a sample payload, you can let the Type Panel generate the matching record types for you instead of defining each field by hand. The panel inspects the sample, infers a record for the top-level object, and adds nested records for any embedded objects or arrays. The generated records are added to the project and appear on the [Type Canvas](../canvases/type-canvas.md) as soon as you select **Import**.
 
-In the new-type form, open the kind picker and select **Import from Json** or **Import from Xml**. You then provide the sample in one of two ways:
+In the **New Type** panel, select the **Import** tab and set **Format** to **JSON** or **XML**. You then provide the sample in one of two ways:
 
-- **Paste a sample.** Paste the JSON or XML into the field and the form previews the inferred records as you type.
-- **Import from a file.** Select **Import from file** to pick a `.json` or `.xml` file from disk. The panel reads the file and fills the sample area for you.
+- **Paste a sample.** Paste the JSON or XML into the sample area.
+- **Import from a file.** Select **Import JSON File** or **Import XML File** to pick a file from disk. The panel reads the file and fills the sample area for you.
 
-Give the root record a name in the **Name** field. Nested objects are named automatically based on the parent field, and you can rename any of them before saving.
+For JSON, give the root record a name in the **Name** field. For XML, there's no **Name** field; the records are named after the XML elements. Nested types are named automatically. Select **Import** to generate the types.
 
 ### Import from JSON
 
@@ -211,13 +213,13 @@ For a JSON sample such as:
 }
 ```
 
-The panel generates a root record with a `books` array field and a nested record for each book entry, with `title`, `author`, `year`, and `isbn` typed as `string` or `int` based on the sample values.
+With **Name** set to `Library`, the panel generates a `Library` record with a `books` field, a `Books` array type for that field, and a `BooksItem` record for each book entry. The `title`, `author`, `year`, and `isbn` fields are typed as `string` or `int` based on the sample values.
 
 <ThemedImage
-    alt="Import a type from a JSON sample"
+    alt="The Import tab of the New Type panel, with Format set to JSON, Name set to Library, and a JSON sample of two books pasted in."
     sources={{
-        light: useBaseUrl('/img/editor/panels/type-panel/10-import-json.png'),
-        dark: useBaseUrl('/img/editor/panels/type-panel/10-import-json.png'),
+        light: useBaseUrl('/img/editor/panels/type-panel/10-import-json-v1.0.png'),
+        dark: useBaseUrl('/img/editor/panels/type-panel/10-import-json-v1.0.png'),
     }}
 />
 
@@ -242,10 +244,9 @@ For an XML sample such as:
 </library>
 ```
 
-The panel generates a `Library` record with a `book` array field and a nested record for each book element, with one field per child element.
+The panel generates a root record for the `<library>` element with a `book` field of type `Book[]`, and a `Book` record with one field per child element. Field types are inferred from the sample values, so `year` and `isbn` become `int` fields.
 
-
-Once the records look right, save the form. The new types are added to the project and become available everywhere a custom type can be used.
+The new types are added to the project and become available everywhere a custom type can be used.
 
 :::tip Common next steps after import
 - Use the generated record as a request or response payload in the [Service Designer](../designers/service-designer.md).
