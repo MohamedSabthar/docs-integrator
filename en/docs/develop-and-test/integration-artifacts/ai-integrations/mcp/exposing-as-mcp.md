@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Exposing a Service as MCP
-description: Reference for the MCP Service artifact in WSO2 Integrator - listener, service, tools, transport parameters, and session modes.
+description: Reference for the MCP Service in WSO2 Agent Builder - listener, service, tools, transport parameters, and session modes.
 slug: /develop-and-test/integration-artifacts/ai-integrations/mcp/exposing-as-mcp
 ---
 
@@ -12,30 +12,30 @@ import TabItem from '@theme/TabItem';
 
 # Exposing a Service as MCP
 
-An **MCP service** is a WSO2 Integrator artifact that publishes a set of tools over the Model Context Protocol. Any MCP-compatible client (Claude Desktop, GitHub Copilot, or another AI agent) can connect, discover the tools, and call them. This page covers the configuration options for the listener, service, and tools, including how to read request metadata and HTTP request data, handle sessions, and define tools dynamically.
+An **MCP service** is a WSO2 Agent Builder entry point that publishes a set of tools over the Model Context Protocol. Any MCP-compatible client (Claude Desktop, GitHub Copilot, or another AI agent) can connect, discover the tools, and call them. This page covers the configuration options for the listener, service, and tools, including how to read request metadata and HTTP request data, handle sessions, and define tools dynamically.
 
-WSO2 Integrator MCP services run over the **Streamable HTTP** transport. The generated code uses the `mcp:StreamableHttpListener` listener and the `mcp:StreamableHttpService` service type from the `ballerina/mcp` module.
+WSO2 Agent Builder MCP services run over the **Streamable HTTP** transport. The generated code uses the `mcp:StreamableHttpListener` listener and the `mcp:StreamableHttpService` service type from the `ballerina/mcp` module.
 
 ## Creating an MCP service
 
 <Tabs>
 <TabItem value="ui" label="Visual Designer" default>
 
-1. In the design view, select **Add Artifact manually**.
-2. Under the **AI Integration** category, select **MCP Service**.
+1. Open your project in WSO2 Agent Builder.
+2. On the project home page, under **Or start from scratch**, select **Add MCP Server**.
 
    <ThemedImage
-       alt="Artifacts page showing the AI Integration category with Chat Agent Service, Durable Agentic Workflow, Voice Agent Service, and MCP Service. Above are Automation and Durable Workflow; below is Integration as API."
+       alt="The WSO2 Agent Builder project home page for the Unit Converter project, showing the WSO2 Agent Builder Copilot prompt box, four example cards (Customer Support, Issue Triager, Helpdesk Responder, and Order Tools), and the Add Agent and Add MCP Server buttons under Or start from scratch."
        sources={{
            light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v5.1.png'),
            dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v5.1.png'),
        }}
    />
 
-3. Choose how to create the service, fill in the creation form fields, and click **Create**.
+3. In the **MCP Service** dialog, choose how to create the service, fill in the fields, and select **Create**.
 
    <ThemedImage
-       alt="Create MCP Service form with the Design From Scratch and Import From OpenAPI Specification options, and fields for Service Name, Version, Port (default 8080), Base Path (/mcp), and an expandable Advanced Configurations section."
+       alt="The MCP Service dialog, subtitled Expose tools to MCP clients over the Streamable HTTP transport, with the Design From Scratch and Import From OpenAPI Specification options, Service Name (MCP Service), Version (1.0.0), Port (8080), Base Path (/mcp), and a Create button."
        sources={{
            light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v5.1.png'),
            dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v5.1.png'),
@@ -51,10 +51,10 @@ WSO2 Integrator MCP services run over the **Streamable HTTP** transport. The gen
 | **Base Path** | URL prefix for the MCP service (for example, `/mcp`). |
 | **Advanced Configurations** | Expand to set the name of the listener that is created for the service. Defaults to `mcpListener`. |
 
-After clicking **Create**, WSO2 Integrator opens the service in the **MCP Service Editor**. The header shows the listener and base path, a **Tools** section, and **Configure** / **Try It** buttons in the top-right.
+After you select **Create**, WSO2 Agent Builder adds the service under **Entry Points** in the project sidebar and opens it in the **MCP Service editor**. The header shows the listener and base path, a **Tools** section, and **Configure** / **Try It** buttons in the top-right.
 
 <ThemedImage
-    alt="The MCP Service editor showing the listener and base path chips, and the Tools section with 'No tools found. Add a new tool.' and a + Add Tool button."
+    alt="The MCP Service editor showing the Listener (mcpListener) and Base Path (/mcp) chips, the Configure and Try It buttons, and the Tools section with 'No tools found. Add a new tool.' and a + Add Tool button. The project sidebar lists MCP Service under Entry Points."
     sources={{
         light: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor.png'),
         dark: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor.png'),
@@ -108,14 +108,14 @@ In the **MCP Service Editor**, click **Configure** in the header to open the **M
 
 | Field | Description |
 |---|---|
-| **Streamable HTTP Service** | The service type. Read-only; WSO2 Integrator always creates an `mcp:StreamableHttpService`, which handles MCP tool calls over the Streamable HTTP transport. |
+| **Streamable HTTP Service** | The service type. Read-only; WSO2 Agent Builder always creates an `mcp:StreamableHttpService`, which handles MCP tool calls over the Streamable HTTP transport. |
 | **Base Path** | URL prefix for the MCP endpoint (for example, `/mcp`). Required. |
 | **StreamableHttpServiceConfig** | The `@mcp:StreamableHttpServiceConfig` annotation record. Click the field to open the **Record Configuration** editor. |
 
 The same form also shows the configuration of the attached listener. See [Listener configuration](#listener-configuration).
 
 <ThemedImage
-    alt="Record Configuration editor for StreamableHttpServiceConfiguration showing the info field (with version and name), httpConfig, sessionMode (auto), and the optional options field."
+    alt="The MCP Service Configuration page with the Record Configuration editor open for StreamableHttpServiceConfiguration, showing the info field (version and name, plus the optional description, websiteUrl, title, and icons fields), httpConfig, sessionMode (auto), and the optional options field, next to a preview of the resulting record."
     sources={{
         light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v5.1.png'),
         dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v5.1.png'),
@@ -196,7 +196,7 @@ The listener binds to a port and handles incoming MCP connections over Streamabl
 In the **MCP Service Configuration** form, select the listener under **Attached Listeners** to configure it.
 
 <ThemedImage
-    alt="Configuration for mcpListener showing Name, Listen To (8080), Host, HTTP1 Settings, Secure Socket, HTTP Version, and Timeout fields."
+    alt="The MCP Service Configuration page with mcpListener selected under Attached Listeners, showing the Configuration for mcpListener form with Name (mcpListener), Listen To (8080), Host, HTTP1 Settings, Secure Socket, and HTTP Version fields, and a Save Changes button."
     sources={{
         light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v5.1.png'),
         dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v5.1.png'),
@@ -299,10 +299,10 @@ Click **+ Add Tool** in the editor to open the **New Tool Configuration** panel.
 | **Return Type** | Yes | Ballerina type returned by the tool. |
 | **Advanced Configurations** | No | Bind request metadata and HTTP request data to the tool. See [Transport parameters and request metadata](#transport-parameters-and-request-metadata). |
 
-After clicking **Save**, WSO2 Integrator generates a `remote function` within the service and opens the tool's flow diagram, where you implement the tool logic. The tool also appears under the MCP service in the project sidebar and as a row under **Tools** in the MCP Service Editor.
+After you select **Save**, WSO2 Agent Builder generates a `remote function` within the service and opens the tool's flow diagram, where you implement the tool logic. The tool also appears under **Entry Points** > **MCP Service** in the project sidebar and as a row under **Tools** in the MCP Service editor.
 
 <ThemedImage
-    alt="The flow diagram of the add remote function, showing an empty flow with a Start node, with add listed under MCP Service in the project sidebar."
+    alt="The Remote Function view for the add tool, showing an empty flow with a Start node and the Flow and Sequence tabs. The project sidebar lists add under Entry Points > MCP Service."
     sources={{
         light: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram.png'),
         dark: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram.png'),
@@ -345,7 +345,7 @@ When you want explicit control over the description or input schema, use the `@m
 | Field | Description |
 |---|---|
 | **description** | Tool description sent to clients. Overrides the function's doc comment. |
-| **schema** | A `map<json>` JSON Schema for the tool's parameters. Overrides the schema WSO2 Integrator derives from parameter types. Use when you need richer schema metadata (enums, defaults, custom validation) than Ballerina types can express. |
+| **schema** | A `map<json>` JSON Schema for the tool's parameters. Overrides the schema WSO2 Agent Builder derives from parameter types. Use when you need richer schema metadata (enums, defaults, custom validation) than Ballerina types can express. |
 
 ```ballerina
 @mcp:Tool {
@@ -603,7 +603,7 @@ service mcp:StreamableHttpAdvancedService /mcp on mcpListener {
 | Use `mcp:StreamableHttpService` when… | Use `mcp:StreamableHttpAdvancedService` when… |
 |---|---|
 | Tools map cleanly to compile-time `remote function`s. | Tools are dynamic (defined in configuration, a database, or another service). |
-| You want WSO2 Integrator to derive schemas automatically. | You want hand-crafted JSON schemas or extra validation. |
+| You want WSO2 Agent Builder to derive schemas automatically. | You want hand-crafted JSON schemas or extra validation. |
 | You want to build the service in the visual designer. | You want a dispatch-table architecture. |
 
 :::info
@@ -659,14 +659,14 @@ Once your service is running, MCP clients connect by URL.
 ```json
 {
   "mcpServers": {
-    "wso2-integrator": {
+    "wso2-agent-builder": {
       "url": "http://localhost:8080/mcp"
     }
   }
 }
 ```
 
-**Another agent inside WSO2 Integrator**: see [Consuming MCP from an Agent](consuming-mcp-from-agent.md).
+**Another agent inside WSO2 Agent Builder**: see [Consuming MCP from an Agent](consuming-mcp-from-agent.md).
 
 ## Operational notes
 
@@ -682,7 +682,7 @@ Once your service is running, MCP clients connect by URL.
 Yes. These types still compile and run:
 
 - `mcp:Listener` is deprecated. Replace it with `mcp:StreamableHttpListener`, which takes the same arguments.
-- `mcp:Service` and `mcp:AdvancedService` are transport-agnostic service types and are not deprecated. Their tools can't bind HTTP request data (`@http:Header`, `http:Headers`, `http:Request`). Use `mcp:StreamableHttpService` and `mcp:StreamableHttpAdvancedService`, which WSO2 Integrator generates by default, when you need that data.
+- `mcp:Service` and `mcp:AdvancedService` are transport-agnostic service types and are not deprecated. Their tools can't bind HTTP request data (`@http:Header`, `http:Headers`, `http:Request`). Use `mcp:StreamableHttpService` and `mcp:StreamableHttpAdvancedService`, which WSO2 Agent Builder generates by default, when you need that data.
 - The `httpConfig` and `sessionMode` fields of `@mcp:ServiceConfig` are deprecated. Set them in `@mcp:StreamableHttpServiceConfig` on an `mcp:StreamableHttpService` instead.
 
 ## What's next
