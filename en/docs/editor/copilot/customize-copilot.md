@@ -190,7 +190,7 @@ A server is defined in one of the following scopes.
 
 The project file uses the bare filename `.mcp.json`, following a common convention, so the same file is portable across tools that support MCP. Commit it to share a consistent set of servers with your team.
 
-Built-in servers are provided by WSO2 and appear in their own group when available. You turn them on or off from the manager; they are not defined in a config file.
+Built-in servers are provided by WSO2 and appear in their own group when available. You can turn them on or off from the manager; they are not defined in a config file.
 
 <ThemedImage
     alt="MCP servers manager grouping servers under Project and User scopes."
@@ -246,7 +246,7 @@ A project `.mcp.json` is committed to the repository, so never put secrets direc
 
 On each chat turn, Copilot automatically adds the tools from every connected and enabled server to its toolset. No further configuration is needed.
 
-- Tool calls appear in the chat stream like built-in tool calls. Copilot runs them without asking first, so connect only servers you trust.
+- Tool calls appear in the chat like built-in tool calls, and Copilot executes them without prompting for confirmation. Only connect servers you trust.
 - Tools are namespaced as `mcp__<server>__<tool>` so tools from different servers never collide.
 - A broken or unreachable server fails gracefully. It shows a failed status with an error message and does not affect the rest of Copilot. A connection timeout stops a slow server from hanging a turn.
 
