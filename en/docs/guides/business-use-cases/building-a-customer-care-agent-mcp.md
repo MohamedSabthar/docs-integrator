@@ -154,15 +154,33 @@ The MCP toolkit appears as `aiMcpbasetoolkit` attached to the agent node, connec
 
 ## Step 3: Run and test
 
-Make sure the ShopEasy MCP server is running, then select **Run**. WSO2 Agent Builder applies the `--experimental` flag and compiles and starts the service, with progress shown in the integrated terminal.
+Make sure the ShopEasy MCP server is running, then select **Run**. WSO2 Agent Builder compiles and starts the service, with progress shown in the integrated terminal.
+
+<ThemedImage
+    alt="The chat resource flow with Start, an agent:run node for CustomerCareAgent with an Open Agent button, and Return, above the integrated terminal showing bal run compiling customer_care and Running executable"
+    sources={{
+        light: useBaseUrl('/img/genai/tutorials/customer-care-agent-mcp-v5.1/08-run-and-test-v1.0.png'),
+        dark: useBaseUrl('/img/genai/tutorials/customer-care-agent-mcp-v5.1/08-run-and-test-v1.0.png'),
+    }}
+/>
 
 Once it's running, open the `chat` resource under **Entry Points** > **AI Agent Services**. Its flow shows **Start**, an `agent:run` node (with an **Open Agent** link back to the `CustomerCareAgent` canvas), and **Return**. Select **Chat** in the toolbar (next to **Tracing**) to open the **Agent Chat** panel. Type your message in the input field and press **Enter** to send it.
+
+When the service starts, a pop-up also offers to test it with the Try It client. Selecting **Test** there opens the same **Agent Chat** panel.
 
 Try the following messages to exercise all three tools:
 
 - *"Do you have any wireless headphones in stock?"*
 - *"What is the status of my order ORD-042?"*
 - *"I want to return ORD-001. The item arrived damaged."*
+
+<ThemedImage
+    alt="The chat resource next to the Agent Chat panel, where the agent answers that SoundPro X200 Wireless Headphones are in stock, that order ORD-042 is out for delivery, and that the return for ORD-001 is accepted with return ID RET-001"
+    sources={{
+        light: useBaseUrl('/img/genai/tutorials/customer-care-agent-mcp-v5.1/09-run-and-test-v1.0.png'),
+        dark: useBaseUrl('/img/genai/tutorials/customer-care-agent-mcp-v5.1/09-run-and-test-v1.0.png'),
+    }}
+/>
 
 </TabItem>
 <TabItem value="code" label="Ballerina Code">
