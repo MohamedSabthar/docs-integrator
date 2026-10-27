@@ -1,12 +1,12 @@
 ---
 sidebar_position: 1
 title: "Build a Sentiment Analyzer"
-description: Build your first AI integration. An HTTP service that uses a direct LLM call to classify customer reviews.
-keywords: [wso2 integrator, ai, llm, direct llm call, sentiment analysis, quick start, ballerina ai]
+description: Build your first AI integration in WSO2 Agent Builder. An agent exposed through a typed HTTP trigger that classifies customer reviews.
+keywords: [wso2 agent builder, ai agent, llm, http trigger, sentiment analysis, quick start, ballerina ai]
 slug: /guides/how-to-guides/build-a-sentiment-analyzer
 card_icon: ai
-card_summary: Your first AI integration with a direct LLM call
-card_keywords: [sentiment analysis, classification, nlp, quick start]
+card_summary: Your first AI agent, exposed as a typed HTTP endpoint
+card_keywords: [sentiment analysis, classification, nlp, quick start, http trigger, typed response]
 ---
 
 import ThemedImage from '@theme/ThemedImage';
