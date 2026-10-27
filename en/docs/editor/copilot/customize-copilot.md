@@ -106,7 +106,7 @@ If a skill with the same name already exists, Copilot asks you to rename the ski
 
 ### How Copilot uses skills
 
-When a skill is enabled and your request matches its trigger, Copilot applies the skill automatically. If a matching skill is disabled, Copilot pauses and asks whether to enable it. Select **Enable skill** to turn it on, or **Continue without it** to skip it for that message.
+When a skill is enabled and your request matches its trigger, Copilot applies the skill automatically. If a matching skill is disabled, Copilot pauses and asks whether to enable it. Select **Enable** to turn it on, or **Skip** to continue without it for that message.
 
 <ThemedImage
     alt="The prompt asking whether to enable a matching skill for the current request."
@@ -147,7 +147,7 @@ Open the MCP servers manager from **Copilot** > **Settings** > **Customize Agent
 In the manager panel, select **+ Add server** and choose a transport:
 
 - **Stdio**: A local process. Enter the **command** and its **arguments**, plus any environment variables the process needs.
-- **Streamable HTTP**: A remote endpoint. Enter the **URL** and any headers.
+- **HTTP**: A remote endpoint. Enter the **URL** and any headers.
 
 Enter a name, then select **Add**. Copilot connects to the server and lists its tools. The status dot shows the result: connecting, connected, or failed with an error tooltip.
 
@@ -190,7 +190,7 @@ A server is defined in one of the following scopes.
 
 The project file uses the bare filename `.mcp.json`, following a common convention, so the same file is portable across tools that support MCP. Commit it to share a consistent set of servers with your team.
 
-Built-in servers are provided by WSO2 and appear in their own group when available. You can turn them on or off from the manager; they are not defined in a config file.
+Built-in servers are provided by WSO2, so you add them from the manager rather than defining them in a config file. They appear in their own group when available.
 
 <ThemedImage
     alt="MCP servers manager grouping servers under Project and User scopes."
@@ -246,7 +246,7 @@ A project `.mcp.json` is committed to the repository, so never put secrets direc
 
 On each chat turn, Copilot automatically adds the tools from every connected and enabled server to its toolset. No further configuration is needed.
 
-- Tool calls appear in the chat like built-in tool calls, and Copilot executes them without prompting for confirmation. Only connect servers you trust.
+- Tool calls render in the chat stream and respect the existing approval flow, including auto-approve.
 - Tools are namespaced as `mcp__<server>__<tool>` so tools from different servers never collide.
 - A broken or unreachable server fails gracefully. It shows a failed status with an error message and does not affect the rest of Copilot. A connection timeout stops a slow server from hanging a turn.
 
