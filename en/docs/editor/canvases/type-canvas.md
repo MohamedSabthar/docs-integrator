@@ -18,8 +18,8 @@ For background on what types are and how to define them field by field, see the 
 <ThemedImage
     alt="Type Canvas for a library with records and enums"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/02-overview.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/02-overview.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/02-overview-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/02-overview-v1.0.png'),
     }}
 />
 
@@ -30,8 +30,8 @@ The project explorer groups every type in an agentic integration or library unde
 <ThemedImage
     alt="Types listed under the project explorer"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/03-type-panel.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/03-type-panel.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/03-type-panel-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/03-type-panel-v1.0.png'),
     }}
 />
 
@@ -66,8 +66,8 @@ Select a type card to open the side panel for that type. The panel lists every f
 <ThemedImage
     alt="Edit type side panel for a record"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/04-edit-type.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/04-edit-type.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/04-edit-type-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/04-edit-type-v1.0.png'),
     }}
 />
 
@@ -78,8 +78,8 @@ Select **Add Type** at the top right of the canvas to add a new type. The canvas
 <ThemedImage
     alt="Add Type button on the Type Canvas"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/02-add-type.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/02-add-type.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/02-add-type-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/02-add-type-v1.0.png'),
     }}
 />
 
@@ -99,8 +99,8 @@ The three-dot menu (**⋮**) on a type card opens the actions for that type.
 <ThemedImage
     alt="Three-dot menu on a type card"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/06-type-context-menu.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/06-type-context-menu.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/06-type-context-menu-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/06-type-context-menu-v1.0.png'),
     }}
 />
 
@@ -113,8 +113,8 @@ For example, opening **Focused View** on `SupportTicket` shows the `SupportTicke
 <ThemedImage
     alt="Focused view for the SupportTicket type"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/05-focused-view.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/05-focused-view.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/05-focused-view-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/05-focused-view-v1.0.png'),
     }}
 />
 
@@ -125,8 +125,8 @@ For example, opening **Focused View** on `SupportTicket` shows the `SupportTicke
 <ThemedImage
     alt="Type diagram and types.bal side by side"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/07-source-view.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/07-source-view.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/07-source-view-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/07-source-view-v1.0.png'),
     }}
 />
 
@@ -141,8 +141,8 @@ Fields, parameters, and return types in other types or flows that pointed at the
 <ThemedImage
     alt="Delete confirmation for a type"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/08-delete-confirmation.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/08-delete-confirmation.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/08-delete-confirmation-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/08-delete-confirmation-v1.0.png'),
     }}
 />
 
@@ -161,8 +161,8 @@ Use the controls in the bottom-left corner of the canvas to adjust the view.
 <ThemedImage
     alt="Canvas controls in the bottom-left corner"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/type-canvas/09-canvas-controls.png'),
-        dark: useBaseUrl('/img/editor/canvases/type-canvas/09-canvas-controls.png'),
+        light: useBaseUrl('/img/editor/canvases/type-canvas/09-canvas-controls-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/type-canvas/09-canvas-controls-v1.0.png'),
     }}
 />
 

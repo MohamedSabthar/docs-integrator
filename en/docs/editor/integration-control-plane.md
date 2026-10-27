@@ -29,8 +29,8 @@ You enable ICP for one agentic integration at a time.
     <ThemedImage
        alt="The deploy panel with the Integration Control Plane section and the Enable ICP Monitoring checkbox."
        sources={{
-           light: useBaseUrl('/img/editor/icp/integration-control-plane-integration-option.png'),
-           dark: useBaseUrl('/img/editor/icp/integration-control-plane-integration-option.png'),
+           light: useBaseUrl('/img/editor/icp/integration-control-plane-integration-option-v1.0.png'),
+           dark: useBaseUrl('/img/editor/icp/integration-control-plane-integration-option-v1.0.png'),
        }}
    />
 
@@ -43,8 +43,8 @@ With ICP enabled, the editor needs an ICP server to publish to. You can find the
   <ThemedImage
       alt="The Publish to Local ICP section of the deploy panel with the Start ICP Server button."
       sources={{
-          light: useBaseUrl('/img/editor/icp/integration-control-plane-start.png'),
-          dark: useBaseUrl('/img/editor/icp/integration-control-plane-start.png'),
+          light: useBaseUrl('/img/editor/icp/integration-control-plane-start-v1.0.png'),
+          dark: useBaseUrl('/img/editor/icp/integration-control-plane-start-v1.0.png'),
       }}
    />
 
@@ -53,8 +53,8 @@ With ICP enabled, the editor needs an ICP server to publish to. You can find the
   <ThemedImage
       alt="The warning shown when running an ICP-enabled agentic integration while the ICP server is not running."
       sources={{
-          light: useBaseUrl('/img/editor/icp/integration-control-plane-warning.png'),
-          dark: useBaseUrl('/img/editor/icp/integration-control-plane-warning.png'),
+          light: useBaseUrl('/img/editor/icp/integration-control-plane-warning-v1.0.png'),
+          dark: useBaseUrl('/img/editor/icp/integration-control-plane-warning-v1.0.png'),
       }}
    />
 
@@ -63,8 +63,8 @@ When the server is up, the editor shows a notification with its address, `https:
 <ThemedImage
     alt="The notifications confirming the ICP server has started, with the ICP Server terminal open."
     sources={{
-        light: useBaseUrl('/img/editor/icp/integration-control-plane-started.png'),
-        dark: useBaseUrl('/img/editor/icp/integration-control-plane-started.png'),
+        light: useBaseUrl('/img/editor/icp/integration-control-plane-started-v1.0.png'),
+        dark: useBaseUrl('/img/editor/icp/integration-control-plane-started-v1.0.png'),
     }}
 />
 
@@ -91,8 +91,8 @@ If an agent in the agentic integration uses the WSO2 default model provider and 
    <ThemedImage
      alt="The View in ICP button highlighted in the Publish to Local ICP section."
      sources={{
-         light: useBaseUrl('/img/editor/icp/integration-control-plane-integration-view-in-icp.png'),
-         dark: useBaseUrl('/img/editor/icp/integration-control-plane-integration-view-in-icp.png'),
+         light: useBaseUrl('/img/editor/icp/integration-control-plane-integration-view-in-icp-v1.0.png'),
+         dark: useBaseUrl('/img/editor/icp/integration-control-plane-integration-view-in-icp-v1.0.png'),
       }}
    />
 
@@ -126,8 +126,8 @@ From here you can observe and manage the running agentic integration in the ICP 
 <ThemedImage
     alt="The Enable ICP Monitoring checkbox and the Stop ICP Server button highlighted."
     sources={{
-        light: useBaseUrl('/img/editor/icp/integration-control-plane-disable.png'),
-        dark: useBaseUrl('/img/editor/icp/integration-control-plane-disable.png'),
+        light: useBaseUrl('/img/editor/icp/integration-control-plane-disable-v1.0.png'),
+        dark: useBaseUrl('/img/editor/icp/integration-control-plane-disable-v1.0.png'),
     }}
 />
 

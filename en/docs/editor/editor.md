@@ -18,8 +18,8 @@ The **WSO2 Agent Builder editor** brings together everything you need to develop
 <ThemedImage
     alt="WSO2 Agent Builder Editor components: the Editor Window contains Views (Project, Integration, Library) and the surfaces you work on inside a view (Canvases, Panels, Designers), alongside WSO2 Agent Builder Copilot"
     sources={{
-        light: useBaseUrl('/img/editor/editor-components.png'),
-        dark: useBaseUrl('/img/editor/editor-components.png'),
+        light: useBaseUrl('/img/editor/editor-components-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-components-v1.0.png'),
     }}
 />
 

@@ -47,8 +47,8 @@ The activity bar is the narrow vertical strip on the far-left edge of the editor
 <ThemedImage
     alt="Activity bar"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/activity-bar.png'),
-        dark: useBaseUrl('/img/editor/editor-window/activity-bar.png'),
+        light: useBaseUrl('/img/editor/editor-window/activity-bar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/activity-bar-v1.0.png'),
     }}
 />
 
@@ -71,8 +71,8 @@ The project explorer is the left sidebar that organizes the contents of your pro
 <ThemedImage
     alt="Project explorer"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/project-explorer.png'),
-        dark: useBaseUrl('/img/editor/editor-window/project-explorer.png'),
+        light: useBaseUrl('/img/editor/editor-window/project-explorer-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/project-explorer-v1.0.png'),
     }}
 />
 
@@ -100,8 +100,8 @@ The editor tab area sits above the canvas and shows one tab per open editor. The
 <ThemedImage
     alt="Editor tab area"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/editor-tab-bar.png'),
-        dark: useBaseUrl('/img/editor/editor-window/editor-tab-bar.png'),
+        light: useBaseUrl('/img/editor/editor-window/editor-tab-bar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/editor-tab-bar-v1.0.png'),
     }}
 />
 
@@ -114,8 +114,8 @@ The editor toolbar appears on the right side of the editor tab bar and provides 
 <ThemedImage
     alt="Editor toolbar with Open Copilot, Run, Debug, Split editor, and More actions highlighted"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/editor-toolbar.png'),
-        dark: useBaseUrl('/img/editor/editor-window/editor-toolbar.png'),
+        light: useBaseUrl('/img/editor/editor-window/editor-toolbar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/editor-toolbar-v1.0.png'),
     }}
 />
 
@@ -137,8 +137,8 @@ The status bar runs across the bottom edge of the editor and shows the current s
 <ThemedImage
     alt="Status bar"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/status-bar.png'),
-        dark: useBaseUrl('/img/editor/editor-window/status-bar.png'),
+        light: useBaseUrl('/img/editor/editor-window/status-bar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/status-bar-v1.0.png'),
     }}
 />
 

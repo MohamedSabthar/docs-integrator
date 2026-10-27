@@ -29,8 +29,8 @@ To add a step to the flow, select **+** between two nodes (or below **Start**) t
 <ThemedImage
     alt="Canvas for a new function with a Start node, a + button, and an end terminator"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/flow-canvas/canvas.png'),
-        dark: useBaseUrl('/img/editor/canvases/flow-canvas/canvas.png'),
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/canvas-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/canvas-v1.0.png'),
     }}
 />
 
