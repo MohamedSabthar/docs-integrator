@@ -1,8 +1,8 @@
 ---
 sidebar_position: 5
 title: Run Evaluations
-description: Run AI agent evaluations in WSO2 Integrator and review per-run reports, score trends, and code changes that influenced each result.
-keywords: [wso2 integrator, ai agent, evaluation, report, run history, regression]
+description: Run AI agent evaluations in WSO2 Agent Builder and review per-run reports, score trends, and code changes that influenced each result.
+keywords: [wso2 agent builder, ai agent, evaluation, report, run history, regression, fix with copilot]
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/evaluations/running-evaluations
 ---
 
@@ -18,10 +18,20 @@ Once an evaluation is configured from a [template](create-evaluations-templates.
 In the **Test Explorer**, hover over the evaluation name and click the run icon next to it.
 
 <ThemedImage
-    alt="Test Explorer with the run icon highlighted next to the testToolTrajectory evaluation, with the evaluation flow visible on the canvas."
+    alt="Test Explorer with the run icon highlighted next to the evaluateWeatherAgentToolTrajectory evaluation, with the evaluation flow visible on the canvas."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation-v1.0.png'),
+    }}
+/>
+
+You can also run evaluations from your agent. Open the agent, click **Evaluations**, and click the run icon next to an evaluation, or **Run All** to run every evaluation of that agent. The evaluation shows **Running** until the run finishes.
+
+<ThemedImage
+    alt="Evaluations dialog of weatherAgent with Run All and the run icon next to evaluateWeatherAgentToolTrajectory highlighted."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/run-from-agent-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/run-from-agent-v1.0.png'),
     }}
 />
 
@@ -32,19 +42,45 @@ The evaluation iterates over every case in the selected [evalset](evalsets.md) a
 The **Evaluation Report** opens automatically after a run.
 
 <ThemedImage
-    alt="Evaluation Report with summary counters, an evaluation card showing 100% observed pass rate against an 80% target, the per-case run list, and the Test Results panel below."
+    alt="Evaluation Report with summary counters, an evaluation card showing a 100% pass rate against a 90% minimum pass rate, the per-case run list, and the Test Results panel below."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report-v1.0.png'),
     }}
 />
 
 | Section | What it shows |
 |---|---|
 | **Top counters** | Total tests, passed, and failed across every evaluation in the project. |
-| **Evaluation card** | Per-evaluation stats: total runs, target pass rate, observed pass rate, and a Passed or Failed badge. |
+| **Evaluation card** | Per-evaluation stats: total runs, pass rate, minimum pass rate, and a Passed or Failed badge. |
 | **Evaluation Runs** | The most recent run with each evalset case listed and its pass or fail status. |
 | **Test Results panel** | The terminal-style log of the run, including paths to the JSON results file and the generated HTML report. |
+
+## Fix a failing evaluation with Copilot
+
+When an evaluation fails, its card in the **Evaluation Report** shows **Fix with Copilot** next to the pass rate. **Evaluation History** shows the same button while the evaluation's latest run is failing.
+
+<ThemedImage
+    alt="Evaluation Report for a failed run of evaluateWeatherAgentToolTrajectory with a 60% pass rate against 90%, and Fix with Copilot highlighted."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/fix-with-copilot-report-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/fix-with-copilot-report-v1.0.png'),
+    }}
+/>
+
+Click **Fix with Copilot**. WSO2 Agent Builder Copilot opens a chat for that evaluation with its failed cases already attached. Copilot replays the failing turns with your agent and tells you why the evaluation fails, for example a missing tool or unclear instructions in the agent, or an expected result that asks for more than the agent's instructions require. Copilot makes small fixes itself and asks you before larger ones. It does not lower the minimum pass rate or remove cases to hide a mistake unless you agree. Run the evaluation again to confirm the fix, or ask Copilot to run it. Review the changes in the **Changes made** card, and click **Revert** if you don't want to keep them.
+
+:::note
+To replay the failing turns, Copilot runs your agent with its model and its real tools, once per turn. Make sure the agent's model provider is configured, and keep in mind that the tools really run.
+:::
+
+<ThemedImage
+    alt="Copilot beside the failed Evaluation Report, explaining the root cause, the fix it made to the agent, and the passing rerun, with a Changes made card."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/fix-with-copilot-chat-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/fix-with-copilot-chat-v1.0.png'),
+    }}
+/>
 
 ## Track runs over time
 
@@ -53,20 +89,22 @@ To compare runs across days or commits, open **Evaluation History**. There are t
 <ThemedImage
     alt="Evaluation Report with the Evaluation History button highlighted at the top right and the history icon highlighted next to evaluations in the Test Explorer."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history-v1.0.png'),
     }}
 />
 
-Either entry point opens the **Evaluation History** view.
+Either entry point opens the **Evaluation History** view. You can also open it from your agent: click **Evaluations**, and then click **View History** to open the history filtered to that agent.
 
 <ThemedImage
-    alt="Evaluation History view with summary counters, a pass-rate trend chart for testToolTrajectory, and a Run History table with status, code changes, and report links."
+    alt="Evaluation History view with search and filters, summary counters, a pass-rate trend chart for evaluateWeatherAgentToolTrajectory, and a Run history table with status, code changes, and report actions."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history-v1.0.png'),
     }}
 />
+
+Use the search box to find evaluations by name, query, thread, or failure message. Use the filters to narrow the list by status, agent, and date range, and the sort menu to order it by latest run, lowest pass rate, most failed runs, or name.
 
 The trend chart shows the pass rate over time. The **Run History** table lists every recorded run.
 
@@ -77,17 +115,17 @@ The trend chart shows the pass rate over time. The **Run History** table lists e
 | **Status** | Whether the run met the target (Passed or Failed). |
 | **Code Changes** | Whether the project was committed or had local edits at the time of the run. **View changes** opens the diff against the current state. |
 | **Outcomes** | Number of cases evaluated. |
-| **Report** | Opens the full report for that run. |
+| **Actions** | **Open report** opens the full report for that run. The delete icon removes the run from the history. |
 
 ### Inspect code changes for any run
 
 Click **View changes** on any row to see what changed between that run and the current project state.
 
 <ThemedImage
-    alt="Code changes since this run dialog showing a single file with a diff that adds tools to the math tutor model."
+    alt="Code changes since this run dialog showing main.bal with a diff that changes the weather agent's instructions, and Restore to this state highlighted."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff-v1.0.png'),
     }}
 />
 
