@@ -21,6 +21,15 @@ Choose where your agents run. Where you deploy also decides how you [manage](../
 
 <PaletteGrid>
 
+<PaletteCard icon="agents" href="/deploy-and-run/deploy-to-agent-manager">
+  <h3 class="palette-card-title">Deploy to WSO2 Agent Manager</h3>
+  <ul class="palette-card-list">
+    <li>Run and manage your organization's agents in one place</li>
+    <li>Connect to your Agent Manager instance</li>
+    <li>Builds from your GitHub repository</li>
+  </ul>
+</PaletteCard>
+
 <PaletteCard icon="cloud" href="/deploy-and-run/deploy-to-wso2-cloud">
   <h3 class="palette-card-title">Deploy to WSO2 Cloud</h3>
   <ul class="palette-card-list">
@@ -72,5 +81,6 @@ Choose where your agents run. Where you deploy also decides how you [manage](../
 
 ## What's next
 
-- [Deploy to WSO2 Cloud](deploy-to-wso2-cloud/deploy-to-wso2-cloud.md) — Deploy your first agent from WSO2 Agent Builder.
+- [Deploy to WSO2 Agent Manager](deploy-to-agent-manager/deploy-to-agent-manager.md) — Deploy your agent to your Agent Manager instance.
+- [Deploy to WSO2 Cloud](deploy-to-wso2-cloud/deploy-to-wso2-cloud.md) — Deploy your agent to the fully managed WSO2 Cloud.
 - [Concepts](../get-started/concepts/concepts.mdx) — Deployment options, environments, and promotion.
