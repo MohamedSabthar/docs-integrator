@@ -11,13 +11,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Copilot Architecture and Data Handling
 
-WSO2 Agent Builder provides an AI-powered Copilot to help you build agents. This page explains how [WSO2 Agent Builder Copilot](capabilities.md) works, how user data is handled, and what best practices organizations should follow when using AI features.
+WSO2 Agent Builder provides an AI-powered Copilot to enhance developer productivity. This page explains how [WSO2 Agent Builder Copilot](capabilities.md) works, how user data is handled, and what best practices organizations should follow when using AI features.
 
 These guidelines are designed to ensure transparency, security, and compliance when using AI-powered assistance in enterprise environments.
 
 ## Macro architecture
 
-WSO2 Agent Builder Copilot is built into WSO2 Agent Builder. It works as follows:
+WSO2 Agent Builder Copilot is integrated into the WSO2 Agent Builder developer experience. It works as follows:
 
 <ThemedImage
     alt="WSO2 Agent Builder Copilot macro architecture"
@@ -27,7 +27,7 @@ WSO2 Agent Builder Copilot is built into WSO2 Agent Builder. It works as follows
     }}
 />
 
-- **WSO2 Agent Builder Copilot**: Builds, changes, runs, tests, and evaluates the agents in your project from the chat, and answers your questions about them.
+- **WSO2 Agent Builder Copilot**: Provides in-editor assistance such as code completion, explanations, and suggestions.
 - **Language Server**: Powers intelligent features inside the editor, including syntax awareness and integration with Copilot services.
 - **WSO2 Intelligence endpoint**: A lightweight intermediary service that connects the editor to Anthropic or Amazon Bedrock models. This service does not retain data.
 - **Anthropic or Amazon Bedrock integration**: The endpoint forwards user prompts and context to the selected large language model (LLM) provider for processing.
@@ -72,8 +72,8 @@ The movement of data through Copilot is designed for zero retention at the inter
 To work on your agents, Copilot sends the following to the AI model:
 
 - Your prompts, and any files or images you attach.
-- The contents of the project files that Copilot reads while it works, including your evalsets and the conversations saved in them.
-- The results of the tools Copilot runs, such as diagnostics, test and evaluation results, logs from services it runs, and the responses to requests it sends to your services.
+- The contents of the project files that Copilot reads while it works.
+- The results of the tools Copilot runs, such as diagnostics, test results, logs from services it runs, and the responses to requests it sends to your services.
 
 Copilot does not read your `Config.toml` file. When Copilot asks you for configuration values, it saves them to your project and does not send them to the AI model.
 
