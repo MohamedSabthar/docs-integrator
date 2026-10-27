@@ -23,8 +23,8 @@ To start creating a new project:
 <ThemedImage
     alt="WSO2 Agent Builder home page"
     sources={{
-        light: useBaseUrl('/img/create-project/wso2-agent-builder.png'),
-        dark: useBaseUrl('/img/create-project/wso2-agent-builder.png'),
+        light: useBaseUrl('/img/create-project/wso2-agent-builder-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/wso2-agent-builder-v1.0.png'),
     }}
 />
 
@@ -54,8 +54,8 @@ In the **Create a Project** form, define the core properties of your workspace a
 <ThemedImage
     alt="Create Project form"
     sources={{
-        light: useBaseUrl('/img/create-project/create-project.png'),
-        dark: useBaseUrl('/img/create-project/create-project.png'),
+        light: useBaseUrl('/img/create-project/create-project-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/create-project-v1.0.png'),
     }}
 />
 
@@ -74,8 +74,8 @@ Expand the **Advanced Configurations** panel to specify the Ballerina Package de
 <ThemedImage
     alt="Advanced Configuration form"
     sources={{
-        light: useBaseUrl('/img/create-project/advanced-configuration-form.png'),
-        dark: useBaseUrl('/img/create-project/advanced-configuration-form.png'),
+        light: useBaseUrl('/img/create-project/advanced-configuration-form-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/advanced-configuration-form-v1.0.png'),
     }}
 />
 
@@ -89,16 +89,16 @@ Click **+ Add** in the **Agentic Integrations & Libraries** section. The **Add a
 <ThemedImage
     alt="Project view"
     sources={{
-        light: useBaseUrl('/img/create-project/add-integration.png'),
-        dark: useBaseUrl('/img/create-project/add-integration.png'),
+        light: useBaseUrl('/img/create-project/add-integration-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/add-integration-v1.0.png'),
     }}
 />
 
 <ThemedImage
     alt="Add an Integration or Library form"
     sources={{
-        light: useBaseUrl('/img/create-project/add-integration-library-form.png'),
-        dark: useBaseUrl('/img/create-project/add-integration-library-form.png'),
+        light: useBaseUrl('/img/create-project/add-integration-library-form-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/add-integration-library-form-v1.0.png'),
     }}
 />
 
@@ -123,8 +123,8 @@ Click **+ Add** in the **Agentic Integrations & Libraries** section. The **Add a
 <ThemedImage
     alt="Add New Agentic Integration form"
     sources={{
-        light: useBaseUrl('/img/create-project/choose-integration.png'),
-        dark: useBaseUrl('/img/create-project/choose-integration.png'),
+        light: useBaseUrl('/img/create-project/choose-integration-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/choose-integration-v1.0.png'),
     }}
 />
 
@@ -141,8 +141,8 @@ Click **+ Add** in the **Agentic Integrations & Libraries** section. The **Add a
 <ThemedImage
     alt="Add New Library form"
     sources={{
-        light: useBaseUrl('/img/create-project/choose-library.png'),
-        dark: useBaseUrl('/img/create-project/choose-library.png'),
+        light: useBaseUrl('/img/create-project/choose-library-v1.0.png'),
+        dark: useBaseUrl('/img/create-project/choose-library-v1.0.png'),
     }}
 />
 

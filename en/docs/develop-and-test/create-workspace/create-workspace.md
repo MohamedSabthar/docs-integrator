@@ -22,8 +22,8 @@ A project can hold any number of agentic integrations and libraries side by side
 <ThemedImage
     alt="How WSO2 Agent Builder organizes a project, its agentic integrations, and its libraries"
     sources={{
-        light: useBaseUrl('/img/develop/organize/agent-builder-work-organization.png'),
-        dark: useBaseUrl('/img/develop/organize/agent-builder-work-organization.png'),
+        light: useBaseUrl('/img/develop/organize/agent-builder-work-organization-v1.0.png'),
+        dark: useBaseUrl('/img/develop/organize/agent-builder-work-organization-v1.0.png'),
     }}
 />
 
