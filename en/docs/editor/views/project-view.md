@@ -16,8 +16,8 @@ The Project view is the top-level view in WSO2 Agent Builder. It appears when yo
 <ThemedImage
     alt="Project view overview"
     sources={{
-        light: useBaseUrl('/img/editor/views/project-view/overview-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/project-view/overview-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/project-view/overview-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/project-view/overview-v1.0.png'),
     }}
 />
 
@@ -28,8 +28,8 @@ The project overview canvas is the central area of the Project view. It displays
 <ThemedImage
     alt="Project overview canvas"
     sources={{
-        light: useBaseUrl('/img/editor/views/project-view/project-overview-canvas-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/project-view/project-overview-canvas-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/project-view/project-overview-canvas-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/project-view/project-overview-canvas-v1.0.png'),
     }}
 />
 
@@ -53,8 +53,8 @@ Click **Deploy** at the top right of the Project view to deploy or package the a
 <ThemedImage
     alt="Deploy menu"
     sources={{
-        light: useBaseUrl('/img/editor/views/project-view/deployment-options-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/project-view/deployment-options-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/project-view/deployment-options-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/project-view/deployment-options-v1.0.png'),
     }}
 />
 

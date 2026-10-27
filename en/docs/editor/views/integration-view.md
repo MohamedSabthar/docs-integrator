@@ -16,8 +16,8 @@ The Integration view is the primary development interface in WSO2 Agent Builder.
 <ThemedImage
     alt="Integration view overview"
     sources={{
-        light: useBaseUrl('/img/editor/views/integration-view/overview-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/integration-view/overview-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/integration-view/overview-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/integration-view/overview-v1.0.png'),
     }}
 />
 
@@ -28,8 +28,8 @@ The **Overview** canvas is the central area of the Integration view. It displays
 <ThemedImage
     alt="Overview canvas"
     sources={{
-        light: useBaseUrl('/img/editor/views/integration-view/design-canvas-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/integration-view/design-canvas-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/integration-view/design-canvas-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/integration-view/design-canvas-v1.0.png'),
     }}
 />
 
@@ -65,8 +65,8 @@ Describe what you want in natural language, and [WSO2 Agent Builder Copilot](../
   <ThemedImage
       alt="The Copilot composer on the overview of a new agentic integration."
       sources={{
-          light: useBaseUrl('/img/editor/views/integration-view/copilot-composer.png'),
-          dark: useBaseUrl('/img/editor/views/integration-view/copilot-composer.png'),
+          light: useBaseUrl('/img/editor/views/integration-view/copilot-composer-v1.0.png'),
+          dark: useBaseUrl('/img/editor/views/integration-view/copilot-composer-v1.0.png'),
       }}
   />
 
@@ -75,8 +75,8 @@ Describe what you want in natural language, and [WSO2 Agent Builder Copilot](../
   <ThemedImage
       alt="The WSO2 Agent Builder Copilot orb on the integration overview."
       sources={{
-          light: useBaseUrl('/img/editor/views/integration-view/copilot-orb.png'),
-          dark: useBaseUrl('/img/editor/views/integration-view/copilot-orb.png'),
+          light: useBaseUrl('/img/editor/views/integration-view/copilot-orb-v1.0.png'),
+          dark: useBaseUrl('/img/editor/views/integration-view/copilot-orb-v1.0.png'),
       }}
   />
 
@@ -96,8 +96,8 @@ The toolbar sits at the top of the Integration view and provides quick access to
 <ThemedImage
     alt="Toolbar"
     sources={{
-        light: useBaseUrl('/img/editor/views/integration-view/toolbar-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/integration-view/toolbar-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/integration-view/toolbar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/integration-view/toolbar-v1.0.png'),
     }}
 />
 
@@ -116,16 +116,16 @@ Select **Deploy** in the toolbar to open the deploy panel on the right side of t
 <ThemedImage
     alt="Deploy button in the toolbar"
     sources={{
-        light: useBaseUrl('/img/editor/views/integration-view/deployment-button-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/integration-view/deployment-button-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/integration-view/deployment-button-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/integration-view/deployment-button-v1.0.png'),
     }}
 />
 
 <ThemedImage
     alt="Deploy panel"
     sources={{
-        light: useBaseUrl('/img/editor/views/integration-view/deployment-options-v5.1.png'),
-        dark: useBaseUrl('/img/editor/views/integration-view/deployment-options-v5.1.png'),
+        light: useBaseUrl('/img/editor/views/integration-view/deployment-options-v1.0.png'),
+        dark: useBaseUrl('/img/editor/views/integration-view/deployment-options-v1.0.png'),
     }}
 />
 
