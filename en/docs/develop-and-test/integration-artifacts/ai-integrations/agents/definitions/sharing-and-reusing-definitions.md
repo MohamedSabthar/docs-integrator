@@ -75,8 +75,8 @@ Shared definitions appear under **Pre-built Agents** in the **Add Agent** dialog
 <ThemedImage
     alt="The Add Agent dialog showing the Pre-built Agents section with entries labelled by their organization and package name."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/multi-agent/05-add-agent-dialog.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/multi-agent/05-add-agent-dialog.png'),
+        light: useBaseUrl('/img/genai/develop/agents/multi-agent/05-add-agent-dialog-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/multi-agent/05-add-agent-dialog-v1.0.png'),
     }}
 />
 
