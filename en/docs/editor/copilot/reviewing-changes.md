@@ -39,7 +39,7 @@ Notes are compared in the same way. A note that changed shows a Modified, Added,
 
 ## Move between changes
 
-Use the arrow buttons at the bottom of the view (**Previous View** and **Next View**) to step through the changed artifacts, or select an entry in the **Changes made** card to jump straight to it. A counter shows where you are in the change set, such as `2 / 5`, with a short description of the current change below it.
+Use the arrow buttons at the bottom of the view (**Previous View** and **Next View**) to step through the changed artifacts, or select an entry in the **Changes made** card to jump straight to it. A counter shows where you are in the change set, such as `2 / 4`, with a short description of the current change below it.
 
 ## Revert a change set
 
