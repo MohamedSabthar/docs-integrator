@@ -1,8 +1,8 @@
 ---
 sidebar_position: 3
 title: Create Evaluations from Templates
-description: Create AI agent evaluations in WSO2 Integrator from prebuilt templates. Pick a rule-based or LLM-as-judge template, configure it in a form, and save it without building a flow.
-keywords: [wso2 integrator, ai agent, evaluation, evaluation template, tool trajectory, llm-as-judge]
+description: Create AI agent evaluations in WSO2 Agent Builder from prebuilt templates. Pick a rule-based or LLM-as-judge template, configure it in a form, and save it without building a flow.
+keywords: [wso2 agent builder, ai agent, evaluation, evaluation template, tool trajectory, llm-as-judge]
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/evaluations/create-evaluations-templates
 ---
 
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Create Evaluations from Templates
 
-An **evaluation template** is a prebuilt evaluator for a common AI evaluation pattern. You pick a template, fill a short form, and WSO2 Integrator generates the evaluation for you, with no flow to build.
+An **evaluation template** is a prebuilt evaluator for a common AI evaluation pattern. You pick a template, fill a short form, and WSO2 Agent Builder generates the evaluation for you, with no flow to build.
 
 This page walks through the **Tool Trajectory** template, which checks that the agent calls the tools recorded in an evalset. To write your own evaluation logic instead, see [Create custom evaluations](create-evaluations-custom.md).
 
@@ -27,8 +27,8 @@ The **Tool Trajectory** template replays an evalset, so have at least one evalse
 <ThemedImage
     alt="Test Explorer in the Testing view with the math-tutor evalset listed under Evalsets, ready to add a new AI evaluation."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
     }}
 />
 
@@ -37,8 +37,8 @@ The **Tool Trajectory** template replays an evalset, so have at least one evalse
 <ThemedImage
     alt="Create New AI Evaluation form with From Template selected and a Choose Template button under Choose an evaluation template."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-form.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-form.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-form-v1.0.png'),
     }}
 />
 
@@ -54,8 +54,8 @@ The badges on each card show its kind and the test input it accepts. **Evalset r
 <ThemedImage
     alt="Browse Evaluation Templates dialog showing 23 templates with a search box, filter buttons for All, Rule-based, LLM-as-Judge, Evalset required, and Evalset or queries, and template cards such as Clarity, Coherence, and Contains Match."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-browser.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-browser.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-browser-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-browser-v1.0.png'),
     }}
 />
 
@@ -75,8 +75,8 @@ For example, choose the **Tool Trajectory** evaluation template. The selected te
 <ThemedImage
     alt="Tool Trajectory template configuration card with Target Agent set to mathTutorAgent, Evalset File set to math-tutor, Optional settings, and Minimum Pass Rate set to 90%."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config-v1.0.png'),
     }}
 />
 
@@ -102,8 +102,8 @@ Click **Save**. The evaluation opens in the visual designer as a single **AI eva
 <ThemedImage
     alt="Visual designer showing the evaluateMathTutorAgentToolTrajectory evaluation as an AI evaluation node for the Tool Trajectory template with mathTutorAgent as the target agent."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node-v1.0.png'),
     }}
 />
 
