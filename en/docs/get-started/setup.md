@@ -4,7 +4,7 @@ sidebar_label: Setup
 title: Setup
 description: Download and install WSO2 Agent Builder on Windows, macOS, or Linux, sign in, and start building AI agents on your machine.
 keywords: [wso2 agent builder, setup, install, sign in, windows, macos, linux]
-slug: /get-started/cloud-setup
+slug: /get-started/setup
 ---
 
 import ThemedImage from '@theme/ThemedImage';
@@ -71,8 +71,8 @@ After installation, launch WSO2 Agent Builder:
 <ThemedImage
     alt="Welcome to WSO2 Agent Builder screen with the Sign in with WSO2 Integration Platform and Skip for now buttons"
     sources={{
-        light: useBaseUrl('/img/get-started/cloud-setup/01-welcome-sign-in-v1.0.png'),
-        dark: useBaseUrl('/img/get-started/cloud-setup/01-welcome-sign-in-v1.0.png'),
+        light: useBaseUrl('/img/get-started/setup/01-welcome-sign-in-v1.0.png'),
+        dark: useBaseUrl('/img/get-started/setup/01-welcome-sign-in-v1.0.png'),
     }}
 />
 
@@ -91,8 +91,8 @@ Sign in with your WSO2 Cloud account to use the Default WSO2 Model Provider, dep
    <ThemedImage
        alt="WSO2 Agent Builder welcome page after sign-in showing the account avatar in the top-right corner"
        sources={{
-           light: useBaseUrl('/img/get-started/cloud-setup/02-signed-in-v1.0.png'),
-           dark: useBaseUrl('/img/get-started/cloud-setup/02-signed-in-v1.0.png'),
+           light: useBaseUrl('/img/get-started/setup/02-signed-in-v1.0.png'),
+           dark: useBaseUrl('/img/get-started/setup/02-signed-in-v1.0.png'),
        }}
    />
 

@@ -12,7 +12,7 @@ slug: /get-started/quickstarts
 
 Each quickstart walks you through building a working agent from an empty project, in under 10 minutes. Pick the one that matches what you're trying to build.
 
-Before you start, [set up WSO2 Agent Builder](../cloud-setup.md) and sign in.
+Before you start, [set up WSO2 Agent Builder](../setup.md) and sign in.
 
 <PaletteGrid>
 
