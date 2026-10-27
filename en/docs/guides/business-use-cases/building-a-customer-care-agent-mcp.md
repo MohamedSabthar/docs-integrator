@@ -28,14 +28,14 @@ flowchart LR
 
 A customer care agent that connects to a ShopEasy MCP server and answers product availability, order status, and return questions over a chat API.
 
-This tutorial shows how to build an agent that consumes an external MCP server using `ai:McpToolKit`. You do not build the MCP server here. It is provided as a running service. Your job is to wire the agent to it, write the system prompt, and expose a chat endpoint.
+This tutorial shows how to build an agent that uses an external MCP server through an MCP toolkit. You don't build the MCP server here; you run a provided sample instead. Your job is to connect the agent to it, write the system prompt, and expose a chat endpoint.
 
 The agent receives customer messages over HTTP, reasons about which tool to call, invokes the MCP server, and returns a natural language answer.
 
 
 
 :::info Prerequisites
-- [Model Providers for LLMs](../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md)
+- A model provider for the agent. This tutorial uses the **Default WSO2 Model Provider**. For other options, see [Model providers for LLMs](../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md).
 - The **ShopEasy MCP server** running locally. Clone the repo and follow its README to start it: [github.com/wso2/integration-samples](https://github.com/wso2/integration-samples/tree/main/integrator-default-profile/samples/customer-care-agent/mcp).
 :::
 
@@ -142,7 +142,7 @@ The panel also shows **Tools to Include** (defaults to **All**) and a collapsed 
 
 4. Leave **Result** as the default `aiMcpbasetoolkit` and select **Save**.
 
-The MCP toolkit appears as `aiMcpbasetoolkit` attached to the agent node, connected by a dashed line, and a `McpToolKit` type is added under **Types** in the sidebar. The agent will discover the available tools from the server at startup.
+The MCP toolkit appears as `aiMcpbasetoolkit` attached to the agent node, connected by a dashed line, and a `McpToolKit` type is added under **Types** in the sidebar. The agent discovers the available tools from the server at startup.
 
 <ThemedImage
     alt="The completed agent canvas with the Agent Chat trigger, the AI Agent node connected to the Default WSO2 Model Provider, and aiMcpbasetoolkit attached to the AI Agent node by a dashed line"
@@ -167,7 +167,7 @@ Try the following messages to exercise all three tools:
 </TabItem>
 <TabItem value="code" label="Ballerina Code">
 
-**`connections.bal`**: MCP toolkit connection:
+**`connections.bal`** creates the MCP toolkit:
 
 ```ballerina
 final McpToolKit aiMcpbasetoolkit = check new ("http://localhost:8080/mcp");
@@ -175,7 +175,7 @@ final McpToolKit aiMcpbasetoolkit = check new ("http://localhost:8080/mcp");
 
 The model provider is initialized inline with `ai:getDefaultModelProvider()` in `agents.bal`, so no separate connection is needed for the default WSO2 model provider.
 
-**`agents.bal`**: agent definition:
+**`agents.bal`** defines the agent and the toolkit class:
 
 ```ballerina
 import ballerina/ai;
@@ -215,7 +215,7 @@ isolated class McpToolKit {
 }
 ```
 
-**`main.bal`**: HTTP chat service:
+**`main.bal`** defines the chat service:
 
 ```ballerina
 import ballerina/ai;
@@ -239,13 +239,13 @@ To run and test the agent, follow the same steps in the **Visual Designer** tab 
 
 ## What you built
 
-- Connected an agent to a live MCP server using `ai:McpToolKit`
-- The agent dynamically discovered three tools (`searchProducts`, `getOrderStatus`, `submitReturnRequest`) at startup with no hardcoded tool definitions
+- Connected an agent to a live MCP server through an MCP toolkit
+- Let the agent discover three tools (`searchProducts`, `getOrderStatus`, `submitReturnRequest`) at startup, with no hardcoded tool definitions
 - Exposed the agent as an HTTP chat service with session-scoped memory
 
 ## What's next
 
 - [Exposing a service as an MCP server](../../develop-and-test/integration-artifacts/ai-integrations/mcp/exposing-as-mcp.md) — Build your own MCP server like the one used in this tutorial
-- [Consuming MCP from an agent](../../develop-and-test/integration-artifacts/ai-integrations/mcp/consuming-mcp-from-agent.md) — Deeper reference for `ai:McpToolKit` options
+- [Consuming MCP from an agent](../../develop-and-test/integration-artifacts/ai-integrations/mcp/consuming-mcp-from-agent.md) — Reference for the MCP toolkit options
 - [Adding memory to an agent](../../develop-and-test/integration-artifacts/ai-integrations/agents/memory.md) — Persist conversation history across sessions
 - [AI agent observability](../../develop-and-test/integration-artifacts/ai-integrations/agents/observability.md) — Trace tool calls and monitor agent performance
