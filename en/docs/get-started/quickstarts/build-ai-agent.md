@@ -1,8 +1,8 @@
 ---
 sidebar_position: 3
 title: "Build an AI Agent"
-description: Build an intelligent agent using LLMs and tools, and expose it via a chat interface.
-keywords: [wso2 integrator, ai agent, llm, chat agent, genai, quick start, ballerina ai]
+description: Build an AI agent in WSO2 Agent Builder, connect it to a chat trigger, and test it in the built-in chat panel.
+keywords: [wso2 agent builder, ai agent, llm, chat agent, genai, quick start, ballerina ai]
 slug: /get-started/quickstarts/build-ai-agent
 ---
 
@@ -14,21 +14,21 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <QuickstartHeader
   time="Under 10 minutes"
-  build={<>An AI agent that connects to an LLM, uses tools, and responds to user queries in chat.</>}
+  build={<>An AI agent that connects to an LLM and responds to user queries in chat.</>}
 />
 
 <p style={{textAlign: 'justify'}}>
-An AI agent uses an LLM to understand user queries, reason about them, and call tools to retrieve information or perform actions. This quick start walks you through the full process: creating a project, adding an AI Chat Agent artifact, configuring its instructions, and testing the agent in the built-in chat panel.
+An AI agent uses an LLM to understand user queries, reason about them, and call tools to retrieve information or perform actions. This quick start walks you through the full process: adding an agentic integration, creating an agent with its role and instructions, connecting it to a chat trigger, and testing it in the built-in chat panel.
 </p>
 
 <Prerequisites>
 
 ## Prerequisites
 
-A working WSO2 Integrator environment.
+A working WSO2 Agent Builder environment.
 
 <PrereqCard icon="local" title="Local setup" href="/get-started/cloud-setup">
-  Install and launch WSO2 Integrator on your machine.
+  Install and launch WSO2 Agent Builder on your machine.
 </PrereqCard>
 <PrereqCard icon="cloud" title="WSO2 Cloud Account" href="/get-started/cloud-setup" cloud>
   For AI assisted development and WSO2 Cloud deployments.
@@ -39,126 +39,172 @@ A working WSO2 Integrator environment.
 
 <Steps>
 
-## Step 1: Create the integration
+## Step 1: Create the agentic integration
 
-:::info Note
-If you're using the cloud editor, a project is already open, so you can skip this step 1 and go directly to [Step 2: Add an AI chat agent](#step-2-add-an-ai-chat-agent).
-:::
+1. Open WSO2 Agent Builder. The project home page opens.
 
-1. Open WSO2 Integrator.
-
-2. Click **Create** in the **Create a Project** card.
+2. Click **Add Agentic Integration or Library**.
 
    <ThemedImage
-      alt="WSO2 Integrator home screen with the Create a Project card"
+      alt="The WSO2 Agent Builder project home page for the Default project, showing Your project is empty and an Add Agentic Integration or Library button."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/wso2-integrator.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/wso2-integrator.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/agent-builder-home-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/agent-builder-home-v1.0.png'),
       }}
    />
 
-3. Set **Project Name** to `QuickStart`.
+3. Select **Agentic Integration**.
 
-4. Set **Integration Name** to `AIAgent`.
+4. Set **Agentic Integration Name** to `AIAgent`.
 
-5. Click **Create**.
+5. Click **Add**.
 
    <ThemedImage
-      alt="Create a Project form with Project name set to QuickStart and Integration name set to AIAgent"
+      alt="The Add an Integration or Library form with Agentic Integration selected and Agentic Integration Name set to AIAgent."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/create-project.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/create-project.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/add-agentic-integration-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/add-agentic-integration-v1.0.png'),
       }}
    />
 
 
-## Step 2: Add an AI chat agent
+## Step 2: Create the agent
 
-1. Select your integration from the project overview canvas.
-
-2. In the design view, click **Add Artifact Manually**.
+1. The new integration opens. Under **Or start from scratch**, click **Add Agent**.
 
    <ThemedImage
-      alt="Integration design view with the Add Artifact manually button highlighted"
+      alt="The AIAgent integration page with the WSO2 Agent Builder Copilot prompt, example cards, and the Add Agent and Add MCP Server buttons under Or start from scratch."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/add-artifact.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/add-artifact.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/integration-start-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/integration-start-v1.0.png'),
       }}
    />
 
-3. Select **Chat Agent Service** under **AI Integration**.
+   :::tip
+   You can also describe what your agent should do in the **WSO2 Agent Builder Copilot** prompt and let Copilot build it. This quick start builds the agent by hand.
+   :::
+
+2. In the **Add Agent** dialog, select **Create Agent**.
 
    <ThemedImage
-      alt="Artifacts page with Chat Agent Service highlighted under AI Integration"
+      alt="The Add Agent dialog with Create Agent, Create Durable Agent, and Create Agent Definition under Create New, and a Pre-built Agents section."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/select-ai-agent.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/select-ai-agent.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/add-agent-dialog-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/add-agent-dialog-v1.0.png'),
       }}
    />
 
-4. The **Create Chat Agent Service** form opens.
+3. Set **Role** to `Wso2IntegratorAssistant`.
 
-5. Set **Role** to `Wso2IntegratorAssistant`.
-
-6. Set **Instructions** to:
+4. Set **Instructions** to:
 
    ```text
    You are a highly skilled WSO2 Integration Architect. Your goal is to assist developers in building, debugging, and optimizing integration flows.
    ```
 
+5. Leave **Model** set to **Default WSO2 Model Provider**, and leave **Advanced Configurations** at their default values.
+
+6. Set **Agent Name** to `wso2IntegratorAssistant`.
+
+7. Click **Create Agent**.
+
    <ThemedImage
-      alt="Create Chat Agent Service form with Role and Instructions filled in"
+      alt="The Create Agent form with Role set to Wso2IntegratorAssistant, the Instructions filled in, Model set to Default WSO2 Model Provider, and Agent Name set to wso2IntegratorAssistant."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/chat-agent-service-form-1.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/chat-agent-service-form-1.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/create-agent-form-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/create-agent-form-v1.0.png'),
       }}
    />
 
-7. Leave the remaining configuration fields at their default values.
+The agent's canvas opens. It shows the agent with its role and instructions, the model provider it uses, and **Add Trigger**, **Add Memory**, and **Add Tool** for extending it.
 
-8. Under **Advanced Configurations**, set **Agent Name** to `Wso2IntegratorAssistant`.
-
-9. Click **Create**.
-
-   <ThemedImage
-      alt="Create Chat Agent Service form with Agent Name set to Wso2IntegratorAssistant"
-      sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/chat-agent-service-form-2.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/chat-agent-service-form-2.png'),
-      }}
-   />
-
+<ThemedImage
+   alt="The wso2IntegratorAssistant agent canvas with Add Trigger on the left, the AI Agent node with Add Memory and its role and instructions, the Default WSO2 Model Provider on the right, and Add Tool below."
+   sources={{
+      light: useBaseUrl('/img/get-started/build-ai-agent/agent-canvas-v1.0.png'),
+      dark: useBaseUrl('/img/get-started/build-ai-agent/agent-canvas-v1.0.png'),
+   }}
+/>
 
 :::tip Default model provider
 
-By default, the agent is configured to use the WSO2 model provider. If you want to use a different LLM, see [Model providers](../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md) for the full list of supported providers (OpenAI, Azure OpenAI, Anthropic, and others).
+By default, the agent uses the WSO2 model provider. If you want to use a different LLM, see [Model providers](../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md) for the full list of supported providers (OpenAI, Azure OpenAI, Anthropic, and others).
 
-If you are using the WSO2 model provider, the access token is obtained through [WSO2 Integrator Copilot](../../editor/copilot/copilot.md). If you have not already signed in, you will be prompted to do so.
+If you are using the WSO2 model provider, the access token is obtained through [WSO2 Agent Builder Copilot](../../editor/copilot/copilot.md). If you have not already signed in, you will be prompted to do so.
 :::
 
 
-## Step 3: Run and test
+## Step 3: Add a chat trigger
 
-1. Click **Run**.
+An agent only runs when a trigger calls it. Connect the agent to a chat endpoint so you can talk to it.
 
-2. Click **Chat** from the Chat Agent Service title bar or click **Test** from the pop-up.
-
-3. Type `Hello` to check if it works.
+1. On the agent canvas, click **Add Trigger**.
 
    <ThemedImage
-      alt="Chat Agent Service running with the chat panel showing a reply to Hello"
+      alt="The Add Trigger dialog for wso2IntegratorAssistant, listing Chat Channels (Agent Chat, Google Chat, Telegram, WhatsApp Business), API Endpoints (HTTP), and Event Sources."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/run-and-test.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/run-and-test.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/add-trigger-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/add-trigger-v1.0.png'),
       }}
    />
 
-## Step 4: Deploy to WSO2 Cloud
+2. Under **Chat Channels**, select **Agent Chat**.
+
+3. Keep the generated **Service Path** and click **Create**.
+
+   <ThemedImage
+      alt="The Agent Chat trigger form with Service Path set to /wso-2-integrator-assistant and a Create button."
+      sources={{
+         light: useBaseUrl('/img/get-started/build-ai-agent/agent-chat-trigger-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/agent-chat-trigger-v1.0.png'),
+      }}
+   />
+
+The trigger appears on the canvas, connected to the agent.
+
+<ThemedImage
+   alt="The wso2IntegratorAssistant agent canvas with an Agent Chat trigger for /wso-2-integrator-assistant connected to the AI Agent node."
+   sources={{
+      light: useBaseUrl('/img/get-started/build-ai-agent/agent-canvas-with-trigger-v1.0.png'),
+      dark: useBaseUrl('/img/get-started/build-ai-agent/agent-canvas-with-trigger-v1.0.png'),
+   }}
+/>
+
+
+## Step 4: Run and test
+
+1. Select **AIAgent** in the breadcrumb to open the integration's **Overview**, and click **Run**.
+
+   <ThemedImage
+      alt="The AIAgent integration Overview with Configure, Tracing, Run, and Deploy in the header, and an Agent Chat trigger card connected to the wso2IntegratorAssistant agent card."
+      sources={{
+         light: useBaseUrl('/img/get-started/build-ai-agent/integration-overview-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/integration-overview-v1.0.png'),
+      }}
+   />
+
+2. Wait until the terminal shows `Running executable`.
+
+3. Open the agent canvas again and click the **Agent Chat** trigger node. The trigger's **Chat Agent Service** flow opens.
+
+4. Click **Chat** in the title bar to open the **Agent Chat** panel.
+
+5. Type `Hello` to check that it works.
+
+   <ThemedImage
+      alt="The Chat Agent Service flow for the /wso-2-integrator-assistant trigger beside the Agent Chat panel, where Hello is answered with Hello! How can I assist you today with your WSO2 integration projects?"
+      sources={{
+         light: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
+      }}
+   />
+
+## Step 5: Deploy to WSO2 Cloud
 
 Deploy your integration to WSO2 Cloud - Integration Platform in any of the following ways:
 
 - If you're using the cloud editor, see [Save and deploy](product://integrator/deploy-and-run/deploy-to-wso2-cloud/deploy-from-cloud-editor#save-and-deploy).
-- If you're using WSO2 Integrator on your machine, see [Deploy from WSO2 Integrator](product://integrator/deploy-and-run/deploy-to-wso2-cloud/push-from-ide).
+- If you're using WSO2 Agent Builder on your machine, see [Deploy from WSO2 Integrator](product://integrator/deploy-and-run/deploy-to-wso2-cloud/push-from-ide).
 
 <div class="skip-ahead-card">
 
@@ -181,7 +227,7 @@ Deploy your integration to WSO2 Cloud - Integration Platform in any of the follo
 <details>
 <summary>View the generated Ballerina code</summary>
 
-The steps above generate the following complete, runnable Ballerina program. It has two files: `agents.bal` for the agent definition and `main.bal` for the listener and service.
+The steps above generate the following complete, runnable Ballerina program. It has two files: `agents.bal` for the agent and `main.bal` for the chat trigger's listener and service.
 
 
 **`agents.bal`**
@@ -189,13 +235,12 @@ The steps above generate the following complete, runnable Ballerina program. It 
 ```ballerina
 import ballerina/ai;
 
-final ai:Agent wso2IntegratorAssistantAgent = check new (
-   systemPrompt = {
-       role: string `Wso2IntegratorAssistant`,
-       instructions: string `You are a highly skilled WSO2 Integration Architect. Your goal is to assist developers in building, debugging, and optimizing integration flows.`
-   },
-   model = wso2ModelProvider,
-   tools = []
+final ai:Agent wso2IntegratorAssistant = check new (
+    systemPrompt = {
+        role: string `Wso2IntegratorAssistant`,
+        instructions: string `You are a highly skilled WSO2 Integration Architect. Your goal is to assist developers in building, debugging, and optimizing integration flows.`
+    },
+    model = check ai:getDefaultModelProvider()
 );
 ```
 
@@ -205,13 +250,14 @@ final ai:Agent wso2IntegratorAssistantAgent = check new (
 import ballerina/ai;
 import ballerina/http;
 
-listener ai:Listener chatAgentListener = new (listenOn = check http:getDefaultListener());
+listener ai:Listener agentChatListener = new (listenOn = check http:getDefaultListener());
 
-service /wso2IntegratorAssistant on chatAgentListener {
-   resource function post chat(@http:Payload ai:ChatReqMessage request) returns ai:ChatRespMessage|error {
-       string stringResult = check wso2IntegratorAssistantAgent.run(request.message, request.sessionId);
-       return {message: stringResult};
-   }
+service /wso\-2\-integrator\-assistant on agentChatListener {
+    resource function post chat(@http:Payload ai:ChatReqMessage request)
+            returns ai:ChatRespMessage|error {
+        string stringResult = check wso2IntegratorAssistant.run(request.message, sessionId = request.sessionId);
+        return {message: stringResult};
+    }
 }
 ```
 
@@ -220,10 +266,6 @@ service /wso2IntegratorAssistant on chatAgentListener {
 
 ## What's next
 
-- [Build an automation](product://integrator/get-started/quickstarts/build-automation) — Build a scheduled job
-- [Build an Integration as API](product://integrator/get-started/quickstarts/build-integration-api) — Build an HTTP service
-- [Build an event-driven integration](product://integrator/get-started/quickstarts/build-event-driven-integration) — React to messages from brokers
-- [Build a file-driven integration](product://integrator/get-started/quickstarts/build-file-driven-integration) — Process files from FTP or local directories
+- [Build a durable agent](build-durable-agent.md) — Build an agent that can pause for human approval and resume
 - [AI agents](../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md) — Learn how to build production-grade AI agents with tools, memory, and evaluations
-
-
+- [Agents as tools](../../develop-and-test/integration-artifacts/ai-integrations/agents/multi-agent/agents-as-tools.md) — Delegate work from one agent to another
