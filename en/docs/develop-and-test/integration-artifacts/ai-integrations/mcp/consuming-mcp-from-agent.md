@@ -196,7 +196,7 @@ Local tools and MCP tools are completely interchangeable from the agent's perspe
 
 ## Production tips
 
-- **`configurable` for endpoints.** Hard-coding MCP URLs makes environments harder to manage. Expose the URL as a [configurable variable](product://integrator/develop-and-test/integration-artifacts/supportive-artifacts/configurations) so it can be set per environment without changing source code.
+- **`configurable` for endpoints.** Hard-coding MCP URLs makes environments harder to manage. Expose the URL as a `configurable` variable (listed under **Configurations** in the project sidebar) so it can be set per environment without changing source code.
 
 - **Run MCP servers close to the agent.** MCP calls are on the agent's hot path. Network latency between agent and server directly increases user-perceived response time.
 

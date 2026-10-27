@@ -104,7 +104,7 @@ Service configuration controls the base path, the server identity advertised to 
 <Tabs>
 <TabItem value="ui" label="Visual Designer" default>
 
-In the **MCP Service Editor**, click **Configure** in the header to open the **MCP Service Configuration** page. The left-hand navigation lists **MCP Service** and, under **Attached Listeners**, each listener the service uses (for example, `mcpListener`). Selecting **MCP Service** shows the service-level fields below.
+In the **MCP Service editor**, click **Configure** in the header to open the **MCP Service Configuration** page. The left-hand navigation lists **MCP Service** and, under **Attached Listeners**, each listener the service uses (for example, `mcpListener`). Selecting **MCP Service** shows the service-level fields below.
 
 | Field | Description |
 |---|---|
@@ -126,7 +126,7 @@ The same form also shows the configuration of the attached listener. See [Listen
 |---|---|
 | **info.name** | Name of *your* server implementation (for example, `MCP Weather Server`). Sent to clients as `serverInfo.name` during initialization. Required. |
 | **info.version** | Version of your server implementation (for example, `1.0.0`). Sent as `serverInfo.version`. This is the version of *your* service, not the MCP protocol version; the protocol version is negotiated by the runtime. Required. |
-| **httpConfig** | HTTP service configuration (CORS, auth, compression, validation, and so on). Same fields as the [HTTP service](product://integrator/develop-and-test/integration-artifacts/integration-as-api/http) `@http:ServiceConfig`. |
+| **httpConfig** | HTTP service configuration (CORS, auth, compression, validation, and so on). Same fields as the `@http:ServiceConfig` annotation on an HTTP service. |
 | **sessionMode** | Session management mode. Options: `auto` (default), `stateful`, `stateless`. See [Session modes](#session-modes). |
 | **options.capabilities** | Capabilities the server advertises during initialization. Defaults to `{tools: {}}`. |
 | **options.instructions** | Instructions describing how to use the server and its tools. Sent to clients during initialization. |
@@ -689,4 +689,3 @@ Yes. These types still compile and run:
 
 - **[Consuming MCP from an Agent](consuming-mcp-from-agent.md)** — the other half of the MCP picture.
 - **[Tools (in AI Agents)](../agents/tools.md)** — local-tool reference; the same description-quality rules apply.
-- **[HTTP service](product://integrator/develop-and-test/integration-artifacts/integration-as-api/http)** — for the HTTP-level options exposed through `httpConfig`.
