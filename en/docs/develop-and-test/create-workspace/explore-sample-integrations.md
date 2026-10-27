@@ -19,8 +19,8 @@ On the WSO2 Agent Builder home screen, click **Explore** on the **Pre-built Agen
 <ThemedImage
     alt="WSO2 Agent Builder home screen"
     sources={{
-        light: useBaseUrl('/img/explore-samples/home-screen.png'),
-        dark: useBaseUrl('/img/explore-samples/home-screen.png'),
+        light: useBaseUrl('/img/explore-samples/home-screen-v1.0.png'),
+        dark: useBaseUrl('/img/explore-samples/home-screen-v1.0.png'),
     }}
 />
 
@@ -33,8 +33,8 @@ The **Browse Samples** view opens with the prompt `Start quickly by downloading 
 <ThemedImage
     alt="Browse Samples gallery"
     sources={{
-        light: useBaseUrl('/img/explore-samples/browse-samples-v5.1.png'),
-        dark: useBaseUrl('/img/explore-samples/browse-samples-v5.1.png'),
+        light: useBaseUrl('/img/explore-samples/browse-samples-v1.0.png'),
+        dark: useBaseUrl('/img/explore-samples/browse-samples-v1.0.png'),
     }}
 />
 
@@ -70,8 +70,8 @@ If you saved the sample inside an existing project folder inside the `WSO2AgentB
    <ThemedImage
        alt="Add to Project icon in the side panel"
        sources={{
-           light: useBaseUrl('/img/explore-samples/add-to-project-icon.png'),
-           dark: useBaseUrl('/img/explore-samples/add-to-project-icon.png'),
+           light: useBaseUrl('/img/explore-samples/add-to-project-icon-v1.0.png'),
+           dark: useBaseUrl('/img/explore-samples/add-to-project-icon-v1.0.png'),
        }}
    />
 
@@ -96,8 +96,8 @@ If you saved the sample outside a project, convert it to a new project.
    <ThemedImage
        alt="Convert to Project icon in the side panel"
        sources={{
-           light: useBaseUrl('/img/explore-samples/convert-to-project-icon.png'),
-           dark: useBaseUrl('/img/explore-samples/convert-to-project-icon.png'),
+           light: useBaseUrl('/img/explore-samples/convert-to-project-icon-v1.0.png'),
+           dark: useBaseUrl('/img/explore-samples/convert-to-project-icon-v1.0.png'),
        }}
    />
 
@@ -115,8 +115,8 @@ If you saved the sample outside a project, convert it to a new project.
    <ThemedImage
        alt="Convert to Project form"
        sources={{
-           light: useBaseUrl('/img/explore-samples/convert-to-project-form.png'),
-           dark: useBaseUrl('/img/explore-samples/convert-to-project-form.png'),
+           light: useBaseUrl('/img/explore-samples/convert-to-project-form-v1.0.png'),
+           dark: useBaseUrl('/img/explore-samples/convert-to-project-form-v1.0.png'),
        }}
    />
 

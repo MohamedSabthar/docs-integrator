@@ -17,8 +17,8 @@ On the WSO2 Agent Builder home screen, click **Open** on the **Start Building yo
    <ThemedImage
        alt="Home screen with the Open button highlighted"
        sources={{
-           light: useBaseUrl('/img/open-project/home-screen.png'),
-           dark: useBaseUrl('/img/open-project/home-screen.png'),
+           light: useBaseUrl('/img/open-project/home-screen-v1.0.png'),
+           dark: useBaseUrl('/img/open-project/home-screen-v1.0.png'),
        }}
    />
 
@@ -29,8 +29,8 @@ The form opens with the prompt `Choose how you'd like to open a project` and pre
       <ThemedImage
           alt="Open Project options"
           sources={{
-              light: useBaseUrl('/img/open-project/open-project-options.png'),
-              dark: useBaseUrl('/img/open-project/open-project-options.png'),
+              light: useBaseUrl('/img/open-project/open-project-options-v1.0.png'),
+              dark: useBaseUrl('/img/open-project/open-project-options-v1.0.png'),
           }}
       />
 
@@ -53,8 +53,8 @@ WSO2 Agent Builder detects the project structure and opens the [project view](..
    <ThemedImage
        alt="Sign in to browse cloud projects"
        sources={{
-           light: useBaseUrl('/img/open-project/cloud-sign-in.png'),
-           dark: useBaseUrl('/img/open-project/cloud-sign-in.png'),
+           light: useBaseUrl('/img/open-project/cloud-sign-in-v1.0.png'),
+           dark: useBaseUrl('/img/open-project/cloud-sign-in-v1.0.png'),
        }}
    />
 
