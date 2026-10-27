@@ -27,8 +27,8 @@ MCP services in WSO2 Agent Builder run over the **Streamable HTTP** transport. T
    <ThemedImage
        alt="The WSO2 Agent Builder project home page for the Unit Converter project, showing the WSO2 Agent Builder Copilot prompt box, four example cards (Customer Support, Issue Triager, Helpdesk Responder, and Order Tools), and the Add Agent and Add MCP Server buttons under Or start from scratch."
        sources={{
-           light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v5.1.png'),
-           dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v5.1.png'),
+           light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v1.0.png'),
+           dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/01-mcp-add-artifact-v1.0.png'),
        }}
    />
 
@@ -37,8 +37,8 @@ MCP services in WSO2 Agent Builder run over the **Streamable HTTP** transport. T
    <ThemedImage
        alt="The MCP Service dialog, subtitled Expose tools to MCP clients over the Streamable HTTP transport, with the Design From Scratch and Import From OpenAPI Specification options, Service Name (MCP Service), Version (1.0.0), Port (8080), Base Path (/mcp), and a Create button."
        sources={{
-           light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v5.1.png'),
-           dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v5.1.png'),
+           light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v1.0.png'),
+           dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/02-mcp-create-service-v1.0.png'),
        }}
    />
 
@@ -56,8 +56,8 @@ After you select **Create**, WSO2 Agent Builder adds the service under **Entry P
 <ThemedImage
     alt="The MCP Service editor showing the Listener (mcpListener) and Base Path (/mcp) chips, the Configure and Try It buttons, and the Tools section with 'No tools found. Add a new tool.' and a + Add Tool button. The project sidebar lists MCP Service under Entry Points."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor.png'),
+        light: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp/mcp-service-editor-v1.0.png'),
     }}
 />
 
@@ -117,8 +117,8 @@ The same form also shows the configuration of the attached listener. See [Listen
 <ThemedImage
     alt="The MCP Service Configuration page with the Record Configuration editor open for StreamableHttpServiceConfiguration, showing the info field (version and name, plus the optional description, websiteUrl, title, and icons fields), httpConfig, sessionMode (auto), and the optional options field, next to a preview of the resulting record."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/03-mcp-service-configuration-v1.0.png'),
     }}
 />
 
@@ -198,8 +198,8 @@ In the **MCP Service Configuration** form, select the listener under **Attached 
 <ThemedImage
     alt="The MCP Service Configuration page with mcpListener selected under Attached Listeners, showing the Configuration for mcpListener form with Name (mcpListener), Listen To (8080), Host, HTTP1 Settings, Secure Socket, and HTTP Version fields, and a Save Changes button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/04-mcp-listener-configuration-v1.0.png'),
     }}
 />
 
@@ -286,8 +286,8 @@ Select **+ Add Tool** in the editor to open the **New Tool Configuration** panel
 <ThemedImage
     alt="The New Tool Configuration panel showing Tool Name, Tool Description, Parameters, Return Type, and a collapsed Advanced Configurations section, with the MCP Service editor visible behind it."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/05-mcp-tool-configuration-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/05-mcp-tool-configuration-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/05-mcp-tool-configuration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/05-mcp-tool-configuration-v1.0.png'),
     }}
 />
 
@@ -304,8 +304,8 @@ After you select **Save**, WSO2 Agent Builder generates a `remote function` with
 <ThemedImage
     alt="The Remote Function view for the add tool, showing an empty flow with a Start node and the Flow and Sequence tabs. The project sidebar lists add under Entry Points > MCP Service."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram.png'),
+        light: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp/mcp-tool-flow-diagram-v1.0.png'),
     }}
 />
 
@@ -424,8 +424,8 @@ In the **New Tool Configuration** panel, expand **Advanced Configurations**.
 <ThemedImage
     alt="The Advanced Configurations section of the New Tool Configuration panel showing the Meta checkbox, Transport Parameters with HTTP Headers and a + Header button, and Request Access with Request and Headers checkboxes."
     sources={{
-        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/06-mcp-tool-advanced-configurations-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/06-mcp-tool-advanced-configurations-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/06-mcp-tool-advanced-configurations-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/mcp-v5.1/exposing-as-mcp/06-mcp-tool-advanced-configurations-v1.0.png'),
     }}
 />
 
