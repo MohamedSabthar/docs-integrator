@@ -43,6 +43,8 @@ A working WSO2 Agent Builder environment.
 
 1. Open WSO2 Agent Builder. The **Get Started** view opens.
 
+   If you're not signed in, a welcome screen asks you to sign in first. Click **Sign in with WSO2 Integration Platform**, or click **Skip for now** and sign in later. The default WSO2 model provider used in this quick start needs you to be signed in before you run the agent.
+
    :::note
    If Agent Builder opens a project you worked on before, open a new window (**Cmd+Shift+N** on macOS, **Ctrl+Shift+N** on Windows and Linux) to get to **Get Started**.
    :::
@@ -50,7 +52,7 @@ A working WSO2 Agent Builder environment.
 2. Under **Start Building your Agent**, click **Create**.
 
    <ThemedImage
-      alt="The WSO2 Agent Builder Get Started view, with a Start Building your Agent card containing Create and Open buttons, a Pre-built Agents and Samples card with an Explore button, and a Recent Projects list."
+      alt="The WSO2 Agent Builder Get Started view, with a Start Building your Agent card containing Create and Open buttons, a Pre-built Agents and Samples card with an Explore button, a Sign In button, and a Recent Projects list."
       sources={{
          light: useBaseUrl('/img/get-started/build-ai-agent/get-started-v1.0.png'),
          dark: useBaseUrl('/img/get-started/build-ai-agent/get-started-v1.0.png'),
