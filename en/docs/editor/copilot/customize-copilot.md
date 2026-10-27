@@ -190,7 +190,7 @@ A server is defined in one of the following scopes.
 
 The project file uses the bare filename `.mcp.json`, following a common convention, so the same file is portable across tools that support MCP. Commit it to share a consistent set of servers with your team.
 
-Built-in servers are provided by WSO2, so you add them from the manager rather than defining them in a config file. They appear in their own group when available.
+Built-in servers are provided by WSO2 and appear in their own group when available. You can turn them on or off from the manager; they are not defined in a config file.
 
 <ThemedImage
     alt="MCP servers manager grouping servers under Project and User scopes."
