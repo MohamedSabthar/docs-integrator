@@ -18,7 +18,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 />
 
 <p style={{textAlign: 'justify'}}>
-An AI agent uses an LLM to understand user queries, reason about them, and call tools to retrieve information or perform actions. This quick start walks you through the full process: adding an agentic integration, creating an agent with its role and instructions, connecting it to a chat trigger, and testing it in the built-in chat panel.
+An AI agent uses an LLM to understand user queries, reason about them, and call tools to retrieve information or perform actions. This quick start walks you through the full process: creating a project with an agentic integration, creating an agent with its role and instructions, connecting it to a chat trigger, and testing it in the built-in chat panel.
 </p>
 
 <Prerequisites>
@@ -39,38 +39,44 @@ A working WSO2 Agent Builder environment.
 
 <Steps>
 
-## Step 1: Create the agentic integration
+## Step 1: Create the project
 
-1. Open WSO2 Agent Builder. The project home page opens.
+1. Open WSO2 Agent Builder. The **Get Started** view opens.
 
-2. Click **Add Agentic Integration or Library**.
+   :::note
+   If Agent Builder opens a project you worked on before, open a new window (**Cmd+Shift+N** on macOS, **Ctrl+Shift+N** on Windows and Linux) to get to **Get Started**.
+   :::
+
+2. Under **Start Building your Agent**, click **Create**.
 
    <ThemedImage
-      alt="The WSO2 Agent Builder project home page for the Default project, showing Your project is empty and an Add Agentic Integration or Library button."
+      alt="The WSO2 Agent Builder Get Started view, with a Start Building your Agent card containing Create and Open buttons, a Pre-built Agents and Samples card with an Explore button, and a Recent Projects list."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/agent-builder-home-v1.0.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/agent-builder-home-v1.0.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/get-started-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/get-started-v1.0.png'),
       }}
    />
 
-3. Select **Agentic Integration**.
+3. Set **Project name** to `QuickStart`. **Location** updates to match.
 
-4. Set **Agentic Integration Name** to `AIAgent`.
+4. Under **What do you want to build?**, keep **Agentic Integration** selected.
 
-5. Click **Add**.
+5. Set **Agentic integration name** to `AIAgent`.
+
+6. Click **Create Agentic Integration**.
 
    <ThemedImage
-      alt="The Add an Integration or Library form with Agentic Integration selected and Agentic Integration Name set to AIAgent."
+      alt="The Create a Project form with Project name set to QuickStart, Location set to a quickstart folder with the note You are creating a new project, Agentic Integration selected, and Agentic integration name set to AIAgent."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/add-agentic-integration-v1.0.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/add-agentic-integration-v1.0.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/create-project-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/create-project-v1.0.png'),
       }}
    />
 
 
 ## Step 2: Create the agent
 
-1. The new integration opens. Under **Or start from scratch**, click **Add Agent**.
+1. The project opens on the new `AIAgent` integration. Under **Or start from scratch**, click **Add Agent**.
 
    <ThemedImage
       alt="The AIAgent integration page with the WSO2 Agent Builder Copilot prompt, example cards, and the Add Agent and Add MCP Server buttons under Or start from scratch."
@@ -192,7 +198,7 @@ The trigger appears on the canvas, connected to the agent.
 5. Type `Hello` to check that it works.
 
    <ThemedImage
-      alt="The Chat Agent Service flow for the /wso-2-integrator-assistant trigger beside the Agent Chat panel, where Hello is answered with Hello! How can I assist you today with your WSO2 integration projects?"
+      alt="The Chat Agent Service flow for the /wso-2-integrator-assistant trigger beside the Agent Chat panel, where Hello is answered with Hello! How can I assist you today with WSO2 integration?"
       sources={{
          light: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
          dark: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
