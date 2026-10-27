@@ -183,24 +183,20 @@ The trigger appears on the canvas, connected to the agent.
 
 1. Select **AIAgent** in the breadcrumb to open the integration's **Overview**, and click **Run**.
 
+2. When the integration starts, a pop-up says **1 service found in the integration. Test with Try It Client?** Click **Test**.
+
    <ThemedImage
-      alt="The AIAgent integration Overview with Configure, Tracing, Run, and Deploy in the header, and an Agent Chat trigger card connected to the wso2IntegratorAssistant agent card."
+      alt="The AIAgent integration Overview with the integration running in the terminal and a pop-up reading 1 service found in the integration. Test with Try It Client? with Test and Cancel buttons."
       sources={{
-         light: useBaseUrl('/img/get-started/build-ai-agent/integration-overview-v1.0.png'),
-         dark: useBaseUrl('/img/get-started/build-ai-agent/integration-overview-v1.0.png'),
+         light: useBaseUrl('/img/get-started/build-ai-agent/test-popup-v1.0.png'),
+         dark: useBaseUrl('/img/get-started/build-ai-agent/test-popup-v1.0.png'),
       }}
    />
 
-2. Wait until the terminal shows `Running executable`.
-
-3. Open the agent canvas again and click the **Agent Chat** trigger node. The trigger's **Chat Agent Service** flow opens.
-
-4. Click **Chat** in the title bar to open the **Agent Chat** panel.
-
-5. Type `Hello` to check that it works.
+3. The **Agent Chat** panel opens. Type `Hello` to check that it works.
 
    <ThemedImage
-      alt="The Chat Agent Service flow for the /wso-2-integrator-assistant trigger beside the Agent Chat panel, where Hello is answered with Hello! How can I assist you today with WSO2 integration?"
+      alt="The AIAgent Overview beside the Agent Chat panel, where Hello is answered with Hello! How can I assist you today with your WSO2 integration needs?"
       sources={{
          light: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
          dark: useBaseUrl('/img/get-started/build-ai-agent/run-and-test-v1.0.png'),
