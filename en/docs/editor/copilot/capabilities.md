@@ -1,7 +1,7 @@
 ---
 title: "Built-in Capabilities"
-description: "Write, test, debug, and fix integrations with WSO2 Integrator Copilot."
-keywords: [wso2 integrator, copilot, ai, integration generation]
+description: "Write, test, debug, and fix agents with WSO2 Agent Builder Copilot."
+keywords: [wso2 agent builder, copilot, ai, agent generation]
 sidebar_position: 3
 slug: /editor/copilot/copilot-capabilities
 ---
@@ -11,25 +11,25 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Copilot Built-in Capabilities
 
-WSO2 Integrator Copilot builds integrations from natural language prompts. It produces ready-to-use artifacts in your project. Iterate through follow-up prompts to refine logic, add features, or modify behavior.
+WSO2 Agent Builder Copilot builds agents and the integrations around them from natural language prompts. It produces ready-to-use artifacts in your project, such as agents, tools, connections, and triggers. Iterate through follow-up prompts to refine logic, add features, or modify behavior.
 
 <ThemedImage
-    alt="WSO2 Integrator Copilot panel open alongside an integration project in the editor."
+    alt="WSO2 Agent Builder Copilot panel showing the changes it made after adding a tool to an agent."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/copilot-overview.png'),
-        dark: useBaseUrl('/img/editor/copilot/copilot-overview.png'),
+        light: useBaseUrl('/img/editor/copilot/copilot-overview-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/copilot-overview-v1.0.png'),
     }}
 />
 
 ## Clarifying requirements
 
-During the planning or generation phase, Copilot may identify missing information that is critical to the integration. If a requirement is ambiguous, it pauses and presents a list of suggested options. Select one, or select **Other** to type your own answer.
+During the planning or generation phase, Copilot may identify missing information that is critical to the agent. If a requirement is ambiguous, it pauses and presents a list of suggested options. Select one, or select **Other** to type your own answer, then select **Submit**.
 
 <ThemedImage
-    alt="Clarifying requirements prompt showing selection options."
+    alt="Clarifying requirements prompt asking which channel to add for the agent, with selection options."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/clarifying-requirements.png'),
-        dark: useBaseUrl('/img/editor/copilot/clarifying-requirements.png'),
+        light: useBaseUrl('/img/editor/copilot/clarifying-requirements-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/clarifying-requirements-v1.0.png'),
     }}
 />
 
@@ -39,22 +39,22 @@ During the planning or generation phase, Copilot may identify missing informatio
 Copilot can search the internet for external context or up-to-date documentation. It asks for permission before each search unless you enable the web tools toggle in the input bar.
 
 <ThemedImage
-    alt="Web tools permission prompt in the Copilot input bar."
+    alt="The web tools toggle in the Copilot input bar."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/web-tool.png'),
-        dark: useBaseUrl('/img/editor/copilot/web-tool.png'),
+        light: useBaseUrl('/img/editor/copilot/web-tool-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/web-tool-v1.0.png'),
     }}
 />
 
 ## Generating connectors
 
-Copilot can generate a custom connector when a pre-built one is not available. During integration generation, if no pre-built connector exists, Copilot prompts the user for an OpenAPI specification. The user can also directly request to generate a custom connector. Once generated, the connector is available for Copilot to use in the flow.
+Copilot can generate a custom connector when a pre-built one is not available. During generation, if no pre-built connector exists, Copilot prompts you for an OpenAPI specification. You can also ask Copilot directly to generate a custom connector. Provide the specification with **Upload File**, **From URL**, or **Paste Spec**, or select **Skip** to continue without it. Once generated, the connector is available for Copilot to use, for example as a tool for your agent.
 
 <ThemedImage
-    alt="Copilot generating custom connector code from an OpenAPI specification."
+    alt="Copilot asking for an OpenAPI specification to generate a custom connector."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/connector-generator.png'),
-        dark: useBaseUrl('/img/editor/copilot/connector-generator.png'),
+        light: useBaseUrl('/img/editor/copilot/connector-generator-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/connector-generator-v1.0.png'),
     }}
 />
 
@@ -67,46 +67,46 @@ Copilot runs in the background, so closing the panel does not stop a run. While 
 After generation completes, you can inspect exactly what was built or changed before finalizing the changes. Copilot shows the change set in a unified diff diagram that marks added, removed, and modified parts, and you can step through the resulting and previous versions of each artifact. See [Reviewing Changes](reviewing-changes.md).
 
 <ThemedImage
-    alt="Review mode showing the generated integration diagram."
+    alt="Review mode showing the diagram of a generated function, with added parts marked."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/review-mode.png'),
-        dark: useBaseUrl('/img/editor/copilot/review-mode.png'),
+        light: useBaseUrl('/img/editor/copilot/review-mode-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/review-mode-v1.0.png'),
     }}
 />
 
 ## Configure to Run/Test
 
-When you run or test the integration, Copilot identifies the required configurables and prompts you to enter them.
+When you run or test the integration, Copilot identifies the required configurables and prompts you to enter them. To run, Copilot asks for the missing values in **Configure Application**. To test, it opens **Configure Test Environment**, which reuses the values from your main configuration so you only update the ones that differ for testing. Leave a field blank to skip it and fill it in later.
 
 <ThemedImage
-    alt="Configuration collection prompt showing required fields for the integration."
+    alt="Configure Application dialog asking for the configuration values the agent needs to run."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/config-collection.png'),
-        dark: useBaseUrl('/img/editor/copilot/config-collection.png'),
+        light: useBaseUrl('/img/editor/copilot/config-collection-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/config-collection-v1.0.png'),
     }}
 />
 
 ## Generate Integration Tests
 
-Copilot generates tests for your integration and runs them with the built-in test runner, allowing you to verify the generated artifacts immediately.
+Copilot generates tests for your integration, such as tests for an agent's tools, and runs them with the built-in test runner, allowing you to verify the generated artifacts immediately.
 
 <ThemedImage
-    alt="Test runner showing generated tests and results."
+    alt="Running Tests output showing all generated tests passing."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/running-tests.png'),
-        dark: useBaseUrl('/img/editor/copilot/running-tests.png'),
+        light: useBaseUrl('/img/editor/copilot/running-tests-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/running-tests-v1.0.png'),
     }}
 />
 
 ## TryOut your services
 
-Once your integration is running, you can send test requests to your services from Copilot. Describe what you want to test in plain language, and Copilot calls your service and returns the response.
+You can send test requests to your services from Copilot, including your agent's chat endpoint. Describe what you want to test in plain language, and Copilot starts the service if it isn't running, calls it, and returns the response.
 
 <ThemedImage
-    alt="Copilot calling a running service and showing the response."
+    alt="Copilot running the agent service and calling its chat endpoint, showing the request and the agent's response."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/try-it.png'),
-        dark: useBaseUrl('/img/editor/copilot/try-it.png'),
+        light: useBaseUrl('/img/editor/copilot/try-it-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/try-it-v1.0.png'),
     }}
 />
 
@@ -115,10 +115,10 @@ Once your integration is running, you can send test requests to your services fr
 Copilot can run your integrations and read the runtime logs to debug issues as they occur.
 
 <ThemedImage
-    alt="Copilot debugging an integration by reproducing the failing request, inspecting the HTTP response and service logs, and identifying a case-sensitivity bug in the team filter."
+    alt="Copilot debugging an agent by reproducing the failing request, reading the service logs, and identifying a refused connection to the order API as the root cause."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/debugging-using-service-logs.png'),
-        dark: useBaseUrl('/img/editor/copilot/debugging-using-service-logs.png'),
+        light: useBaseUrl('/img/editor/copilot/debugging-using-service-logs-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/debugging-using-service-logs-v1.0.png'),
     }}
 />
 
@@ -131,8 +131,8 @@ Select a chip to place its full prompt in the input bar. Copilot doesn't send it
 <ThemedImage
     alt="Follow-up suggestion chips below a Copilot response."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/followup-suggestions.png'),
-        dark: useBaseUrl('/img/editor/copilot/followup-suggestions.png'),
+        light: useBaseUrl('/img/editor/copilot/followup-suggestions-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/followup-suggestions-v1.0.png'),
     }}
 />
 
@@ -151,8 +151,8 @@ Select **Chats** in the panel header to list the project's sessions, grouped by 
 <ThemedImage
     alt="The Chats list showing the saved sessions for a project."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/chat-sessions.png'),
-        dark: useBaseUrl('/img/editor/copilot/chat-sessions.png'),
+        light: useBaseUrl('/img/editor/copilot/chat-sessions-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/chat-sessions-v1.0.png'),
     }}
 />
 
@@ -169,7 +169,7 @@ To undo what Copilot changed, select **Restore Checkpoint**. It rolls your integ
 
 ## See also
 
-- [WSO2 Integrator Copilot](copilot.md) — Sign in to WSO2 Integrator Copilot.
+- [WSO2 Agent Builder Copilot](copilot.md) — Sign in to WSO2 Agent Builder Copilot.
 - [Copilot Chat Interface](chat-interface.md) — Chat controls, slash commands, and modes.
 - [Copilot in the Background](background-copilot.md) — Follow a run while the panel is closed.
 - [Reviewing Changes](reviewing-changes.md) — Inspect a run's changes in a unified diff.
