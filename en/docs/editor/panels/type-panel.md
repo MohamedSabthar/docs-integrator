@@ -22,7 +22,7 @@ You can open the Type Panel from two places, depending on where you are working.
 - **From the project explorer.** Select **+** next to **Types** to add a new type, or select an existing type name to edit it.
 
     <ThemedImage
-        alt="The project explorer with the Add Type button next to Types outlined and its Add Type tooltip showing."
+        alt="The project explorer with Types expanded to show CustomerProfile, SupportTicket, TicketPriority, TicketStatus, and TicketUpdate, and the Add Type button next to Types outlined with its Add Type tooltip showing."
         sources={{
             light: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v1.0.png'),
             dark: useBaseUrl('/img/editor/panels/type-panel/01-add-type-project-explorer-v1.0.png'),
@@ -32,7 +32,7 @@ You can open the Type Panel from two places, depending on where you are working.
 - **From the Type Canvas.** Select **+ Add Type** in the header to add a new type, or select **Edit** from the three-dot menu on a type card to edit an existing one.
 
     <ThemedImage
-        alt="The Type Canvas showing the Task and genValue type cards, with the Add Type button at the top right outlined."
+        alt="The Type Canvas showing the SupportTicket record linked to the TicketPriority and TicketStatus enums and the CustomerProfile record, and a separate TicketUpdate record, with the Add Type button at the top right outlined."
         sources={{
             light: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram-v1.0.png'),
             dark: useBaseUrl('/img/editor/panels/type-panel/02-add-type-diagram-v1.0.png'),
@@ -51,7 +51,7 @@ The Type Panel supports the following kinds of types. Pick the kind from the **K
 | **Enum** | A fixed set of named string members, useful for status codes and choices. |
 | **Union** | A value that can be one of several types, including primitives and other custom types. |
 | **Array** | A list of values of the same type, with an optional fixed size. |
-| **Service Class** | A class that exposes resource methods, used as a return type for GraphQL resolvers and similar service patterns. |
+| **Service Class** | A class that exposes resource methods, for a typed object that carries behavior alongside data. |
 
 Every type form shares the same header fields:
 
@@ -65,7 +65,7 @@ Every type form shares the same header fields:
 A record defines a structured value with named fields. Each field has a name, a type, and an optional flag, and the panel renders one row per field under the **Fields** section.
 
 <ThemedImage
-    alt="The New Type panel on the Create from scratch tab, with Kind set to Record, Name set to Person, a nic field of type int, and Advanced Options expanded to show Allow Additional Fields, Is Readonly Type, and Accessible by Other Integrations."
+    alt="The New Type panel on the Create from scratch tab, with Kind set to Record, Name set to OrderSummary, an orderId field of type string, a total field of type decimal, and Advanced Options expanded to show Allow Additional Fields, Is Readonly Type, and Accessible by Other Integrations."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/03-create-record-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/03-create-record-v1.0.png'),
@@ -75,7 +75,7 @@ A record defines a structured value with named fields. Each field has a name, a 
 Select **+** next to **Fields** to add a new field. Each field row exposes the following options.
 
 <ThemedImage
-    alt="The nic field row of the Person record expanded to show Default Value, Description, and Readonly, with the Create Inline Record, Set as an Optional Field, and Delete Field icons outlined."
+    alt="The total field row of the OrderSummary record expanded to show Default Value, Description, and Readonly, with the Create Inline Record, Set as an Optional Field, and Delete Field icons outlined."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/08-field-options-in-record-v1.0.png'),
@@ -97,21 +97,21 @@ To make a field reference another type in the project, set the field type to the
 An enum defines a fixed set of named members. Use it for closed sets of values such as status codes, channels, or roles.
 
 <ThemedImage
-    alt="The New Type panel with Kind set to Enum, Name set to Status, and the members DRAFT, SUBMITTED, APPROVED, and REJECTED."
+    alt="The New Type panel with Kind set to Enum, Name set to TicketChannel, and the members EMAIL, CHAT, and PHONE."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/04-create-enum-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/04-create-enum-v1.0.png'),
     }}
 />
 
-Select **+** next to **Members** to add a member, and the **delete** icon on a row to remove it. Each member has a single name (for example, `DRAFT`, `SUBMITTED`, `APPROVED`, `REJECTED`).
+Select **+** next to **Members** to add a member, and the **delete** icon on a row to remove it. Each member has a single name (for example, `EMAIL`, `CHAT`, `PHONE`).
 
 ### Union
 
-A union defines a value that can be one of several types. Use it when a field or variable can legitimately hold more than one shape, for example, a response that is either a success record or an error.
+A union defines a value that can be one of several types. Use it when a field or variable can legitimately hold more than one shape, for example, a ticket lookup that returns either the ticket or an error.
 
 <ThemedImage
-    alt="The New Type panel with Kind set to Union, Name set to TaskResult, and the members Task and error."
+    alt="The New Type panel with Kind set to Union, Name set to TicketLookupResult, and the members SupportTicket and error."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/05-create-union-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/05-create-union-v1.0.png'),
@@ -125,7 +125,7 @@ Select **+** next to **Members** to add a member type, and the **delete** icon t
 An array defines a list of values of the same type, with an optional fixed size.
 
 <ThemedImage
-    alt="The New Type panel with Kind set to Array, Name set to TaskList, Type of the Array set to Task, and an empty Size of the Array field."
+    alt="The New Type panel with Kind set to Array, Name set to TicketList, Type of the Array set to SupportTicket, and an empty Size of the Array field."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/06-create-array-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/06-create-array-v1.0.png'),
@@ -139,7 +139,7 @@ An array defines a list of values of the same type, with an optional fixed size.
 
 ### Service class
 
-A service class defines a class with one or more resource methods. Use it as the return type of a GraphQL resolver, or anywhere you need a typed object that exposes behavior alongside data.
+A service class defines a class with one or more resource methods. Use it when you need a typed object that exposes behavior alongside data.
 
 <ThemedImage
     alt="The New Type panel with Kind set to Service Class, Name set to TaskQuery, and a tasks resource method that returns Task[], expanded to show Add Parameter."
@@ -196,27 +196,30 @@ For a JSON sample such as:
 
 ```json
 {
-  "books": [
+  "orderId": "ORD-1001",
+  "customerId": "C-204",
+  "status": "SHIPPED",
+  "items": [
     {
-      "title": "Clean Code",
-      "author": "Robert C. Martin",
-      "year": 2008,
-      "isbn": "9780132350884"
+      "sku": "MS-101",
+      "name": "Wireless Mouse",
+      "quantity": 1,
+      "price": 25
     },
     {
-      "title": "The Pragmatic Programmer",
-      "author": "Andrew Hunt",
-      "year": 1999,
-      "isbn": "9780201616224"
+      "sku": "KB-220",
+      "name": "USB Keyboard",
+      "quantity": 2,
+      "price": 40
     }
   ]
 }
 ```
 
-With **Name** set to `Library`, the panel generates a `Library` record with a `books` field, a `Books` array type for that field, and a `BooksItem` record for each book entry. The `title`, `author`, `year`, and `isbn` fields are typed as `string` or `int` based on the sample values.
+With **Name** set to `Order`, the panel generates an `Order` record with `orderId`, `customerId`, `status`, and `items` fields, an `Items` array type for the `items` field, and an `ItemsItem` record for each item entry. Field types are inferred from the sample values, so `sku` and `name` become `string` fields, and `quantity` and `price` become `int` fields.
 
 <ThemedImage
-    alt="The Import tab of the New Type panel, with Format set to JSON, Name set to Library, and a JSON sample of two books pasted in."
+    alt="The Import tab of the New Type panel, with Format set to JSON, Name set to Order, and a JSON sample of an order with two items pasted in."
     sources={{
         light: useBaseUrl('/img/editor/panels/type-panel/10-import-json-v1.0.png'),
         dark: useBaseUrl('/img/editor/panels/type-panel/10-import-json-v1.0.png'),
@@ -228,36 +231,34 @@ With **Name** set to `Library`, the panel generates a `Library` record with a `b
 For an XML sample such as:
 
 ```xml
-<library>
-  <book>
-    <title>Clean Code</title>
-    <author>Robert C. Martin</author>
-    <year>2008</year>
-    <isbn>9780132350884</isbn>
-  </book>
-  <book>
-    <title>The Pragmatic Programmer</title>
-    <author>Andrew Hunt</author>
-    <year>1999</year>
-    <isbn>9780201616224</isbn>
-  </book>
-</library>
+<order>
+  <orderId>ORD-1001</orderId>
+  <status>SHIPPED</status>
+  <item>
+    <sku>MS-101</sku>
+    <name>Wireless Mouse</name>
+    <quantity>1</quantity>
+  </item>
+  <item>
+    <sku>KB-220</sku>
+    <name>USB Keyboard</name>
+    <quantity>2</quantity>
+  </item>
+</order>
 ```
 
-The panel generates a root record for the `<library>` element with a `book` field of type `Book[]`, and a `Book` record with one field per child element. Field types are inferred from the sample values, so `year` and `isbn` become `int` fields.
+The panel generates a root record for the `<order>` element with `orderId`, `status`, and `item` fields, where `item` is of type `Item[]`, and an `Item` record with one field per child element. Field types are inferred from the sample values, so `quantity` becomes an `int` field. If the project already has a type with the same name, the panel adds a suffix such as `_01` to the new type.
 
 The new types are added to the project and become available everywhere a custom type can be used.
 
 :::tip Common next steps after import
 - Use the generated record as a request or response payload in the [Service Designer](../designers/service-designer.md).
 - Map fields from the imported record onto another type in the [Data Mapper](../designers/data-mapper.md).
-- Expose the record from a GraphQL resolver in the [GraphQL Canvas](../canvases/graphql-canvas.md).
 :::
 
 ## What's next
 
 - [Type Canvas](../canvases/type-canvas.md): visualize every type in the project and the relationships between them.
 - [Service Designer](../designers/service-designer.md): use the types you defined as request and response payloads for a service.
-- [GraphQL Canvas](../canvases/graphql-canvas.md): expose service classes and records as GraphQL types.
 - [Data Mapper](../designers/data-mapper.md): map fields between the types you defined here.
 - [Flow Canvas](../canvases/flow-canvas/flow-canvas.md): use the types as variables and parameters in a flow.
