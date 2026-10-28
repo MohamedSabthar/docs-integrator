@@ -186,7 +186,7 @@ The panel provides the following sections for selecting a function:
 
 | Section | Description |
 |---|---|
-| **Within Project** | Functions defined in your agentic integration, including [natural functions](../natural-functions/natural-functions.md). Select **+ Create Function** to author a new one. |
+| **Within Project** | Functions defined in your agentic integration. Select **+ Create Function** to author a new one. |
 | **Standard Library** | Ballerina standard library functions, grouped by module (for example `regex`, `yaml`, `test`). |
 | **Extended Library** | Functions from connector modules available to the project, grouped by module name. |
 
