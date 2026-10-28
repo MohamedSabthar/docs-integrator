@@ -56,8 +56,8 @@ sequenceDiagram
     <ThemedImage
         alt="Add Tool - Use Knowledge Base panel for the WSO2 Cloud Knowledge Base Retrieve action, showing the tool name, description, knowledge base instance, and Create knowledge base button."
         sources={{
-            light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v5.1.png'),
-            dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v5.1.png'),
+            light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v1.0.png'),
+            dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v1.0.png'),
         }}
     />
 
