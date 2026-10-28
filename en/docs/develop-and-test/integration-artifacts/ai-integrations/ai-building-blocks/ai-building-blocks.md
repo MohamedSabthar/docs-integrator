@@ -11,7 +11,7 @@ wide_layout: true
 
 # AI Building Blocks
 
-Every AI feature in WSO2 Agent Builder, agents, direct LLM calls, RAG, and natural functions, is composed from the same small set of shared connections and stores. Configure one once, then reuse it wherever it's needed in your agentic integration.
+Every AI feature in WSO2 Agent Builder, agents, direct LLM calls, and RAG, is composed from the same small set of shared connections and stores. Configure one once, then reuse it wherever it's needed in your agentic integration.
 
 <PaletteGrid>
 
