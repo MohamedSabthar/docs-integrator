@@ -3,7 +3,7 @@ sidebar_position: 0
 sidebar_label: Overview
 title: Deploy and Run
 description: Learn about the ways to deploy agents built in WSO2 Agent Builder, from WSO2 Cloud to your own infrastructure, and how to run them once they're live.
-keywords: [wso2 agent builder, deployment, wso2 cloud, docker, virtual machine, integration control plane]
+keywords: [wso2 agent builder, deployment, wso2 agent manager, wso2 cloud, docker, kubernetes, virtual machine, ci/cd, integration control plane]
 slug: /deploy-and-run
 hide_table_of_contents: true
 wide_layout: true
@@ -41,11 +41,24 @@ Choose where your agents run. Where you deploy also decides how you [manage](../
 
 <PaletteCard icon="server">
   <h3 class="palette-card-title">Self-Hosted Deployment</h3>
-  <p class="palette-card-desc">Package an agentic integration to run on infrastructure you manage.</p>
-  <ul class="palette-card-list">
-    <li><strong>Docker Image</strong>: a container image for Kubernetes or any container platform</li>
-    <li><strong>Virtual Machine</strong>: an executable JAR for any server with a Java runtime</li>
-  </ul>
+  <p class="palette-card-desc">Run integrations on infrastructure you manage.</p>
+  <div class="palette-chip-row">
+    <PaletteChip href="/deploy-and-run/self-hosted/containerized-deployment">Containers</PaletteChip>
+    <PaletteChip href="/deploy-and-run/self-hosted/vm-deployment">Virtual machines</PaletteChip>
+    <PaletteChip href="/deploy-and-run/self-hosted/serverless-deployment">Serverless</PaletteChip>
+    <PaletteChip href="/deploy-and-run/self-hosted/graalvm-native-images">GraalVM native images</PaletteChip>
+  </div>
+</PaletteCard>
+
+<PaletteCard icon="deploy-run">
+  <h3 class="palette-card-title">CI/CD</h3>
+  <p class="palette-card-desc">Automate your deployment pipeline.</p>
+  <div class="palette-chip-row">
+    <PaletteChip href="/deploy-and-run/cicd/github-actions">GitHub Actions</PaletteChip>
+    <PaletteChip href="/deploy-and-run/cicd/jenkins">Jenkins</PaletteChip>
+    <PaletteChip href="/deploy-and-run/cicd/gitlab">GitLab</PaletteChip>
+    <PaletteChip href="/deploy-and-run/cicd/azure-devops">Azure DevOps</PaletteChip>
+  </div>
 </PaletteCard>
 
 </PaletteGrid>
@@ -54,12 +67,24 @@ Choose where your agents run. Where you deploy also decides how you [manage](../
 
 <PaletteGrid>
 
-<PaletteCard icon="tools" href="/get-started/concepts">
-  <h3 class="palette-card-title">Configurations and Secrets</h3>
+<PaletteCard icon="tools" href="/deploy-and-run/managing-configurations">
+  <h3 class="palette-card-title">Managing Configurations</h3>
   <ul class="palette-card-list">
-    <li>Keep API keys and tokens out of your code</li>
-    <li>Set values per environment</li>
+    <li>Externalize runtime configuration values</li>
+    <li>Per-environment files and variables</li>
   </ul>
+</PaletteCard>
+
+<PaletteCard icon="security">
+  <h3 class="palette-card-title">Secure Integrations</h3>
+  <div class="palette-chip-row">
+    <PaletteChip href="/deploy-and-run/secure/runtime-security">Runtime security</PaletteChip>
+    <PaletteChip href="/deploy-and-run/secure/authentication">Authentication</PaletteChip>
+    <PaletteChip href="/deploy-and-run/secure/api-security-rate-limiting">API security</PaletteChip>
+    <PaletteChip href="/deploy-and-run/secure/secrets-encryption">Secrets and encryption</PaletteChip>
+    <PaletteChip href="/deploy-and-run/secure/compliance-considerations">Compliance</PaletteChip>
+    <PaletteChip href="/deploy-and-run/secure/aws-access">AWS access</PaletteChip>
+  </div>
 </PaletteCard>
 
 <PaletteCard icon="manage-observe" href="/manage">
@@ -83,4 +108,5 @@ Choose where your agents run. Where you deploy also decides how you [manage](../
 
 - [Deploy to WSO2 Agent Manager](deploy-to-agent-manager/deploy-to-agent-manager.md) — Deploy your agent to your Agent Manager instance.
 - [Deploy to WSO2 Cloud](deploy-to-wso2-cloud/deploy-to-wso2-cloud.md) — Deploy your agent to the fully managed WSO2 Cloud.
+- [Containerized Deployment](self-hosted/containerized-deployment.md) — Run your agent on Docker, Kubernetes, or Red Hat OpenShift.
 - [Concepts](../get-started/concepts/concepts.mdx) — Deployment options, environments, and promotion.

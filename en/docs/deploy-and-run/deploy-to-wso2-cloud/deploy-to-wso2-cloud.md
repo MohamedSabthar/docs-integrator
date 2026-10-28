@@ -83,8 +83,8 @@ A browser opens showing your project on WSO2 Cloud.
 The **Deploy** panel also lets you deploy to WSO2 Agent Manager, or package an agentic integration to run on your own infrastructure:
 
 - **WSO2 Agent Manager**: see [Deploy to WSO2 Agent Manager](../deploy-to-agent-manager/deploy-to-agent-manager.md).
-- **Docker Image**: **Build Image** builds a container image to run on Kubernetes or any container platform.
-- **Virtual Machine**: **Build JAR** builds an executable JAR to run on any server with a Java runtime.
+- **Docker Image**: **Build Image** builds a container image to run on Kubernetes or any container platform. See [Containerized Deployment](../self-hosted/containerized-deployment.md).
+- **Virtual Machine**: **Build JAR** builds an executable JAR to run on any server with a Java runtime. See [VM Deployment](../self-hosted/vm-deployment.md).
 
 On the project overview, the same build options are **Build Docker Image** and **Build Executable** in the **Deploy** menu.
 
