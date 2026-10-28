@@ -56,7 +56,7 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
     }}
 />
 
-2. Provide the **Agent ID** and **Agent Secret** obtained from the authorization server.
+2. Provide the **Agent ID** and **Agent Secret** obtained from the authorization server in the Agent Credential configuration..
 
 <ThemedImage
     alt="Credential input fields showing Agent ID and Agent Secret fields."
@@ -70,7 +70,7 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ### Configure auth for an MCP tool
 
-1. Click on the attached MCP Toolkit in the agent to open the configuration form.
+1. Click the attached MCP Toolkit in the agent to open the configuration form, then enable **Requires Authentication**.
 
 2. In the **Auth** Configuration Panel, select the authentication type as **AgentIdAuthConfig** and update the values obtained from the authorization server.
 
@@ -121,8 +121,8 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 <ThemedImage
     alt="Advanced configuration"
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/33-tool-advanced-config-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/33-tool-advanced-config-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/agents/33-tool-advanced-config.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/33-tool-advanced-config.png'),
     }}
 />
 
