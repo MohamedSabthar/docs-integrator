@@ -294,6 +294,30 @@ The new tool appears as its own node on the canvas, connected to the **AI Agent*
     }}
 />
 
+## Write descriptions the agent can use
+
+The agent doesn't see your tool's code. On every reasoning step, it receives each tool's **name**, **description**, and **parameter descriptions**, and decides from those alone which tool to call and with what arguments. A vague description is the most common reason an agent picks the wrong tool, or doesn't call a tool when it should.
+
+Write the description for the LLM, not for a developer:
+
+- **Say what the tool does and when to call it,** in terms of the user's request rather than the API. For example, "Use when the customer asks where their order is or when it will arrive."
+- **Say when not to call it,** if other tools look similar. For example, "Don't use for refunds; use `refundOrder` instead."
+- **Describe each parameter's meaning and format,** such as "The order ID, a number like 1042." The agent fills arguments from these descriptions.
+- **Describe what the tool returns,** so the agent knows how to use the result.
+- **Mention side effects,** such as "Issues a real refund. It can't be undone." This also helps reviewers decide on [gated tools](gated-tools.md).
+- **Use a clear tool name,** such as `getOrderStatus` rather than `getTool`. The name is also sent to the LLM.
+
+**Edit prefilled descriptions.** For **Use Connection** and **Use Function**, WSO2 Agent Builder prefills **Tool Name** and **Description** from the connector or function documentation. That text describes the API, not your use case. For example, the HTTP connector's **get** action is prefilled with "Retrieve a representation of a specified resource from an HTTP endpoint.", which doesn't tell the agent when to call it. Replace it before you select **Save Tool**. To change an existing tool, select its node and then **Configure**.
+
+| | Description |
+|---|---|
+| **Vague** | Gets an order. |
+| **Clear** | Look up the current shipping status of an order by its order ID. Use when the customer asks where their order is or when it will arrive. Returns a status such as `Processing`, `Shipped`, or `Delivered`. Don't use for refunds or cancellations. |
+
+Keep the agent's **Instructions** consistent with your tool descriptions. If the instructions say "always confirm the order ID first", the tool description doesn't need to repeat it, but it mustn't contradict it.
+
+To check the result, turn on tracing and chat with the agent. In the trace, the **Chat** span's **Available Tools** shows exactly what the LLM received, and the **Execute Tool** spans show which tools it called and with what arguments. See [Observability](observability.md).
+
 ## Toolkit
 
 A **toolkit** is a class that bundles related tools. For example, a `TaskManagerToolkit` can expose `addTask` and `listTasks`. Toolkits are currently written in source view only (there is no dedicated UI yet). You create a single Ballerina class with tool methods and register the toolkit in the agent's tool list. The agent treats toolkit methods exactly like individual tools.
