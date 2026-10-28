@@ -1,7 +1,7 @@
 ---
 title: AI Integrations Overview
-description: Build AI agents and AI-powered agentic integrations with WSO2 Agent Builder using agents, direct LLM calls, RAG pipelines, MCP servers, natural functions, and voice agents.
-keywords: [wso2 agent builder, genai, ai, llm, rag, agent, mcp, natural function, voice agent, model provider, embedding, vector store, knowledge base]
+description: Build AI agents and AI-powered agentic integrations with WSO2 Agent Builder using agents, direct LLM calls, RAG pipelines, MCP servers, and voice agents.
+keywords: [wso2 agent builder, genai, ai, llm, rag, agent, mcp, voice agent, model provider, embedding, vector store, knowledge base]
 sidebar_label: AI Integration Basics
 sidebar_position: 0
 slug: /develop-and-test/integration-artifacts/ai-integrations
@@ -11,7 +11,7 @@ wide_layout: true
 
 # AI Integrations
 
-WSO2 Agent Builder lets you build AI agents and the agentic integrations around them, including agents with tools and memory, direct LLM calls, RAG pipelines, MCP servers, natural functions, and voice agents.
+WSO2 Agent Builder lets you build AI agents and the agentic integrations around them, including agents with tools and memory, direct LLM calls, RAG pipelines, MCP servers, and voice agents.
 
 <PaletteGrid>
 
@@ -40,11 +40,6 @@ WSO2 Agent Builder lets you build AI agents and the agentic integrations around 
   <p class="palette-card-desc">Expose a service as MCP tools for AI assistants, or use tools from external MCP servers in your agents.</p>
 </PaletteCard>
 
-<PaletteCard icon="natural-functions" href="/develop-and-test/integration-artifacts/ai-integrations/natural-functions">
-  <h3 class="palette-card-title">Natural Functions</h3>
-  <p class="palette-card-desc">Experimental. Write the function body in plain English. The LLM returns a value that conforms to your declared return type.</p>
-</PaletteCard>
-
 <PaletteCard icon="agents" href="/develop-and-test/integration-artifacts/ai-integrations/voice-agent">
   <h3 class="palette-card-title">Voice Agent</h3>
   <p class="palette-card-desc">Expose an AI agent over a voice channel. WSO2 Cloud handles speech-to-text and text-to-speech, so your service works only with text.</p>
@@ -64,4 +59,3 @@ WSO2 Agent Builder lets you build AI agents and the agentic integrations around 
 - **[Building an IT Helpdesk AI Agent with Persistent Memory](../../../guides/business-use-cases/it-helpdesk-chatbot.md)**
 - **[Building an HR knowledge base with RAG](../../../guides/business-use-cases/building-hr-knowledge-base-rag.md)**
 - **[Build a customer care agent with MCP](../../../guides/business-use-cases/building-a-customer-care-agent-mcp.md)**
-- **[Customer review analyzer with Natural Function](../../../guides/business-use-cases/review-summarizer-natural-function.md)**
