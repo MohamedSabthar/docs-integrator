@@ -1,7 +1,7 @@
 ---
 title: AI Integrations Overview
-description: Build AI-powered integrations with WSO2 Integrator using direct LLM calls, AI agents, RAG pipelines, MCP servers, natural functions, and voice agents.
-keywords: [wso2 integrator, genai, ai, llm, rag, agent, mcp, natural function, voice agent, model provider, embedding, vector store, knowledge base]
+description: Build AI agents and AI-powered agentic integrations with WSO2 Agent Builder using agents, direct LLM calls, RAG pipelines, MCP servers, and voice agents.
+keywords: [wso2 agent builder, genai, ai, llm, rag, agent, mcp, voice agent, model provider, embedding, vector store, knowledge base]
 sidebar_label: AI Integration Basics
 sidebar_position: 0
 slug: /develop-and-test/integration-artifacts/ai-integrations
@@ -11,9 +11,14 @@ wide_layout: true
 
 # AI Integrations
 
-WSO2 Integrator lets you build AI-powered integrations, including direct LLM calls, AI agents, RAG pipelines, MCP servers, natural functions, and voice agents.
+WSO2 Agent Builder lets you build AI agents and the agentic integrations around them, including agents with tools and memory, direct LLM calls, RAG pipelines, MCP servers, and voice agents.
 
 <PaletteGrid>
+
+<PaletteCard icon="agents" href="/develop-and-test/integration-artifacts/ai-integrations/agents">
+  <h3 class="palette-card-title">AI Agents</h3>
+  <p class="palette-card-desc">Autonomous LLM-driven agents that reason over a system prompt, call tools, and keep memory across turns. Covers reusable definitions, multi-agent systems, gated tools, observability, and evaluations.</p>
+</PaletteCard>
 
 <PaletteCard icon="ai-building-blocks" href="/develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks">
   <h3 class="palette-card-title">AI Building Blocks</h3>
@@ -23,11 +28,6 @@ WSO2 Integrator lets you build AI-powered integrations, including direct LLM cal
 <PaletteCard icon="quickstart" href="/develop-and-test/integration-artifacts/ai-integrations/direct-llm">
   <h3 class="palette-card-title">Direct LLMs</h3>
   <p class="palette-card-desc">The simplest AI block. Add a generate node to a flow, write a prompt, and bind the response to a typed value in a single round-trip.</p>
-</PaletteCard>
-
-<PaletteCard icon="agents" href="/develop-and-test/integration-artifacts/ai-integrations/agents">
-  <h3 class="palette-card-title">AI Agents</h3>
-  <p class="palette-card-desc">Autonomous LLM-driven agents that reason over a system prompt, call tools, and keep memory across turns. Covers reusable definitions, multi-agent systems, gated tools, observability, and evaluations.</p>
 </PaletteCard>
 
 <PaletteCard icon="rag" href="/develop-and-test/integration-artifacts/ai-integrations/rag">
@@ -40,11 +40,6 @@ WSO2 Integrator lets you build AI-powered integrations, including direct LLM cal
   <p class="palette-card-desc">Expose a service as MCP tools for AI assistants, or use tools from external MCP servers in your agents.</p>
 </PaletteCard>
 
-<PaletteCard icon="natural-functions" href="/develop-and-test/integration-artifacts/ai-integrations/natural-functions">
-  <h3 class="palette-card-title">Natural Functions</h3>
-  <p class="palette-card-desc">Experimental. Write the function body in plain English. The LLM returns a value that conforms to your declared return type.</p>
-</PaletteCard>
-
 <PaletteCard icon="agents" href="/develop-and-test/integration-artifacts/ai-integrations/voice-agent">
   <h3 class="palette-card-title">Voice Agent</h3>
   <p class="palette-card-desc">Expose an AI agent over a voice channel. WSO2 Cloud handles speech-to-text and text-to-speech, so your service works only with text.</p>
@@ -54,13 +49,11 @@ WSO2 Integrator lets you build AI-powered integrations, including direct LLM cal
 
 ## Getting started
 
-- **[Build a Sentiment Analyzer](../../../guides/how-to-guides/build-a-sentiment-analyzer.md):** Your first AI integration with a direct LLM call.
+- **[Build an AI Agent](../../../get-started/quickstarts/build-ai-agent.md):** Create your first agent and chat with it.
+- **[Build a Sentiment Analyzer](../../../guides/how-to-guides/build-a-sentiment-analyzer.md):** Your first agentic integration with a direct LLM call.
 - **[Build a Hotel Finder Agent](../../../guides/how-to-guides/build-a-hotel-finder-agent.md):** An agent with two custom tools and session-scoped memory.
 
 ## Tutorials
 
-- **[Email Generator with Direct LLM](../../../guides/how-to-guides/email-generator-direct-llm.md)**
 - **[Building an IT Helpdesk AI Agent with Persistent Memory](../../../guides/business-use-cases/it-helpdesk-chatbot.md)**
-- **[Building an HR knowledge base with RAG](../../../guides/business-use-cases/building-hr-knowledge-base-rag.md)**
 - **[Build a customer care agent with MCP](../../../guides/business-use-cases/building-a-customer-care-agent-mcp.md)**
-- **[Customer review analyzer with Natural Function](../../../guides/business-use-cases/review-summarizer-natural-function.md)**

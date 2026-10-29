@@ -10,21 +10,17 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Open a Project
 
-If you already have a project, you can open it from the WSO2 Integrator home screen. You can open projects stored locally on your machine or clone cloud projects from your WSO2 Cloud organization.
+If you already have a project, you can open it from the WSO2 Agent Builder home screen. You can open projects stored locally on your machine or clone cloud projects from your WSO2 Cloud organization.
 
-On the WSO2 Integrator home screen, click **Open Existing** on the `Create a Project card`.
+On the WSO2 Agent Builder home screen, click **Open** on the **Start Building your Agent** card.
 
    <ThemedImage
-       alt="Home screen with More Actions expanded"
+       alt="Home screen with the Open button highlighted"
        sources={{
-           light: useBaseUrl('/img/open-project/home-screen.png'),
-           dark: useBaseUrl('/img/open-project/home-screen.png'),
+           light: useBaseUrl('/img/open-project/home-screen-v1.0.png'),
+           dark: useBaseUrl('/img/open-project/home-screen-v1.0.png'),
        }}
    />
-
-:::note[Migrating from other vendors]
-To import integrations from other vendors and convert them to WSO2 Integrator format, check [Migrate Integrations from Other Vendors](product://integrator/migrate).
-:::
 
 ## Choose a source
 
@@ -33,8 +29,8 @@ The form opens with the prompt `Choose how you'd like to open a project` and pre
       <ThemedImage
           alt="Open Project options"
           sources={{
-              light: useBaseUrl('/img/open-project/open-project-options.png'),
-              dark: useBaseUrl('/img/open-project/open-project-options.png'),
+              light: useBaseUrl('/img/open-project/open-project-options-v1.0.png'),
+              dark: useBaseUrl('/img/open-project/open-project-options-v1.0.png'),
           }}
       />
 
@@ -47,7 +43,7 @@ The form opens with the prompt `Choose how you'd like to open a project` and pre
 2. A native file browser appears. Navigate to the directory that contains your project.
 3. Select the project folder and click **Open**.
 
-WSO2 Integrator detects the project structure and opens the [project view](../../editor/views/project-view.md).
+WSO2 Agent Builder detects the project structure and opens the [project view](../../editor/views/project-view.md).
 
 ### Open a cloud project
 
@@ -57,8 +53,8 @@ WSO2 Integrator detects the project structure and opens the [project view](../..
    <ThemedImage
        alt="Sign in to browse cloud projects"
        sources={{
-           light: useBaseUrl('/img/open-project/cloud-sign-in.png'),
-           dark: useBaseUrl('/img/open-project/cloud-sign-in.png'),
+           light: useBaseUrl('/img/open-project/cloud-sign-in-v1.0.png'),
+           dark: useBaseUrl('/img/open-project/cloud-sign-in-v1.0.png'),
        }}
    />
 
@@ -72,11 +68,11 @@ WSO2 Integrator detects the project structure and opens the [project view](../..
        }}
    />
 
-4. Click a project to clone it to your local machine and open it in WSO2 Integrator.
+4. Click a project to clone it to your local machine and open it in WSO2 Agent Builder.
 
 ## Troubleshooting
 
-If the editor shows **WSO2 Integrator cannot start** or **Your project dependencies need to be updated** instead of your project, your installed Ballerina version, or the version that resolved the project's dependencies, is earlier than 2201.14.0. See [Moving to Ballerina 2201.14](../../editor/troubleshooting/moving-to-ballerina-2201-14.md) to update, or to stay on your current version.
+If the editor shows **WSO2 Agent Builder cannot start** or **Your project dependencies need to be updated** instead of your project, your installed Ballerina version, or the version that resolved the project's dependencies, is earlier than 2201.14.0. See [Moving to Ballerina 2201.14](../../editor/troubleshooting/moving-to-ballerina-2201-14.md) to update, or to stay on your current version.
 
 ## What's next
 

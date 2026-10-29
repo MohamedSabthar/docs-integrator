@@ -142,7 +142,7 @@ The panel provides the following sections for selecting a function:
 
 | Section | Description |
 |---|---|
-| **Within Project** | Functions defined within your own project, including [natural functions](../natural-functions/natural-functions.md). Click **+ Create Function** to author a new one inline. |
+| **Within Project** | Functions defined within your own project. Click **+ Create Function** to author a new one inline. |
 | **Standard Library** | Ballerina standard library functions, grouped by module (for example `regex`, `data.yaml`, `yaml`, `auth`). |
 | **Extended Library** | Functions from connector modules available to the project (for example a configured connector's helper functions), grouped by module name. |
 

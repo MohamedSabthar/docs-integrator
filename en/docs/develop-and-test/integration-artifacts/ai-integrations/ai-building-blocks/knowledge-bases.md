@@ -354,5 +354,3 @@ Expanding **Advanced Configurations** shows **Pool Configuration**, **Circuit Br
 ## What's next
 
 - [Chunkers](chunkers.md) — How documents are split before ingest.
-- [Direct LLM Calls](../direct-llm/direct-llm.md) — One-shot generate calls without an agent loop.
-- [Natural Functions](../natural-functions/natural-functions.md) — Ballerina functions whose body is plain English, evaluated at runtime by an LLM.

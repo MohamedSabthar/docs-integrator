@@ -1,8 +1,8 @@
 ---
 sidebar_position: 2
 title: Create Evalsets
-description: Capture conversations with your AI agent in WSO2 Integrator and export the session traces into a golden dataset you can replay against future agent builds.
-keywords: [wso2 integrator, ai agent, evalset, golden dataset, session traces]
+description: Capture conversations with your AI agent in WSO2 Agent Builder and export the session traces into a golden dataset you can replay against future agent builds.
+keywords: [wso2 agent builder, ai agent, evalset, golden dataset, session traces]
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/evaluations/evalsets
 ---
 
@@ -33,8 +33,8 @@ On the design canvas, click the **chat** resource of your chat agent to open its
 <ThemedImage
     alt="Agent canvas with the Agent Chat panel open showing a multi-turn conversation with the math-tutor agent."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/chat-session.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/chat-session.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/chat-session-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/chat-session-v1.0.png'),
     }}
 />
 
@@ -49,8 +49,8 @@ In the **Session Traces** view, click **Export** and choose **Export as Evalset*
 <ThemedImage
     alt="Session Traces view with the Export menu open, showing Export as JSON and Export as Evalset options."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/export-as-evalset.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/export-as-evalset.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/export-as-evalset-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/export-as-evalset-v1.0.png'),
     }}
 />
 
@@ -72,8 +72,8 @@ If your project contains more than one integration, you also select the integrat
 <ThemedImage
     alt="Prompt asking how to export the session, with Create new evalset and Append to existing evalset options."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/create-or-append.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/create-or-append.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/create-or-append-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/create-or-append-v1.0.png'),
     }}
 />
 
@@ -84,8 +84,8 @@ If you chose **Create new evalset**, enter a name and press **Enter**. The name 
 <ThemedImage
     alt="Name input prompt with the value math-tutor entered."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/name-evalset.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/name-evalset.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/name-evalset-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/name-evalset-v1.0.png'),
     }}
 />
 
@@ -113,8 +113,8 @@ Open the **Test Explorer** by clicking the test beaker icon in the activity bar 
 <ThemedImage
     alt="Test Explorer with the math-tutor evalset in the Evalsets panel, and the Evalset Viewer open on the right listing its thread-1c603f79 thread."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/test-explorer-evalset-viewer.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/test-explorer-evalset-viewer.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/test-explorer-evalset-viewer-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/test-explorer-evalset-viewer-v1.0.png'),
     }}
 />
 
@@ -125,8 +125,8 @@ In the **Evalset Viewer**, each entry shows the user input, agent response, and 
 <ThemedImage
     alt="Evalset Viewer showing the math-tutor variable-assignment-test thread with user messages, agent responses, and tool executions."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/viewer.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/viewer.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/viewer-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/viewer-v1.0.png'),
     }}
 />
 
@@ -139,8 +139,8 @@ Click **Edit** at the top right to switch to **Edit Mode**. A banner explains wh
 <ThemedImage
     alt="Edit Mode active on the evalset, with the Tool Execution Chain expanded and an Add Message Turn button between turns."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/edit-mode.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/edit-mode.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/edit-mode-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/edit-mode-v1.0.png'),
     }}
 />
 
@@ -159,8 +159,8 @@ Click a tool execution to open the **Edit Tool Call** dialog. Pick the tool from
 <ThemedImage
     alt="Edit Tool Call dialog with Tool Name set to sumTool and Input Arguments fields num1 and num2."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/edit-tool-call.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/edit-tool-call.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/edit-tool-call-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/edit-tool-call-v1.0.png'),
     }}
 />
 

@@ -1,11 +1,11 @@
 ---
-title: Configure a Network Proxy for WSO2 Integrator
+title: Configure a Network Proxy for WSO2 Agent Builder
 sidebar_label: Configure a Network Proxy
 sidebar_position: 1
 slug: /develop-and-test/create-workspace/restricted-networks/configure-a-network-proxy
 ---
 
-# Configure a Network Proxy for WSO2 Integrator
+# Configure a Network Proxy for WSO2 Agent Builder
 
 ## Overview
 
@@ -41,10 +41,10 @@ If you encounter certificate validation errors like:
 
 Follow these steps:
 
-1. Navigate to the `dependencies/` directory in your WSO2 Integrator installation (where the JRE is located):
-   - macOS: `/Applications/WSO2 Integrator.app/Contents/components/dependencies`
-   - Linux: `/usr/share/wso2-integrator/components/dependencies`
-   - Windows: `%USERPROFILE%\AppData\Local\Programs\WSO2\Integrator\components\dependencies`
+1. Navigate to the `dependencies/` directory in your WSO2 Agent Builder installation (where the JRE is located):
+   - macOS: `/Applications/WSO2 Agent Builder.app/Contents/components/dependencies`
+   - Linux: `/usr/share/wso2-agent-builder/components/dependencies`
+   - Windows: `%USERPROFILE%\AppData\Local\Programs\WSO2\Agent Builder\components\dependencies`
 2. Identify proxy-associated certificates from your proxy vendor's documentation
 3. Run this administrative command:
 

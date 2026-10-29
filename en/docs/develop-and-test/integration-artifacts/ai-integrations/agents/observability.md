@@ -304,7 +304,7 @@ The exported file contains every trace in the current session, in the order they
 
 The trace viewer described above is wired to the built-in **editor trace provider**. To send traces to your existing observability stack instead (Jaeger, Zipkin, or any OpenTelemetry-compatible collector), swap the trace provider in your project files.
 
-The example below uses Jaeger. For other providers, follow the same pattern with the matching `ballerinax` extension. See [Choose a tracing backend](product://integrator/observe/tracing#choose-a-tracing-backend) for the full list of supported platforms.
+The example below uses Jaeger. For other providers, follow the same pattern with the matching `ballerinax` extension. See [Choose a tracing backend](../../../../observe/tracing.md#choose-a-tracing-backend) for the full list of supported platforms.
 
 Three changes are required:
 
@@ -329,7 +329,7 @@ Three changes are required:
     tracingProvider = "jaeger"
     ```
 
-When you run the integration, spans flow to the configured collector instead of the editor trace viewer. To point at a non-local collector or tune sampling, add a `[ballerinax.jaeger]` section to `Config.toml` with provider-specific keys. See the [Jaeger configuration options](product://integrator/observe/open-source/jaeger#configuration-options) for the full list of configurables.
+When you run the integration, spans flow to the configured collector instead of the editor trace viewer. To point at a non-local collector or tune sampling, add a `[ballerinax.jaeger]` section to `Config.toml` with provider-specific keys. See the [Jaeger configuration options](../../../../observe/open-source/jaeger.md#configuration-options) for the full list of configurables.
 
 ### Export over OTLP
 
