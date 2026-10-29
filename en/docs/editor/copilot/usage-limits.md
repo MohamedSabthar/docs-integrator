@@ -1,8 +1,8 @@
 ---
 sidebar_position: 6
 title: "Usage Limits"
-description: "See how much of your WSO2 Integrator Copilot usage remains, what happens when you reach the limit, and how to ask for more."
-keywords: [wso2 integrator, copilot, usage, usage limit, quota, fair usage]
+description: "See how much of your WSO2 Agent Builder Copilot usage remains, what happens when you reach the limit, and how to ask for more."
+keywords: [wso2 agent builder, copilot, usage, usage limit, quota, fair usage]
 slug: /editor/copilot/usage-limits
 ---
 
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Usage Limits
 
-When you sign in to WSO2 Integrator Copilot with your WSO2 Cloud account, your usage is subject to a limit. Copilot shows how much you have used, lets you know when you reach the limit, and gives you a way to ask for more.
+When you sign in to WSO2 Agent Builder Copilot with your WSO2 Cloud account, your usage is subject to a limit. Copilot shows how much you have used, lets you know when you reach the limit, and gives you a way to ask for more.
 
 :::note
 If you signed in with your own AI provider credentials, Copilot shows your provider instead of a usage figure, for example **Anthropic (own key)**. Your provider account handles usage and billing, so this page does not apply to you.
@@ -19,13 +19,13 @@ If you signed in with your own AI provider credentials, Copilot shows your provi
 
 ## Check your usage
 
-The Copilot panel header shows **Usage** with how much of your limit you have used so far. Point at it to see when your usage resets.
+The Copilot panel header shows **Usage** with how much of your limit you have used so far. Point at it to see how long it is until your usage resets. If your account does not have a limit, **Usage** shows **Unlimited**, and your use is subject to the fair usage policy.
 
 <ThemedImage
     alt="The usage indicator in the Copilot panel header."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/usage-badge.png'),
-        dark: useBaseUrl('/img/editor/copilot/usage-badge.png'),
+        light: useBaseUrl('/img/editor/copilot/usage-badge-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/usage-badge-v1.0.png'),
     }}
 />
 
@@ -38,8 +38,8 @@ When you reach your limit, Copilot pauses and displays a message above the chat 
 <ThemedImage
     alt="The usage limit message above the Copilot chat box."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/usage-limit-notice.png'),
-        dark: useBaseUrl('/img/editor/copilot/usage-limit-notice.png'),
+        light: useBaseUrl('/img/editor/copilot/usage-limit-notice-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/usage-limit-notice-v1.0.png'),
     }}
 />
 
@@ -56,8 +56,8 @@ If you need to continue before your usage resets, select **Request additional qu
 <ThemedImage
     alt="The Request additional quota form."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/quota-request-form.png'),
-        dark: useBaseUrl('/img/editor/copilot/quota-request-form.png'),
+        light: useBaseUrl('/img/editor/copilot/quota-request-form-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/quota-request-form-v1.0.png'),
     }}
 />
 
@@ -68,8 +68,8 @@ The team reviews each request and decides how much to grant, so requests are not
 <ThemedImage
     alt="The message confirming that a request has been submitted."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/quota-request-submitted.png'),
-        dark: useBaseUrl('/img/editor/copilot/quota-request-submitted.png'),
+        light: useBaseUrl('/img/editor/copilot/quota-request-submitted-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/quota-request-submitted-v1.0.png'),
     }}
 />
 
@@ -81,5 +81,5 @@ If you need assistance while your request is being reviewed, the team is happy t
 
 ## See also
 
-- [WSO2 Integrator Copilot](copilot.md) — Sign in to WSO2 Integrator Copilot, including with your own AI provider credentials.
+- [WSO2 Agent Builder Copilot](copilot.md) — Sign in to WSO2 Agent Builder Copilot, including with your own AI provider credentials.
 - [Copilot Architecture and Data Handling](copilot-architecture.md) — How Copilot handles your data, and the bring your own key options.

@@ -1,8 +1,8 @@
 ---
 sidebar_position: 1
 title: Understand the Editor
-description: Take a tour of the WSO2 Integrator editor, its workspace, canvases, designers, panels, and Copilot.
-keywords: [wso2 integrator, editor, editor window, views, canvases, designers, panels, copilot]
+description: Take a tour of the WSO2 Agent Builder editor, its workspace, canvases, designers, panels, and Copilot.
+keywords: [wso2 agent builder, editor, editor window, views, canvases, designers, panels, copilot]
 hide_table_of_contents: true
 wide_layout: true
 slug: /editor
@@ -13,13 +13,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Understand the Editor
 
-The **WSO2 Integrator editor** brings together everything you need to develop, build, test, debug and deploy your integrations in one place. This tour works outward from the window you see when you open it, to the surfaces you build on, to the tools available throughout. The map below gives you the shape of it before you go deeper into any one piece.
+The **WSO2 Agent Builder editor** brings together everything you need to develop, build, test, debug and deploy your agents and agentic integrations in one place. This tour works outward from the window you see when you open it, to the surfaces you build on, to the tools available throughout. The map below gives you the shape of it before you go deeper into any one piece.
 
 <ThemedImage
-    alt="WSO2 Integrator Editor components: the Editor Window contains Views (Project, Integration, Library) and the surfaces you work on inside a view (Canvases, Panels, Designers), alongside WSO2 Integrator Copilot"
+    alt="WSO2 Agent Builder Editor components: the Editor Window contains Views (Project, Integration, Library) and the surfaces you work on inside a view (Canvases, Panels, Designers), alongside WSO2 Agent Builder Copilot"
     sources={{
-        light: useBaseUrl('/img/editor/editor-components.png'),
-        dark: useBaseUrl('/img/editor/editor-components.png'),
+        light: useBaseUrl('/img/editor/editor-components-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-components-v1.0.png'),
     }}
 />
 
@@ -36,7 +36,7 @@ Explore each part of the editor below.
 
 <PaletteCard icon="views">
   <h3 class="palette-card-title">Views</h3>
-  <p class="palette-card-desc">Views are the workspace shells that run inside the editor window. Switch between them depending on whether you are managing a multi-package project, building a single integration, or developing a reusable library.</p>
+  <p class="palette-card-desc">Views are the workspace shells that run inside the editor window. Switch between them depending on whether you are managing a multi-package project, building a single agentic integration, or developing a reusable library.</p>
   <div class="palette-chip-row">
     <PaletteChip href="/editor/views/project-view">Project View</PaletteChip>
     <PaletteChip href="/editor/views/integration-view">Integration View</PaletteChip>
@@ -50,7 +50,6 @@ Explore each part of the editor below.
   <div class="palette-chip-row">
     <PaletteChip href="/editor/canvases/flow-canvas">Flow Canvas</PaletteChip>
     <PaletteChip href="/editor/canvases/type-canvas">Type Canvas</PaletteChip>
-    <PaletteChip href="/editor/canvases/graphql-canvas">GraphQL Canvas</PaletteChip>
   </div>
 </PaletteCard>
 
@@ -79,9 +78,9 @@ Explore each part of the editor below.
 
 <PaletteCard icon="ai" highlight>
   <h3 class="palette-card-title">AI Assistance</h3>
-  <p class="palette-card-desc">WSO2 Integrator Copilot is the AI assistant built into the editor, for generating, testing, and fixing integrations.</p>
+  <p class="palette-card-desc">WSO2 Agent Builder Copilot is the AI assistant built into the editor, for generating, testing, and fixing agents and agentic integrations.</p>
   <div class="palette-chip-row">
-    <PaletteChip href="/editor/copilot">WSO2 Integrator Copilot</PaletteChip>
+    <PaletteChip href="/editor/copilot">WSO2 Agent Builder Copilot</PaletteChip>
     <PaletteChip href="/editor/copilot/copilot-capabilities">Built-in Capabilities</PaletteChip>
     <PaletteChip href="/editor/copilot/customize-copilot">Customize Copilot</PaletteChip>
   </div>
@@ -90,5 +89,5 @@ Explore each part of the editor below.
 ## What's next
 
 - [The editor window](editor-window.md) — Explore the shared chrome that surrounds every view.
-- [Flow Canvas](canvases/flow-canvas/flow-canvas.md) — Design integration logic using the visual flow canvas.
-- [Create a new integration](../develop-and-test/create-workspace/create-a-project.md) — Start building your first integration.
+- [Flow Canvas](canvases/flow-canvas/flow-canvas.md) — Design logic using the visual flow canvas.
+- [Create a project](../develop-and-test/create-workspace/create-a-project.md) — Start building your first agent.

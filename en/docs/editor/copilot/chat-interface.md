@@ -1,7 +1,7 @@
 ---
 title: "Copilot Chat Interface"
-description: Reference for the WSO2 Integrator Copilot chat input bar — commands, built-in skills, Edit/Plan modes, web access, and slash commands.
-keywords: [wso2 integrator, copilot, chat controls, slash commands, plan mode, edit mode]
+description: Reference for the WSO2 Agent Builder Copilot chat input bar — commands, built-in skills, Edit/Plan modes, web access, and slash commands.
+keywords: [wso2 agent builder, copilot, chat controls, slash commands, plan mode, edit mode]
 sidebar_position: 2
 slug: /editor/copilot/chat-interface
 ---
@@ -20,15 +20,15 @@ The chat input bar is where you type prompts and control how Copilot responds. I
 <ThemedImage
     alt="Copilot chat controls: the slash palette listing commands and built-in skills, the Edit/Plan mode toggle, web access, attach context, and send."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/copilot-chat-controls.png'),
-        dark: useBaseUrl('/img/editor/copilot/copilot-chat-controls.png'),
+        light: useBaseUrl('/img/editor/copilot/copilot-chat-controls-v1.0.png'),
+        dark: useBaseUrl('/img/editor/copilot/copilot-chat-controls-v1.0.png'),
     }}
 />
 
 | # | Control | Description |
 |---|---|---|
-| 1 | **Commands** | Task-specific entry points shipped with Copilot: `/typecreator`, `/ask`, `/openapi`, `/doc`. Accessible by typing `/` in the chat or selecting the `/` icon. |
-| 2 | **Built-in skills** | Domain playbooks Copilot applies while it writes code: data mapping, AI agents, workflows. Invoke them explicitly or let Copilot pick. |
+| 1 | **Commands** | Task-specific entry points shipped with Copilot: `/typecreator` and `/ask`. Accessible by typing `/` in the chat or selecting the `/` icon. |
+| 2 | **Built-in skills** | Domain playbooks Copilot applies while it writes code: data mapping, AI agents, agent evaluations, and durable agents. Invoke them explicitly or let Copilot pick. |
 | 3 | **Edit / Plan mode** | **Edit** applies changes to your project directly. **Plan** returns a proposed approach first, with no code written until you accept. |
 | 4 | **Web access** | Toggles whether Copilot may search the web for current documentation and references while answering. |
 | 5 | **Slash palette** | Selecting it opens the command and skill list, the same list you get by typing `/` in the message field. |
@@ -42,14 +42,14 @@ Type `/` in the Copilot input bar to invoke a command for a specific task. You c
 | Command | Description |
 |---|---|
 | `/ask` | Ask questions about Ballerina to be answered based on the documentation. |
-| `/doc` | Generate documentation for your integration. |
-| `/openapi` | Import OpenAPI specifications. |
 | `/typecreator` | Create custom types. |
 | `/data-map` | [Generate data mappings](product://integrator/develop-and-test/integration-artifacts/supportive-artifacts/data-mapper/ai-mapping). |
-| `/natural-programming` | Experimental. Generate code from requirements and check for drift. |
+| `/agent-builder` | Build or edit AI agents: system prompts, model providers, tools, human approval, subagents, knowledge bases, and triggers. |
+| `/agent-evals` | Write, fix, and debug evaluations for your AI agents. |
+| `/workflow-builder` | Build or edit durable agents with the `ballerina/workflow` module. |
 
 :::note
-`/ask` answers only from the Ballerina documentation and does not use your codebase context. For questions about your code or any other topic, message Copilot directly without a command. `/data-map` is powered by the built-in `data-map` skill rather than a command.
+`/ask` answers only from the Ballerina documentation and does not use your codebase context. For questions about your code or any other topic, message Copilot directly without a command. `/data-map`, `/agent-builder`, `/agent-evals`, and `/workflow-builder` are built-in skills rather than commands.
 :::
 
 ## Modes
@@ -57,13 +57,13 @@ Type `/` in the Copilot input bar to invoke a command for a specific task. You c
 Copilot has two modes: plan and edit. Switch between them using the toggle in the Copilot input bar.
 
 - **Edit Mode**: Copilot starts generating immediately and applies the changes to your integration. Best for quick edits.
-- **Plan Mode**: Copilot first proposes a high-level plan with a step-by-step task breakdown. Review or revise the plan, then approve it to begin generation.
+- **Plan Mode**: Copilot first proposes a high-level plan with a step-by-step task breakdown. If it needs more details, it asks clarifying questions before planning. When the plan is ready, select **Start building** to begin generation, or describe what should be different to revise the plan.
 
   <ThemedImage
       alt="Plan mode showing a structured step-by-step breakdown of execution tasks."
       sources={{
-          light: useBaseUrl('/img/editor/copilot/plan-mode.png'),
-          dark: useBaseUrl('/img/editor/copilot/plan-mode.png'),
+          light: useBaseUrl('/img/editor/copilot/plan-mode-v1.0.png'),
+          dark: useBaseUrl('/img/editor/copilot/plan-mode-v1.0.png'),
       }}
   />
 

@@ -1,8 +1,8 @@
 ---
 sidebar_position: 6
 title: Identity & Access Management
-description: Learn how to secure AI agents, tools, and integrations using identity and access control in WSO2 Integrator.
-keywords: [wso2 integrator, ai agent, identity, access control, oauth2, authorization, authentication, agent security]
+description: Learn how to secure AI agents, tools, and integrations using identity and access control in WSO2 Agent Builder.
+keywords: [wso2 agent builder, ai agent, identity, access control, oauth2, authorization, authentication, agent security]
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/identity-and-access-management
 ---
 
@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 AI agents interact with MCP servers, APIs, databases, and enterprise systems to perform tasks autonomously. As agents access enterprise resources and external services, it is important to secure and govern these interactions using proper identity and access control mechanisms.
 
-WSO2 Integrator provides built-in support for securing agents, tools, and service integrations using authentication and authorization standards such as OAuth 2.0. Agents are treated as first-class identities, allowing organizations to manage access in a secure, controlled, and traceable manner.
+WSO2 Agent Builder provides built-in support for securing agents, tools, and service integrations using authentication and authorization standards such as OAuth 2.0. Agents are treated as first-class identities, allowing organizations to manage access in a secure, controlled, and traceable manner.
 
 The platform separates authentication and authorization to provide fine-grained access control.
 
@@ -51,18 +51,18 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 <ThemedImage
     alt="Advanced Configuration panel expanded on the Agent configuration form."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/41-advence-configuration.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/41-advence-configuration.png'),
+        light: useBaseUrl('/img/genai/develop/agents/41-advence-configuration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/41-advence-configuration-v1.0.png'),
     }}
 />
 
-2. Provide the **Agent ID** and **Agent Secret** obtained from the authorization server.
+2. Provide the **Agent ID** and **Agent Secret** obtained from the authorization server in the Agent Credential configuration..
 
 <ThemedImage
     alt="Credential input fields showing Agent ID and Agent Secret fields."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/42-add-credential.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/42-add-credential.png'),
+        light: useBaseUrl('/img/genai/develop/agents/42-add-credential-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/42-add-credential-v1.0.png'),
     }}
 />
 
@@ -70,15 +70,15 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 
 ### Configure auth for an MCP tool
 
-1. Click on the attached MCP Toolkit in the agent to open the configuration form.
+1. Click the attached MCP Toolkit in the agent to open the configuration form, then enable **Requires Authentication**.
 
 2. In the **Auth** Configuration Panel, select the authentication type as **AgentIdAuthConfig** and update the values obtained from the authorization server.
 
 <ThemedImage
     alt="Add auth configuration"
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/34-auth-configuration.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/34-auth-configuration.png'),
+        light: useBaseUrl('/img/genai/develop/agents/34-auth-configuration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/34-auth-configuration-v1.0.png'),
     }}
 />
 
@@ -99,8 +99,8 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 <ThemedImage
     alt="Add scopes"
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/35-add-scopes.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/35-add-scopes.png'),
+        light: useBaseUrl('/img/genai/develop/agents/35-add-scopes-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/35-add-scopes-v1.0.png'),
     }}
 />
 
@@ -111,8 +111,8 @@ If you plan to use [WSO2 Asgardeo](https://wso2.com/asgardeo/docs/get-started/cr
 <ThemedImage
     alt="Edit tool"
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/32-edit-tool.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/32-edit-tool.png'),
+        light: useBaseUrl('/img/genai/develop/agents/32-edit-tool-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/32-edit-tool-v1.0.png'),
     }}
 />
 
