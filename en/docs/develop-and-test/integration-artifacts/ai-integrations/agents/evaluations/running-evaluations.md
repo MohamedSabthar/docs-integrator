@@ -1,8 +1,8 @@
 ---
 sidebar_position: 5
 title: Run Evaluations
-description: Run AI agent evaluations in WSO2 Integrator and review per-run reports, score trends, and code changes that influenced each result.
-keywords: [wso2 integrator, ai agent, evaluation, report, run history, regression]
+description: Run AI agent evaluations in WSO2 Agent Builder and review per-run reports, score trends, and code changes that influenced each result.
+keywords: [wso2 agent builder, ai agent, evaluation, report, run history, regression]
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/evaluations/running-evaluations
 ---
 
@@ -20,8 +20,8 @@ In the **Test Explorer**, hover over the evaluation name and click the run icon 
 <ThemedImage
     alt="Test Explorer with the run icon highlighted next to the testToolTrajectory evaluation, with the evaluation flow visible on the canvas."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/run-evaluation-v1.0.png'),
     }}
 />
 
@@ -34,8 +34,8 @@ The **Evaluation Report** opens automatically after a run.
 <ThemedImage
     alt="Evaluation Report with summary counters, an evaluation card showing 100% observed pass rate against an 80% target, the per-case run list, and the Test Results panel below."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-report-v1.0.png'),
     }}
 />
 
@@ -53,8 +53,8 @@ To compare runs across days or commits, open **Evaluation History**. There are t
 <ThemedImage
     alt="Evaluation Report with the Evaluation History button highlighted at the top right and the history icon highlighted next to evaluations in the Test Explorer."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-history-v1.0.png'),
     }}
 />
 
@@ -63,8 +63,8 @@ Either entry point opens the **Evaluation History** view.
 <ThemedImage
     alt="Evaluation History view with summary counters, a pass-rate trend chart for testToolTrajectory, and a Run History table with status, code changes, and report links."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/evaluation-history-v1.0.png'),
     }}
 />
 
@@ -86,8 +86,8 @@ Click **View changes** on any row to see what changed between that run and the c
 <ThemedImage
     alt="Code changes since this run dialog showing a single file with a diff that adds tools to the math tutor model."
     sources={{
-        light: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff.png'),
-        dark: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff.png'),
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/code-changes-diff-v1.0.png'),
     }}
 />
 
