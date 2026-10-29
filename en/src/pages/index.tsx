@@ -210,6 +210,7 @@ const sections: SectionCard[] = [
     link: '/editor',
     icon: <IconWorkflows />,
     iconColor: '#9333EA',
+    tags: ['Flow Canvas', 'Copilot', 'Project View'],
   },
   {
     title: 'Develop and Test',
@@ -369,6 +370,13 @@ function Explore(): ReactNode {
             <span className={styles.bannerIcon}>{banner2.icon}</span>
             <strong className={styles.bannerTitle}>{banner2.title}</strong>
             <span className={styles.bannerDesc}>{banner2.description}</span>
+            {banner2.tags && (
+              <span className={styles.bannerPills}>
+                {banner2.tags.map((p) => (
+                  <span key={p}>{p}</span>
+                ))}
+              </span>
+            )}
           </Link>
         </div>
 
