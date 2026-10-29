@@ -61,9 +61,13 @@ Select a folder and click **Select Folder**. WSO2 Agent Builder downloads the sa
 
 What you do next depends on where you saved the sample.
 
+:::note
+Save the sample inside the folder of an existing project, or outside any project. Each sample is a single agentic integration, so saving it inside another sample or agentic integration isn't supported. In that case, move the sample to a project's folder, or outside any project, first.
+:::
+
 ### Add the sample to an existing project
 
-If you saved the sample inside an existing project folder inside the `WSO2AgentBuilder` folder, the sample isn't part of that project yet.
+If you saved the sample inside the folder of an existing project (a project you created with [Create a Project](create-a-project.md)), the sample isn't part of that project yet.
 
 1. In the side panel, click the **Add to Project** (**+**) icon next to the integration name.
 
@@ -75,7 +79,7 @@ If you saved the sample inside an existing project folder inside the `WSO2AgentB
        }}
    />
 
-2. A dialog asks whether to add the integration to the existing project instead of creating a new one. Click **Add to Project**.
+2. A dialog says the integration is located inside the project but isn't part of it yet, and asks whether to add it to that project instead of creating a new one. Click **Add to Project**.
 
    <ThemedImage
        alt="Add to Project dialog"
