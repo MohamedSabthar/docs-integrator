@@ -1,8 +1,8 @@
 ---
 sidebar_position: 4
 title: Vector Stores
-description: Reference for every vector store in WSO2 Integrator, covering create form fields, advanced configurations, query modes, and metadata filter support for In-Memory, Amazon S3 Vectors, Pinecone, pgvector, Weaviate, and Milvus.
-keywords: [wso2 integrator, vector store, embeddings, knowledge base, in-memory, amazon s3 vectors, aws, milvus, pgvector, pinecone, weaviate]
+description: Reference for every vector store in WSO2 Agent Builder, covering create form fields, advanced configurations, query modes, and metadata filter support for In-Memory, Amazon S3 Vectors, Pinecone, pgvector, Weaviate, and Milvus.
+keywords: [wso2 agent builder, vector store, embeddings, knowledge base, in-memory, amazon s3 vectors, aws, milvus, pgvector, pinecone, weaviate]
 slug: /develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/vector-stores
 ---
 
@@ -13,7 +13,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 A vector database stores vector embeddings and enables similarity search over them, forming the foundation for semantic search and RAG applications.
 
-A **Vector Store** is WSO2 Integrator's abstraction over these databases, exposing a common interface for every supported backend.
+A **Vector Store** is WSO2 Agent Builder's abstraction over these databases, exposing a common interface for every supported backend.
 
 It is the storage half of a [Knowledge Base](knowledge-bases.md). The [Embedding Provider](embedding-providers.md) produces the vectors, and the Vector Store abstracts where and how they are persisted and retrieved at query time.
 
@@ -74,16 +74,16 @@ Local stores let you choose the metric. Hosted stores manage it themselves (you 
 
 ## Where to find vector stores
 
-- **Add Node** panel > **AI** > **RAG** > **Knowledge Base**.
-- Click **+ Add Knowledge Base**, then select **Vector Knowledge Base** from the **Knowledge Bases** picker.
-- In the **Create Vector Knowledge Base** form, click **+ Create New Vector Store**.
+- On the agent canvas, click **Add Tool** > **Use Knowledge Base**, then select **Vector Knowledge Base** and the **Retrieve** action.
+- Under **Knowledge Base Instance**, click **+ Create knowledge base**.
+- In the **Create Vector Knowledge Base** form, click **+ Create Vector Store**.
 - The **Select Vector Store** picker opens, listing all supported stores with a search bar at the top:
 
 <ThemedImage
     alt="Select Vector Store picker with a search bar and six cards: In Memory Vector Store described as providing simple storage for vector entries, Amazon S3 Vectors Vector Store described as a vector store backed by an Amazon S3 Vectors index, and Milvus, Pgvector, Pinecone, and Weaviate Vector Stores, each described as supporting Dense, Sparse, and Hybrid vector search."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/01-select-list-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/01-select-list-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/01-select-list-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/01-select-list-v1.0.png'),
     }}
 />
 
@@ -105,10 +105,10 @@ Embeddings live in the running integration's process memory. The store loses all
 ### Create form
 
 <ThemedImage
-    alt="Create Vector Store form for In-Memory. Header reads 'Initializes a new in-memory vector store.' Banner: 'This operation has no required parameters. Optional settings can be configured below.' Similarity Metric field (default COSINE), Vector Store Name (default ailnmemoryvectorstore), Result Type (locked to ai:InMemoryVectorStore). Save button."
+    alt="Create Vector Store form for In-Memory. Header reads 'Initializes a new in-memory vector store.' Banner: 'This operation has no required parameters. Optional settings can be configured below.' Similarity Metric field (default COSINE), Vector Store Name (default aiInmemoryvectorstore), Result Type (locked to ai:InMemoryVectorStore). Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/02-in-memory-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/02-in-memory-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/02-in-memory-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/02-in-memory-basic-v1.0.png'),
     }}
 />
 
@@ -184,8 +184,8 @@ In the **Select Vector Store** picker, this store is listed as **Amazon S3 Vecto
 <ThemedImage
     alt={"Create Vector Store form titled 'Initializes the S3 Vectors vector store.' showing Connection Config (required, Record/Expression toggle, prefilled with {auth: {accessKeyId: \"\", secretAccessKey: \"\"}, region: \"us-west-2\"}), Vector Index (required, Record/Expression toggle, prefilled with {vectorBucketName: \"\", indexName: \"\"}), Vector Store Config (Default: {}), Vector Store Name (default s3Vectorstore), and Result Type (locked to s3:VectorStore)."}
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/08-s3-vectors-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/08-s3-vectors-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/08-s3-vectors-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/08-s3-vectors-form-v1.0.png'),
     }}
 />
 
@@ -243,8 +243,8 @@ Official website: [Milvus documentation](https://milvus.io/docs).
 <ThemedImage
     alt="Create Vector Store form for Milvus. Header reads 'Initializes the Milvus vector store with the given configuration.' Fields: Service URL, API Key, Milvus Configuration (record/expression toggle, default {}), HTTP Configuration (default {}), Vector Store Name (default milvusVectorstore), Result Type (locked to milvus:VectorStore). Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/03-milvus-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/03-milvus-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/03-milvus-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/03-milvus-basic-v1.0.png'),
     }}
 />
 
@@ -272,8 +272,8 @@ The form opens with **Host Name**, **Username**, **Password**, **Database Name**
 <ThemedImage
     alt="Create Vector Store form for pgvector showing Host Name, Username, Password, Database Name, Table Name (default 'vector_store'), and the start of Port Number (default 5432)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/04-pgvector-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/04-pgvector-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/04-pgvector-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/04-pgvector-basic-v1.0.png'),
     }}
 />
 
@@ -291,8 +291,8 @@ Scrolling further shows Additional Set Of Configurations For The Database, Prope
 <ThemedImage
     alt="Bottom of the pgvector Create Vector Store form showing Additional Set Of Configurations For The Database (default {}), Properties To Configure Connection Pool (default {}), Configurations For The Vector Store (default {}), Vector Store Name set to pgvectorVectorstore, and Result Type locked to pgvector:VectorStore."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/05-pgvector-inline-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/05-pgvector-inline-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/05-pgvector-inline-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/05-pgvector-inline-bottom-v1.0.png'),
     }}
 />
 
@@ -317,8 +317,8 @@ Official website: [Pinecone documentation](https://docs.pinecone.io).
 <ThemedImage
     alt="Create Vector Store form for Pinecone. Header reads 'Initializes the PineconeVectorStore with the given configuration.' Fields: Service URL, API Key, Query Mode (default DENSE), Pinecone Configuration (default {}), HTTP Configuration (default {}), Vector Store Name (default pineconeVectorstore), Result Type (locked to pinecone:VectorStore). Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/06-pinecone-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/06-pinecone-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/06-pinecone-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/06-pinecone-basic-v1.0.png'),
     }}
 />
 
@@ -345,8 +345,8 @@ Official website: [Weaviate documentation](https://weaviate.io/developers/weavia
 <ThemedImage
     alt={"Create Vector Store form for Weaviate. Header reads 'Initializes the Weaviate vector store with the given configuration.' Fields: Service URL, API Key, Weaviate Configuration (record/expression toggle, default '{collectionName: \"\"}'), HTTP Configuration (default {}), Vector Store Name (default weaviateVectorstore), Result Type (locked to weaviate:VectorStore). Save button."}
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/07-weaviate-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/vector-stores/07-weaviate-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/vector-stores/07-weaviate-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/vector-stores/07-weaviate-basic-v1.0.png'),
     }}
 />
 
@@ -378,4 +378,4 @@ Selection is based on operational concerns (where your data already lives, what 
 
 - [Knowledge Bases](knowledge-bases.md) — Combine a vector store with an embedding provider and a chunker.
 - [Chunkers](chunkers.md) — Split documents into chunks before embedding for ingestion into a vector store.
-- [RAG](../rag/rag.md) — Visual designer walkthrough for RAG ingestion and query in WSO2 Integrator.
+- [RAG](../rag/rag.md) — Visual designer walkthrough for RAG ingestion and query in WSO2 Agent Builder.
