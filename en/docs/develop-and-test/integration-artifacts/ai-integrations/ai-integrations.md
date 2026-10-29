@@ -25,11 +25,6 @@ WSO2 Agent Builder lets you build AI agents and the agentic integrations around 
   <p class="palette-card-desc">The shared connections and stores every AI feature is built from: model providers, embedding providers, vector stores, knowledge bases, chunkers, and data loaders.</p>
 </PaletteCard>
 
-<PaletteCard icon="quickstart" href="/develop-and-test/integration-artifacts/ai-integrations/direct-llm">
-  <h3 class="palette-card-title">Direct LLMs</h3>
-  <p class="palette-card-desc">The simplest AI block. Add a generate node to a flow, write a prompt, and bind the response to a typed value in a single round-trip.</p>
-</PaletteCard>
-
 <PaletteCard icon="rag" href="/develop-and-test/integration-artifacts/ai-integrations/rag">
   <h3 class="palette-card-title">Retrieval-Augmented Generation (RAG)</h3>
   <p class="palette-card-desc">Ground LLM responses in your own documents. Ingest documents into a knowledge base, then retrieve the relevant chunks at query time and inject them into the prompt.</p>
