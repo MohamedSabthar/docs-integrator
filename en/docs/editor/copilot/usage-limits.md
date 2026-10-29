@@ -33,7 +33,7 @@ Copilot updates this each time you open the panel and after every response, so t
 
 ## When you reach the limit
 
-When you reach your limit, Copilot pauses and displays a message above the chat box that tells you how long it is until your usage resets.
+When you reach your limit, Copilot pauses and displays a message above the chat box with the date and time your usage resets.
 
 <ThemedImage
     alt="The usage limit message above the Copilot chat box."
@@ -63,7 +63,7 @@ If you need to continue before your usage resets, select **Request additional qu
 
 You are welcome to add a short note about what you are working on, then select **Submit**. Your account email is included with the request so that the team can get back to you.
 
-The team reviews each request and decides how much to grant, so requests are not approved automatically. Once you have submitted a request, the message confirms it and gives you the team's email address. You do not need to ask again.
+The team reviews each request and decides how much to grant, so requests are not approved automatically. Once you have submitted a request, the message confirms it and you do not need to ask again.
 
 <ThemedImage
     alt="The message confirming that a request has been submitted."
@@ -77,7 +77,7 @@ When the team grants more usage, select the refresh button beside **Usage** to p
 
 ## Get help
 
-If you need assistance while your request is being reviewed, the team is happy to help at [support@wso2.com](mailto:support@wso2.com).
+If you need assistance while your request is being reviewed, the team is happy to help on [Discord](https://discord.com/invite/wso2).
 
 ## See also
 
