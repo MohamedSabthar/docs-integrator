@@ -69,7 +69,7 @@ const PREVIEW_TOPICS: { keywords: string[]; reply: string; action: AssistantActi
   {
     keywords: ['deploy', 'cloud', 'devant'],
     reply: 'You can deploy your integration to WSO2 Cloud from the cloud editor or from WSO2 Integrator on your machine.',
-    action: { label: 'Setup', to: '/get-started/setup' },
+    action: { label: 'Cloud Setup', to: '/get-started/cloud-setup' },
   },
 ];
 
