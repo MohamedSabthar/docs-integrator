@@ -11,9 +11,10 @@ import styles from './styles.module.css';
  *
  * The layout is wholesale-shared (authored on `main`, synced to every
  * product branch). Everything product-specific is a prop, and the
- * screenshot is each branch's own `static/img/landing/hero.png` -- that
- * folder isn't synced, so each branch keeps its own image. The PNG is the
- * window's content only; the frame (dots + title bar) is drawn here.
+ * screenshots are each branch's own `static/img/landing/hero.png` (dark
+ * theme) and `hero-light-v1.0.png` (light theme) -- that folder isn't
+ * synced, so each branch keeps its own images. The PNGs are the window's
+ * content only; the frame (dots + title bar) is drawn here.
  *
  * Palette: warm cream (light) / charcoal (dark) -- see styles.module.css's
  * own docstring. Unlike the hero this replaced, it follows the site's
@@ -24,7 +25,7 @@ import styles from './styles.module.css';
 export interface LandingHeroProps {
   /** Title shown in the window frame's title bar, e.g. "WSO2 Integrator". */
   windowTitle: string;
-  /** Alt text for static/img/landing/hero.png. */
+  /** Alt text for the hero screenshots in static/img/landing/. */
   imageAlt: string;
   /** Small uppercase label above the title, e.g. "WSO2 Integrator · Docs". */
   eyebrow: string;
@@ -99,6 +100,7 @@ export default function LandingHero({
   footnote,
 }: LandingHeroProps): ReactNode {
   const src = useBaseUrl('/img/landing/hero.png');
+  const lightSrc = useBaseUrl('/img/landing/hero-light-v1.0.png');
   return (
     <header className={styles.heroBanner}>
       <div className={styles.heroInner}>
@@ -144,7 +146,8 @@ export default function LandingHero({
               <span className={styles.windowDot} />
               <span className={styles.windowTitle}>{windowTitle}</span>
             </div>
-            <img src={src} alt={imageAlt} />
+            <img className={styles.heroImgLight} src={lightSrc} alt={imageAlt} />
+            <img className={styles.heroImgDark} src={src} alt={imageAlt} />
           </div>
           {footnote && <p className={styles.heroFootnote}>{footnote}</p>}
         </div>

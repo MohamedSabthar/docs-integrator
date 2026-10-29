@@ -287,7 +287,8 @@ const quickLinks = [
 /* ------------------------------------------------------------------ */
 /*  Hero -- the layout is the shared LandingHero component (synced from */
 /*  main); only the copy/links below are this product's own. The        */
-/*  screenshot is this branch's static/img/landing/hero.png.            */
+/*  screenshots are this branch's static/img/landing/hero.png (dark)    */
+/*  and hero-light-v1.0.png (light).                                    */
 /* ------------------------------------------------------------------ */
 function HomepageHeader(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
