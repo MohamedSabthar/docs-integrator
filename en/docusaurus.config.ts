@@ -137,10 +137,10 @@ const config: Config = {
         // .navbar-download-btn in custom.css.
         {
           html: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Download',
-          href: 'https://wso2.com/products/downloads/?product=wso2integrator',
+          href: 'https://github.com/wso2/product-agent-builder/releases',
           position: 'right',
           className: 'navbar-download-btn',
-          'aria-label': 'Download WSO2 Integrator',
+          'aria-label': 'Download WSO2 Agent Builder',
         },
       ],
     },
@@ -151,42 +151,35 @@ const config: Config = {
           title: 'Get Started',
           items: [
             { label: 'Platform Overview', to: '/platform-overview' },
-            { label: 'Setup', to: '/get-started/setup' },
             { label: 'Concepts', to: '/get-started/concepts' },
-            { label: 'Quickstarts', to: '/get-started/quickstarts' },
+            { label: 'Setup', to: '/get-started/setup' },
+            { label: 'Quickstarts', to: '/get-started/quickstarts/build-ai-agent' },
           ],
         },
         {
-          title: 'Section 1',
+          title: 'Editor Tour',
           items: [
-            { label: 'Overview', to: '/section-1' },
-            { label: 'Sub-section 1', to: '/section-1/sub-section-1' },
-            { label: 'Sample Page', to: '/section-1/sub-section-1/sample-page' },
-            { label: 'Sub-section 2', to: '/section-1/sub-section-2' },
+            { label: 'Flow Canvas', to: '/editor/canvases/flow-canvas' },
+            { label: 'Copilot', to: '/editor/copilot' },
+            { label: 'Project View', to: '/editor/views/project-view' },
           ],
         },
         {
-          title: 'Section 2',
+          // Same develop -> deploy -> manage -> observe column as
+          // wso2-integrator's footer.
+          title: 'Integration Lifecycle',
           items: [
-            { label: 'Overview', to: '/section-2' },
-            { label: 'Page 1', to: '/section-2/page-1' },
-            { label: 'Page 2', to: '/section-2/page-2' },
+            { label: 'Develop and Test', to: '/develop-and-test' },
+            { label: 'Deploy and Run', to: '/deploy-and-run' },
+            { label: 'Manage', to: '/manage' },
+            { label: 'Observe', to: '/observe' },
           ],
         },
         {
-          title: 'Guides',
+          title: 'Resources',
           items: [
-            { label: 'Overview', to: '/guides' },
-            { label: 'How to Guides', to: '/guides/how-to-guides' },
-            { label: 'Business Use Cases', to: '/guides/business-use-cases' },
-          ],
-        },
-        {
-          title: 'Reference',
-          items: [
-            { label: 'Overview', to: '/reference' },
+            { label: 'Guides', to: '/guides' },
             { label: 'FAQ', to: '/reference/faq' },
-            { label: 'Glossary', to: '/reference/glossary' },
           ],
         },
       ],

@@ -193,6 +193,7 @@ type SectionCard = {
   link: string;
   icon: ReactNode;
   iconColor: string;
+  tags?: string[];
 };
 
 const sections: SectionCard[] = [
@@ -204,18 +205,12 @@ const sections: SectionCard[] = [
     iconColor: '#7C3AED',
   },
   {
-    title: 'Get Started',
-    description: 'Quickstarts for building your first AI agent or durable agent.',
-    link: '/get-started',
-    icon: <IconGetStarted />,
-    iconColor: '#F14E23',
-  },
-  {
     title: 'Editor Tour',
     description: 'Canvases, designers, panels, and Copilot -- a tour of the editor.',
     link: '/editor',
     icon: <IconWorkflows />,
     iconColor: '#9333EA',
+    tags: ['Flow Canvas', 'Copilot', 'Project View'],
   },
   {
     title: 'Develop and Test',
@@ -246,32 +241,12 @@ const sections: SectionCard[] = [
     iconColor: '#B91C1C',
   },
   {
-    title: 'Section 1',
-    description: 'Placeholder top-level section with sample sub-sections, demonstrating the nested-category convention.',
-    link: '/section-1',
-    icon: <IconSection />,
-    iconColor: '#059669',
-  },
-  {
-    title: 'Section 2',
-    description: 'Two plain leaf docs, each with its own sidebar separator label.',
-    link: '/section-2',
-    icon: <IconDevelop />,
-    iconColor: '#26365A',
-  },
-  {
     title: 'Guides',
     description: 'AI agent and MCP guides: business use cases and how-to walkthroughs.',
     link: '/guides',
     icon: <IconTutorials />,
     iconColor: '#0EA5E9',
-  },
-  {
-    title: 'Reference',
-    description: 'FAQ and glossary.',
-    link: '/reference',
-    icon: <IconReference />,
-    iconColor: '#7C2D12',
+    tags: ['How-to guides', 'Use cases', 'Tutorials'],
   },
 ];
 
@@ -375,10 +350,10 @@ function Explore(): ReactNode {
         <div>
           <span className={styles.eyebrow}>
             <span className={styles.eyebrowDash} />
-            Explore the docs
+            Explore Agent Builder
           </span>
           <Heading as="h2" className={styles.h2Xl}>
-            Everything you need to get started
+            Everything from design canvas to production
           </Heading>
         </div>
 
@@ -395,12 +370,19 @@ function Explore(): ReactNode {
             <span className={styles.bannerIcon}>{banner2.icon}</span>
             <strong className={styles.bannerTitle}>{banner2.title}</strong>
             <span className={styles.bannerDesc}>{banner2.description}</span>
+            {banner2.tags && (
+              <span className={styles.bannerPills}>
+                {banner2.tags.map((p) => (
+                  <span key={p}>{p}</span>
+                ))}
+              </span>
+            )}
           </Link>
         </div>
 
         <div className={styles.lifecycle}>
           <div className={styles.lifecycleHead}>
-            <strong>Sections</strong>
+            <strong>Integration lifecycle</strong>
             <span className={styles.lifecycleRule} aria-hidden="true" />
           </div>
           <ol className={styles.lifecycleGrid}>
@@ -430,6 +412,13 @@ function Explore(): ReactNode {
               <span className={styles.wideBody}>
                 <strong>{t.title}</strong>
                 <span>{t.description}</span>
+                {t.tags && (
+                  <span className={styles.tags}>
+                    {t.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </span>
+                )}
               </span>
               <span className={styles.wideArrow} aria-hidden="true">
                 →
