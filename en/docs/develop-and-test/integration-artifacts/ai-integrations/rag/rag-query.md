@@ -45,8 +45,8 @@ sequenceDiagram
     <ThemedImage
         alt="Add Tool panel listing the available tool types, including Use Knowledge Base."
         sources={{
-            light: useBaseUrl('/img/genai/develop/agents-v5.1/tools/02-add-tool-panel-v5.1.png'),
-            dark: useBaseUrl('/img/genai/develop/agents-v5.1/tools/02-add-tool-panel-v5.1.png'),
+            light: useBaseUrl('/img/genai/develop/agents/tools/02-add-tool-panel-v1.0.png'),
+            dark: useBaseUrl('/img/genai/develop/agents/tools/02-add-tool-panel-v1.0.png'),
         }}
     />
 
