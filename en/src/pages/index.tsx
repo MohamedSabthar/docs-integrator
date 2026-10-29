@@ -239,25 +239,11 @@ const sections: SectionCard[] = [
     iconColor: '#15803D',
   },
   {
-    title: 'Observe',
-    description: 'Observe deployed agents.',
-    link: '/observe',
-    icon: <IconObserve />,
-    iconColor: '#B91C1C',
-  },
-  {
     title: 'Guides',
     description: 'AI agent and MCP guides: business use cases and how-to walkthroughs.',
     link: '/guides',
     icon: <IconTutorials />,
     iconColor: '#0EA5E9',
-  },
-  {
-    title: 'Reference',
-    description: 'FAQ and glossary.',
-    link: '/reference',
-    icon: <IconReference />,
-    iconColor: '#7C2D12',
   },
 ];
 
