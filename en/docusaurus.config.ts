@@ -89,6 +89,39 @@ const config: Config = {
           // Lets docs link to a sibling product with `product://<product>/<path>`
           // instead of a hardcoded production path -- see the plugin's docstring.
           remarkPlugins: [[require('./src/plugins/crossProductLinks'), { base: CROSS_PRODUCT_BASE }]],
+          lastVersion: '1.0',
+          versions: {
+            current: {
+              label: 'Next',
+              // No longer `lastVersion`, so Docusaurus already applies
+              // `banner: 'unreleased'` by default -- kept explicit here
+              // for the same reason wso2-integrator's own config does.
+              banner: 'unreleased',
+            },
+            // The version ID itself stays `1.0` -- it's the literal
+            // `versioned_docs/version-1.0`/`versioned_sidebars/
+            // version-1.0-sidebars.json` folder/file name and
+            // `versions.json`'s own entry, same convention
+            // wso2-integrator's config uses for its own label overrides.
+            // `label` only overrides what's DISPLAYED (version dropdown,
+            // DocVersionBadge/Banner) to `1.0-beta` -- deliberately NOT
+            // overriding `path` too: this version is also `lastVersion`
+            // below, and Docusaurus only serves `lastVersion` unprefixed
+            // at the site root when it keeps its *default* path. Giving
+            // it an explicit `path: '1.0-beta'` un-aliases it from root,
+            // and this branch's navbar/footer (docusaurus.config.ts)
+            // hardcode absolute unprefixed links (`to: '/reference/faq'`,
+            // `/get-started/cloud-setup'`, etc., rendered on every page)
+            // that depend on that root-aliasing -- confirmed by a real
+            // build: that combination 404s all of them, on every page.
+            // Dropping `path` keeps the URL as plain `/1.0/`, matching
+            // wso2-integrator's own convention exactly. Going GA later
+            // is then just deleting this `label` -- no versioned_docs
+            // rename, no re-cut.
+            '1.0': {
+              label: '1.0-beta',
+            },
+          },
         },
         blog: false,
         theme: {
