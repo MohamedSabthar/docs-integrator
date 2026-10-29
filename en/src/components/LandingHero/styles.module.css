@@ -187,6 +187,11 @@
   height: auto;
 }
 
+[data-theme='dark'] .heroImgLight,
+[data-theme='light'] .heroImgDark {
+  display: none;
+}
+
 @media screen and (max-width: 996px) {
   .heroInner {
     padding: 48px 20px 56px;
