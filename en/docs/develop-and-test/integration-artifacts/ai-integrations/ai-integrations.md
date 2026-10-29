@@ -55,7 +55,5 @@ WSO2 Agent Builder lets you build AI agents and the agentic integrations around 
 
 ## Tutorials
 
-- **[Email Generator with Direct LLM](../../../guides/how-to-guides/email-generator-direct-llm.md)**
 - **[Building an IT Helpdesk AI Agent with Persistent Memory](../../../guides/business-use-cases/it-helpdesk-chatbot.md)**
-- **[Building an HR knowledge base with RAG](../../../guides/business-use-cases/building-hr-knowledge-base-rag.md)**
 - **[Build a customer care agent with MCP](../../../guides/business-use-cases/building-a-customer-care-agent-mcp.md)**
