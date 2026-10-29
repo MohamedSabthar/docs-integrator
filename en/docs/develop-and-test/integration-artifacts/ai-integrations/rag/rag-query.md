@@ -32,7 +32,7 @@ sequenceDiagram
 :::info Prerequisites
 
 - Create and populate a WSO2 Cloud Knowledge Base by following [RAG ingestion](rag-ingestion.md).
-- Create a [Chat Agent Service](../agents/create-an-agent.md#create-a-chat-agent), or open an existing AI agent.
+- Create an [agent with an Agent Chat trigger](../agents/create-an-agent.md#expose-the-agent-as-a-chat-endpoint), or open an existing AI agent.
 - Sign in to the WSO2 Cloud organization that contains the knowledge base and select the correct project.
 
 :::

@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 :::info Prerequisites
 
-- [WSO2 Agent Builder installed](../../get-started/cloud-setup.md)
+- [WSO2 Agent Builder installed](../../get-started/setup.md)
 
 :::
 
