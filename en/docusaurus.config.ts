@@ -151,7 +151,7 @@ const config: Config = {
           title: 'Get Started',
           items: [
             { label: 'Platform Overview', to: '/platform-overview' },
-            { label: 'Cloud Setup', to: '/get-started/cloud-setup' },
+            { label: 'Setup', to: '/get-started/setup' },
             { label: 'Concepts', to: '/get-started/concepts' },
             { label: 'Quickstarts', to: '/get-started/quickstarts' },
           ],

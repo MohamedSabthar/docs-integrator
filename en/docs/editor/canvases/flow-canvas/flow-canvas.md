@@ -2,8 +2,8 @@
 sidebar_position: 0
 sidebar_label: Canvas Basics
 title: Flow Canvas
-description: Visual canvas for designing the logic of an integration in WSO2 Integrator.
-keywords: [wso2 integrator, flow canvas, visual designer, node palette]
+description: Visual canvas for designing the logic of an agentic integration in WSO2 Agent Builder.
+keywords: [wso2 agent builder, flow canvas, visual designer, node palette]
 slug: /editor/canvases/flow-canvas
 ---
 
@@ -12,9 +12,9 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Flow Canvas
 
-The Flow Canvas is the visual designer for an integration's logic. Each step in the integration is a node on the canvas, and the canvas generates valid Ballerina source as you build. Switch to pro-code at any time to read or edit the generated code.
+The Flow Canvas is the visual designer for the logic in an agentic integration or library. Each step is a node on the canvas, and the canvas generates valid Ballerina source as you build. Switch to pro-code at any time to read or edit the generated code.
 
-The Flow Canvas opens wherever you build the logic of an integration, such as when you open an entry point or any other artifact whose body is a series of steps.
+The Flow Canvas opens wherever you build step-by-step logic, such as when you open a function or any other artifact whose body is a series of steps.
 
 ## Anatomy of the canvas
 
@@ -22,15 +22,15 @@ The Flow Canvas has two main parts.
 
 ### Canvas
 
-The canvas shows the flow as a sequence of nodes connected from a **Start** node down to an end terminator. The canvas shows the order of execution, how data passes between nodes, and any branching or concurrency in the integration.
+The canvas shows the flow as a sequence of nodes connected from a **Start** node down to an end terminator. The canvas shows the order of execution, how data passes between nodes, and any branching or concurrency in the logic. Use **Flow** and **Sequence** at the top right of the canvas to switch between the two views of the same logic.
 
 To add a step to the flow, select **+** between two nodes (or below **Start**) to open the node palette.
 
 <ThemedImage
-    alt="Canvas with a Start node, an empty step placeholder, an Error Handler node, and an end terminator"
+    alt="Canvas for a new function with a Start node, a + button, and an end terminator"
     sources={{
-        light: useBaseUrl('/img/editor/canvases/flow-canvas/canvas.png'),
-        dark: useBaseUrl('/img/editor/canvases/flow-canvas/canvas.png'),
+        light: useBaseUrl('/img/editor/canvases/flow-canvas/canvas-v1.0.png'),
+        dark: useBaseUrl('/img/editor/canvases/flow-canvas/canvas-v1.0.png'),
     }}
 />
 

@@ -1,8 +1,8 @@
 ---
 sidebar_position: 3
 title: Embedding Providers for Embedding Models
-description: Reference for every embedding provider in WSO2 Integrator, covering create form fields, advanced configurations, defaults, and supported embedding models for the Default WSO2 provider, AWS Bedrock, OpenAI, Azure OpenAI, Google Vertex, and OpenRouter.
-keywords: [wso2 integrator, embedding provider, embedding model, vector, knowledge base, aws bedrock, amazon titan, cohere, openai, azure openai, google vertex, openrouter]
+description: Reference for every embedding provider in WSO2 Agent Builder, covering create form fields, advanced configurations, defaults, and supported embedding models for the Default WSO2 provider, AWS Bedrock, OpenAI, Azure OpenAI, Google Vertex, and OpenRouter.
+keywords: [wso2 agent builder, embedding provider, embedding model, vector, knowledge base, aws bedrock, amazon titan, cohere, openai, azure openai, google vertex, openrouter]
 slug: /develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/embedding-providers
 ---
 
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Embedding Providers for Embedding Models
 
-An embedding model converts text into a dense numeric vector that captures semantic meaning. An **Embedding Provider** is WSO2 Integrator's abstraction over these models, giving every supported vendor a consistent interface.
+An embedding model converts text into a dense numeric vector that captures semantic meaning. An **Embedding Provider** is WSO2 Agent Builder's abstraction over these models, giving every supported vendor a consistent interface.
 
 Knowledge Bases use the embedding provider on **ingest** to convert chunks into stored vectors, and again on **retrieve** to convert the user's query into a vector for similarity search.
 
@@ -28,16 +28,16 @@ You rarely call these directly. Knowledge Base `ingest` and `retrieve` operation
 
 ## Where to find embedding providers
 
-- **Add Node** panel > **AI** > **RAG** > **Knowledge Base**.
-- Click **+ Add Knowledge Base**, then select **Vector Knowledge Base** from the **Knowledge Bases** picker.
-- In the **Create Vector Knowledge Base** form, click **+ Create New Embedding Model**.
+- On the agent canvas, click **Add Tool** > **Use Knowledge Base**, then select **Vector Knowledge Base** and the **Retrieve** action.
+- Under **Knowledge Base Instance**, click **+ Create knowledge base**.
+- In the **Create Vector Knowledge Base** form, click **+ Create Embedding Provider**.
 - The **Select Embedding Provider** picker opens, listing the available providers with a search bar at the top:
 
 <ThemedImage
     alt="Select Embedding Provider picker with a search bar and six cards: Default Embedding Provider (WSO2), the Bedrock Embedding Providers group (2 options, available in ballerinax/ai.aws.bedrock), Azure Embedding Provider, Google Vertex Embedding Provider, OpenAI Embedding Provider, and OpenRouter Embedding Provider, each with a one-line description."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/01-select-embedding-provider-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/01-select-embedding-provider-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/01-select-embedding-provider-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/01-select-embedding-provider-v1.0.png'),
     }}
 />
 
@@ -65,8 +65,8 @@ Routes through the WSO2 intelligence service. The same WSO2 sign-in that unlocks
 <ThemedImage
     alt="Create Embedding Provider form for the Default WSO2 provider. Header reads 'Creates a default embedding provider based on the provided wso2ProviderConfig. The embedding vectors have a dimension of 1536.' Banner: 'This is a simple operation that requires no parameters. Specify where to store the result to finish.' Two fields: Embedding Provider Name (default aiWso2embeddingprovider) and Result Type (locked to ai:Wso2EmbeddingProvider). Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/02-wso2-default-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/02-wso2-default-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/02-wso2-default-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/02-wso2-default-v1.0.png'),
     }}
 />
 
@@ -83,8 +83,8 @@ Official website: [aws.amazon.com/bedrock](https://aws.amazon.com/bedrock/).
 <ThemedImage
     alt="Create Embedding Provider form for the Bedrock Titan Embedding Provider, headed 'Amazon Titan text embeddings on AWS Bedrock.', showing three required fields: Model (select/expression toggle), Authentication (record/expression toggle, with hint 'AWS credentials or a Bedrock API key; auth:DEFAULT_CREDENTIALS uses the default chain'), and Region (select/expression toggle), then the optional Endpoint Configuration. Below: Advanced Configurations Expand link and Embedding Provider Name bedrockTitanembeddingprovider."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/11-aws-bedrock-titan-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/11-aws-bedrock-titan-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/11-aws-bedrock-titan-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/11-aws-bedrock-titan-basic-v1.0.png'),
     }}
 />
 
@@ -106,8 +106,8 @@ Both AWS Bedrock embedding providers have the same create form fields.
 <ThemedImage
     alt="Bedrock Cohere Create Embedding Provider form scrolled to Endpoint Configuration, then Advanced Configurations expanded showing Input Type (No Selection, with hint 'Input type for every call. Unset: queries for embed, documents for batchEmbed.'), Truncate, Dimensions (hint '256, 512, 1024 or 1536 (Embed v4 only). Defaults to 1536.'), and Additional Model Request Fields."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/12-aws-bedrock-cohere-advanced-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/12-aws-bedrock-cohere-advanced-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/12-aws-bedrock-cohere-advanced-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/12-aws-bedrock-cohere-advanced-v1.0.png'),
     }}
 />
 
@@ -140,8 +140,8 @@ The form opens with **Service URL**, **Access Token**, **API Version**, and **De
 <ThemedImage
     alt="Create Embedding Provider form for Azure OpenAI showing Service URL (with hint to use the v1 GA URL or the legacy URL), Access Token, API Version (default empty, required for legacy service URLs), Deployment ID, and the start of HTTP Version (default HTTP_2_0)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/03-azure-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/03-azure-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/03-azure-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/03-azure-basic-v1.0.png'),
     }}
 />
 
@@ -161,8 +161,8 @@ Scrolling further shows Timeout, Forwarded, Compression, and Payload Validation,
 <ThemedImage
     alt="Bottom of the Azure OpenAI Create Embedding Provider form showing the end of Timeout, then Forwarded, Compression, Payload Validation, the collapsed Advanced Configurations toggle, Embedding Provider Name set to azureEmbeddingprovider, Result Type locked to azure:EmbeddingProvider, and the Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/04-azure-inline-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/04-azure-inline-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/04-azure-inline-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/04-azure-inline-bottom-v1.0.png'),
     }}
 />
 
@@ -181,8 +181,8 @@ The form opens with **Auth**, **Project ID**, **Location**, **Model Type**, and 
 <ThemedImage
     alt="Create Embedding Provider form for Google Vertex showing Auth (record/expression toggle, with hint 'OAuth2RefreshConfig for OAuth2 refresh token flow, or ServiceAccountConfig for automatic token refresh via service account'), Project ID, Location (default 'global'), Model Type (default TEXT_EMBEDDING_005), Service URL (default empty, auto-derived), and the start of HTTP Version (default HTTP_2_0)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/05-vertex-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/05-vertex-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/05-vertex-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/05-vertex-basic-v1.0.png'),
     }}
 />
 
@@ -191,7 +191,7 @@ The form opens with **Auth**, **Project ID**, **Location**, **Model Type**, and 
 | **Auth** | Yes | N/A | OAuth2 refresh-token record, a service-account record, or a path to a service-account JSON file. See [Vertex auth options](model-providers.md#vertex-auth-options) on the Model Providers page. |
 | **Project ID** | Yes | N/A | Your Google Cloud project ID. |
 | **Location** | No | `"global"` | `"global"`, `"us-central1"`, `"europe-west1"`, etc. Google Cloud region. |
-| **Model Type** | No | `text-embedding-005` (shown as `TEXT_EMBEDDING_005`) | `text-embedding-005`, `text-embedding-004`, `textembedding-gecko-multilingual@001`, `textembedding-gecko@001`. Vertex embedding model. |
+| **Model Type** | No | `text-embedding-005` (shown as `TEXT_EMBEDDING_005`) | `text-embedding-005`, `text-multilingual-embedding-002`, `text-embedding-004`. Vertex embedding model. |
 | **Service URL** | No | `""` (auto-derived) | Override the regional endpoint. Defaults to `https://\{location\}-aiplatform.googleapis.com`. |
 
 Scrolling further shows Timeout, Forwarded, Compression, and Payload Validation, then the collapsed **Advanced Configurations** toggle, and finally **Embedding Provider Name** and **Result Type**:
@@ -199,8 +199,8 @@ Scrolling further shows Timeout, Forwarded, Compression, and Payload Validation,
 <ThemedImage
     alt="Bottom of the Google Vertex Create Embedding Provider form showing the end of Timeout, then Forwarded, Compression, Payload Validation, the collapsed Advanced Configurations toggle, Embedding Provider Name set to vertexEmbeddingprovider, Result Type locked to vertex:EmbeddingProvider, and the Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/06-vertex-inline-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/06-vertex-inline-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/06-vertex-inline-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/06-vertex-inline-bottom-v1.0.png'),
     }}
 />
 
@@ -221,8 +221,8 @@ The form opens with **API Key**, **Embedding Model Type**, and **Service URL**, 
 <ThemedImage
     alt="Create Embedding Provider form for OpenAI. Header reads 'Initializes the OpenAI embedding model with the given connection configuration.' Fields shown: API Key, Embedding Model Type (No Selection), Service URL (default https://api.openai.com/v1), HTTP Version (default HTTP_2_0), Timeout (default 60), and the start of Forwarded (default disable)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/09-openai-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/09-openai-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/09-openai-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/09-openai-basic-v1.0.png'),
     }}
 />
 
@@ -237,8 +237,8 @@ Scrolling further shows **Forwarded**, **Compression**, and **Payload Validation
 <ThemedImage
     alt="Bottom of the OpenAI Create Embedding Provider form showing the end of Timeout, then Forwarded (default disable), Compression (default AUTO), Payload Validation (default true), the collapsed Advanced Configurations toggle, Embedding Provider Name set to openaiEmbeddingprovider, Result Type locked to openai:EmbeddingProvider, and the Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/10-openai-inline-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/10-openai-inline-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/10-openai-inline-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/10-openai-inline-bottom-v1.0.png'),
     }}
 />
 
@@ -275,8 +275,8 @@ The form opens with **API Key**, **Model Type**, **Service URL**, **Site URL**, 
 <ThemedImage
     alt="Create Embedding Provider form for OpenRouter showing API Key (with link to https://openrouter.ai/keys), Model Type (with example value openai/text-embedding-3-small), Service URL (default https://openrouter.ai/api/v1), Site URL (default empty), Site Name (default empty), and the start of HTTP Version (default HTTP_2_0)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/07-openrouter-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/07-openrouter-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/07-openrouter-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/07-openrouter-basic-v1.0.png'),
     }}
 />
 
@@ -293,8 +293,8 @@ Scrolling further shows Timeout, Forwarded, Compression, and Payload Validation,
 <ThemedImage
     alt="Bottom of the OpenRouter Create Embedding Provider form showing the end of Timeout, then Forwarded, Compression, Payload Validation, the collapsed Advanced Configurations toggle, Embedding Provider Name set to openrouterEmbeddingprovider, Result Type locked to openrouter:EmbeddingProvider, and the Save button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/08-openrouter-inline-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/embedding-providers/08-openrouter-inline-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components/embedding-providers/08-openrouter-inline-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components/embedding-providers/08-openrouter-inline-bottom-v1.0.png'),
     }}
 />
 
@@ -324,4 +324,4 @@ The provider selected at ingest time must remain consistent for the lifetime of 
 - [Vector Stores](vector-stores.md) — Where the embeddings live.
 - [Knowledge Bases](knowledge-bases.md) — The object that ties an embedding provider, a vector store, and a chunker together.
 - [Chunkers](chunkers.md) — Split documents into chunks before embedding for ingestion into a vector store.
-- [RAG](../rag/rag.md) — WSO2 Integrator walkthrough for ingestion and query flows.
+- [RAG](../rag/rag.md) — WSO2 Agent Builder walkthrough for ingestion and query flows.

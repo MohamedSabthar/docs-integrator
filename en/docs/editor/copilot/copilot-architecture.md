@@ -1,8 +1,8 @@
 ---
 sidebar_position: 5
 title: Copilot Architecture and Data Handling
-description: Understand how WSO2 Integrator Copilot handles prompts, responses, feedback, and authentication data, and the best practices to follow when using AI features.
-keywords: [wso2 integrator, copilot, ai, data handling, privacy, byok, anthropic, aws bedrock, google vertex ai, asgardeo, architecture, data residency, eu region, mcp, web access]
+description: Understand how WSO2 Agent Builder Copilot handles prompts, responses, feedback, and authentication data, and the best practices to follow when using AI features.
+keywords: [wso2 agent builder, copilot, ai, data handling, privacy, byok, anthropic, aws bedrock, google vertex ai, asgardeo, architecture, data residency, eu region, mcp, web access]
 slug: /editor/copilot/copilot-architecture
 ---
 
@@ -11,30 +11,30 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Copilot Architecture and Data Handling
 
-WSO2 Integrator provides an AI-powered Copilot to enhance developer productivity. This page explains how [WSO2 Integrator Copilot](capabilities.md) works, how user data is handled, and what best practices organizations should follow when using AI features.
+WSO2 Agent Builder provides an AI-powered Copilot to help you build agents. This page explains how [WSO2 Agent Builder Copilot](capabilities.md) works, how user data is handled, and what best practices organizations should follow when using AI features.
 
 These guidelines are designed to ensure transparency, security, and compliance when using AI-powered assistance in enterprise environments.
 
 ## Macro architecture
 
-WSO2 Integrator Copilot is integrated into the WSO2 Integrator developer experience. It works as follows:
+WSO2 Agent Builder Copilot is integrated into the WSO2 Agent Builder developer experience. It works as follows:
 
 <ThemedImage
-    alt="WSO2 Integrator Copilot macro architecture"
+    alt="WSO2 Agent Builder Copilot macro architecture"
     sources={{
-        light: useBaseUrl('/img/reference/ai-usage/macro-architecture.png'),
-        dark: useBaseUrl('/img/reference/ai-usage/macro-architecture.png'),
+        light: useBaseUrl('/img/reference/ai-usage/macro-architecture-v1.0.png'),
+        dark: useBaseUrl('/img/reference/ai-usage/macro-architecture-v1.0.png'),
     }}
 />
 
-- **WSO2 Integrator Copilot**: Provides in-editor assistance such as code completion, explanations, and suggestions.
+- **WSO2 Agent Builder Copilot**: Builds, changes, runs, tests, and evaluates the agents in your project from the chat, and answers your questions about them.
 - **Language Server**: Powers intelligent features inside the editor, including syntax awareness and integration with Copilot services.
 - **WSO2 Intelligence endpoint**: A lightweight intermediary service that connects the editor to Anthropic or Amazon Bedrock models. This service does not retain data.
 - **Anthropic or Amazon Bedrock integration**: The endpoint forwards user prompts and context to the selected large language model (LLM) provider for processing.
 
 ## Authentication
 
-To maintain security, all WSO2 Integrator Copilot features require authentication:
+To maintain security, all WSO2 Agent Builder Copilot features require authentication:
 
 - Users must [sign in](copilot.md) to enable Copilot functionality.
 - Social sign-in options are supported for ease of use.
@@ -51,10 +51,10 @@ Access through the WSO2 Cloud sign-in is subject to a fair usage policy.
 The movement of data through Copilot is designed for zero retention at the intermediary layer:
 
 <ThemedImage
-    alt="WSO2 Integrator Copilot data flow"
+    alt="WSO2 Agent Builder Copilot data flow"
     sources={{
-        light: useBaseUrl('/img/reference/ai-usage/ai-data-flow.png'),
-        dark: useBaseUrl('/img/reference/ai-usage/ai-data-flow.png'),
+        light: useBaseUrl('/img/reference/ai-usage/ai-data-flow-v1.0.png'),
+        dark: useBaseUrl('/img/reference/ai-usage/ai-data-flow-v1.0.png'),
     }}
 />
 
@@ -69,11 +69,11 @@ The movement of data through Copilot is designed for zero retention at the inter
 
 ### What Copilot sends to the AI model
 
-To work on your integration, Copilot sends the following to the AI model:
+To work on your agents, Copilot sends the following to the AI model:
 
 - Your prompts, and any files or images you attach.
-- The contents of the project files that Copilot reads while it works.
-- The results of the tools Copilot runs, such as diagnostics, test results, logs from services it runs, and the responses to requests it sends to your services.
+- The contents of the project files that Copilot reads while it works, including your evalsets and the conversations saved in them.
+- The results of the tools Copilot runs, such as diagnostics, test and evaluation results, logs from services it runs, and the responses to requests it sends to your services.
 
 Copilot does not read your `Config.toml` file. When Copilot asks you for configuration values, it saves them to your project and does not send them to the AI model.
 
@@ -83,14 +83,17 @@ Copilot writes its changes directly into your project files.
 
 - **Web access**: Web searches and page fetches are carried out by your AI provider, so your search terms and the content of the fetched pages pass through that provider.
 - **MCP servers**: Copilot connects to the MCP servers you add directly from your machine, and sends each server the inputs for the tools it calls. What the tools return is sent to the AI model. Each server handles the data it receives under its own terms.
+- **Agent Manager**: If you add the **Agents & Deployments** or **Observability** server from Agent Manager, Copilot connects to it in the same way. What Copilot reads there, such as your agents, logs, metrics, and traces, is sent to the AI model. With **Agents & Deployments**, Copilot can also create, build, and deploy agents in Agent Manager for you.
 
 ### Data stored on your machine
 
 Your chat sessions are saved on your machine. WSO2 does not store them.
 
+If you add an Agent Manager server, you sign in to Agent Manager in your browser. Copilot keeps that sign-in on your machine and removes it when you sign out of Agent Manager.
+
 ## Bring your own key (BYOK)
 
-Organizations can configure Copilot to run using their own model provider accounts. This ensures enterprise-level control over data governance and billing. See [WSO2 Integrator Copilot](copilot.md) for the available sign-in options.
+Organizations can configure Copilot to run using their own model provider accounts. This ensures enterprise-level control over data governance and billing. See [WSO2 Agent Builder Copilot](copilot.md) for the available sign-in options.
 
 ### Anthropic deployment
 
@@ -112,7 +115,7 @@ Organizations can configure Copilot to run using their own model provider accoun
 
 ## Open source
 
-WSO2 Integrator Copilot is open source, enabling transparency and community contribution:
+WSO2 Agent Builder Copilot is open source, enabling transparency and community contribution:
 
 - The full source code is available for inspection, download, and modification.
 - This allows organizations to validate the behavior of Copilot.
@@ -184,4 +187,4 @@ General Copilot best practices:
 ## See also
 
 - [Built-in Capabilities](capabilities.md) — What Copilot can do.
-- [WSO2 Integrator Copilot](copilot.md) — Sign in to Copilot.
+- [WSO2 Agent Builder Copilot](copilot.md) — Sign in to Copilot.

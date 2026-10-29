@@ -25,15 +25,18 @@ The durable AI agent receives expense claims, validates them, and pays them out 
 
 A working WSO2 Agent Builder environment.
 
-<PrereqCard icon="local" title="Local setup" href="/get-started/cloud-setup">
-  Install and launch WSO2 Agent Builder on your machine.
+<PrereqCard icon="local" title="Local setup" href="/get-started/setup">
+  Install and launch WSO2 Integrator on your machine.
 </PrereqCard>
-<PrereqCard icon="cloud" title="WSO2 Cloud Account" href="/get-started/cloud-setup" cloud>
+<PrereqCard icon="cloud" title="WSO2 Cloud Account" href="/get-started/setup" cloud>
   For AI assisted development and WSO2 Cloud deployments.
 </PrereqCard>
 
 Also required:
 
+<PrereqCard icon="ai" title="WSO2 Integrator Copilot" href="/get-started/setup" cloud>
+  Signed in to WSO2 Integrator Copilot (provides the default AI model — no API key needed)
+</PrereqCard>
 <PrereqCard icon="cloud" title="Docker" href="https://docs.docker.com/engine/install/">
   Docker installed, including Docker Compose. It runs the Temporal server that keeps the workflow's durable record.
 </PrereqCard>
