@@ -51,4 +51,3 @@ Every AI feature in WSO2 Integrator, direct LLM calls, agents, RAG, and natural 
 
 - [RAG](../rag/rag.md) — Ground LLM responses in your own documents using these building blocks together
 - [AI Agents](../agents/agents.md) — Use a model provider to power an agent's reasoning
-- [Direct LLMs](../direct-llm/direct-llm.md) — Use a model provider directly, with no agent loop
