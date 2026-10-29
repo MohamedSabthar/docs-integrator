@@ -1,7 +1,7 @@
 ---
 sidebar_position: 5
 title: Knowledge Bases
-description: Reference for every Knowledge Base in WSO2 Integrator. Covers the Vector Knowledge Base, the AWS Bedrock knowledge bases, and the Azure AI Search Knowledge Base, including create form fields, advanced configurations, and the ingest, retrieve, and delete actions.
+description: Reference for every Knowledge Base in WSO2 Integrator. Covers the Vector Knowledge Base, the AWS Bedrock knowledge bases, and the Azure AI Search Knowledge Base, including create form fields, advanced configurations, and the retrieve action.
 keywords: [wso2 integrator, knowledge base, rag, vector knowledge base, aws bedrock, bedrock knowledge base, azure ai search, embedding, chunker]
 slug: /develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/knowledge-bases
 ---
@@ -13,42 +13,43 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 A **Knowledge Base** is a managed store of documents that your integration can index and query. It provides a consistent interface for adding content, retrieving the most relevant chunks for a given query, and removing stale content, regardless of the underlying storage technology.
 
-In WSO2 Integrator, a Knowledge Base is the single object the RAG ingest, retrieve, and delete-by-filter nodes talk to. It uses three pluggable parts (a [Vector Store](vector-stores.md), an [Embedding Provider](embedding-providers.md), and a [Chunker](chunkers.md)) and exposes a small surface for indexing chunks and retrieving the most relevant ones.
+In WSO2 Agent Builder, an agent uses a Knowledge Base as a tool to retrieve the most relevant chunks for a question. It uses three pluggable parts (a [Vector Store](vector-stores.md), an [Embedding Provider](embedding-providers.md), and a [Chunker](chunkers.md)).
 
 ## Available actions
 
-Every Knowledge Base exposes the same three actions in the right-side **Knowledge Bases** panel.
+When you add a knowledge base to an agent as a tool, the agent can use the **Retrieve** action. The agent decides the query at runtime and uses the returned chunks to answer.
 
 | Action | What it does | Required parameters | Optional parameters |
 |---|---|---|---|
-| **Ingest** | Takes documents (or chunks), runs them through the configured Chunker, embeds each chunk via the Embedding Provider, and persists the vectors in the Vector Store. | **Documents** (a single document, an array of documents, or an array of chunks). | None. |
-| **Retrieve** | Returns the chunks most similar to a query, optionally filtered by metadata. The everyday read action. | **Query** (the search text). | **Top K** (default `10`, use `-1` for all). **Filters** (metadata filter). |
-| **Delete By Filter** | Removes every chunk whose metadata matches the given filter. The standard way to evict an old version of a document before re-ingesting. | **Filters** (the metadata filter). | None. |
+| **Retrieve** | Returns the chunks most similar to a query, optionally filtered by metadata. | **Query** (the search text). | **Top K** (default `10`, use `-1` for all). **Filters** (metadata filter). |
 
-Each `Retrieve` result has the matched chunk and a `similarityScore`. RAG flows usually pass the result list straight to `ai:augmentUserQuery`, which packages it together with the user's question into a single message ready for `generate`.
+Each `Retrieve` result has the matched chunk and a `similarityScore`.
+
+:::note
+The agent only reads from the knowledge base. To add documents to it, create and load the knowledge base in WSO2 Cloud.
+:::
 
 ## Where to find knowledge bases
 
-Two places, both equivalent:
+You add a knowledge base from an agent. Click **+** on the **AI Agent** node to open the **Add Tool** panel, then select **Knowledge Base**. The agent gets a **Retrieve** tool for the knowledge base you pick or create. See [Tools](../agents/tools.md).
 
-- **Add Node panel** > **AI** > **RAG** > **Knowledge Base**.
-- **Right-side Knowledge Bases panel** > **+ Add Knowledge Base**.
+The following animation shows how to open the **Add Tool** panel from an agent:
 
 <ThemedImage
-    alt="Right-side Knowledge Bases panel showing the search bar and a + Add Knowledge Base button at the top of an empty list."
+    alt="Opening the Add Tool panel from an AI Agent node and selecting Knowledge Base."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/01-panel-empty-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/01-panel-empty-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/01-panel-empty-v1.0.gif'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/01-panel-empty-v1.0.gif'),
     }}
 />
 
-Either one opens the **Select Knowledge Base** picker, listing all supported types with a search bar at the top:
+This opens the **Select Knowledge Base** picker. It lists all five supported knowledge bases, with the two Bedrock options expanded under **Bedrock Knowledge Bases**:
 
 <ThemedImage
-    alt="Select Knowledge Base picker with a search bar and four cards: Vector Knowledge Base, WSO2 Cloud Knowledge Base, the Bedrock Knowledge Bases group (2 options, available in ballerinax/ai.aws.bedrock) expanded to show Bedrock Managed Knowledge Base and Bedrock Self-Managed Knowledge Base, and Azure AI Search Knowledge Base."
+    alt="Agent Builder Add Tool - Use Knowledge Base panel listing Vector Knowledge Base, Bedrock Managed Knowledge Base, Bedrock Self-Managed Knowledge Base, Azure AI Search Knowledge Base, and WSO2 Cloud Knowledge Base."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/02-select-list-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/02-select-list-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/02-select-list-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/02-select-list-v1.0.png'),
     }}
 />
 
@@ -69,11 +70,23 @@ The default implementation. You combine a Vector Store, an Embedding Provider, a
 
 ### Create form
 
+After you select the **Retrieve** action, choose an existing knowledge base instance. If the project does not have one yet, click **Create New Knowledge Base**:
+
 <ThemedImage
-    alt="Create Vector Knowledge Base form showing three required pluggable fields: Vector Store (with + Create New Vector Store link), Embedding Model (with + Create New Embedding Model link), Chunker (default ai:AUTO, with + Create New Chunker link). Below: Knowledge Base Name aiVectorknowledgebase, Result Type ai:VectorKnowledgeBase."
+    alt="Add Tool - Use Knowledge Base panel for the Vector Knowledge Base Retrieve action, with productKb selected and the Create New Knowledge Base link highlighted."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-form-v1.0.png'),
+    }}
+/>
+
+The create form starts with **Vector Store**, **Embedding Model**, and **Chunker**:
+
+<ThemedImage
+    alt="Create Vector Knowledge Base form showing Vector Store, Embedding Model, and Chunker, with links to create each supporting component."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-basic-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-basic-form-v1.0.png'),
     }}
 />
 
@@ -82,6 +95,16 @@ The default implementation. You combine a Vector Store, an Embedding Provider, a
 | **Vector Store** | Yes | N/A | Any saved [Vector Store](vector-stores.md) connection. Click **+ Create New Vector Store** to make one inline. |
 | **Embedding Model** | Yes | N/A | Any saved [Embedding Provider](embedding-providers.md) connection. **Use the same provider on ingest and retrieve.** Embeddings from different providers are not interchangeable. |
 | **Chunker** | No | `ai:AUTO` | `ai:AUTO` (chunker chosen automatically based on document type), `ai:DISABLE` (no chunking; each document becomes one chunk), or any saved [Chunker](chunkers.md) connection. |
+
+At the bottom of the form, enter the **Knowledge Base Name**. The **Result Type** is set to `ai:VectorKnowledgeBase`:
+
+<ThemedImage
+    alt="Bottom of the Create Vector Knowledge Base form showing Embedding Model, Chunker, Knowledge Base Name, Result Type, and the Save button."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-bottom-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/03-vector-kb-bottom-form-v1.0.png'),
+    }}
+/>
 
 There are no Advanced Configurations on the Vector Knowledge Base itself. Every knob lives on the underlying Vector Store, Embedding Provider, or Chunker connection.
 
@@ -113,11 +136,13 @@ Find or create is meant for a single instance, a local run, or a first-time setu
 
 ### Create form
 
+Select **Bedrock Managed Knowledge Base**, choose the **Retrieve** action, and click **Create knowledge base**. Agent Builder opens the following form:
+
 <ThemedImage
-    alt="Create form for the Bedrock Managed Knowledge Base, titled 'ai.aws.bedrock : Knowledge Base', showing Knowledge Base (required, hint 'An existing knowledge base ID, or a definition to find or create by name'), Authentication and Region (required), then Data Source ID (default ()), Chunker (default ai:AUTO, with + Create New Chunker), and Reranking Model (hint: Bedrock's managed reranking when unset; RERANKING_NONE turns it off)."
+    alt="Agent Builder Create Managed Knowledge Base modal showing Knowledge Base, Authentication, Region, Data Source ID, and Chunker fields."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/13-aws-bedrock-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/13-aws-bedrock-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/13-aws-bedrock-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/13-aws-bedrock-basic-v1.0.png'),
     }}
 />
 
@@ -142,14 +167,6 @@ The identity needs `bedrock:Retrieve` for **Retrieve**, and the [direct ingestio
 :::
 
 ### Advanced configurations
-
-<ThemedImage
-    alt="Create form for the Bedrock Self-Managed Knowledge Base scrolled to Endpoint Configuration and Ingest Timeout (default 300), then Advanced Configurations expanded showing Number Of Results (hint 'Upper limit on results per retrieval (1-100)'), Override Search Type (No Selection), HTTP Config, and Retry Config."
-    sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/14-aws-bedrock-self-managed-advanced-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/14-aws-bedrock-self-managed-advanced-v5.1.png'),
-    }}
-/>
 
 | Field | Knowledge base | Default | Available values | What it controls |
 |---|---|---|---|---|
@@ -193,9 +210,7 @@ Use a definition record in **Knowledge Base** to find or create a knowledge base
 
 ### Action behavior
 
-- **Ingest** waits until every document is indexed, or until **Ingest Timeout** passes, so a **Retrieve** right after it finds the documents. It accepts text only. A document with an `id` in its metadata replaces the earlier document with the same `id`. When the connection splits a document into several chunks, the chunks get the IDs `<id>#0`, `<id>#1`, and so on.
 - **Retrieve** filter support depends on the vector store. AWS notes that `in` and `nin` filters are best supported on OpenSearch Serverless and Neptune Analytics, and that MongoDB Atlas needs filters configured in its vector index before filtering works. See [Manual metadata filtering](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-filters).
-- **Delete By Filter** needs at least one filter condition, so it can't delete everything by accident. It deletes only from the connection's own Custom data source (the one **Ingest** writes to); content in other data sources is left alone. It searches that data source to find the matching documents, so use it for cleanup rather than on every request. If some documents can't be deleted or confirmed, it still deletes the rest and returns an error that names them. Running it again usually deletes the rest.
 
 ---
 
@@ -209,13 +224,23 @@ Official website: [Azure AI Search](https://azure.microsoft.com/services/search/
 
 ### Create form
 
+After you select the **Retrieve** action, click **Create knowledge base** when the project does not already contain an Azure AI Search knowledge base:
+
+<ThemedImage
+    alt="Add Tool - Use Knowledge Base panel for Azure AI Search showing no knowledge bases in the project and a Create knowledge base button."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-create-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-create-v1.0.png'),
+    }}
+/>
+
 The form opens with **Service URL**, **API Key**, **Index**, **Embedding Model**, **Chunker**, and the start of **Verbose**:
 
 <ThemedImage
     alt="Create Azure AI Search Knowledge Base form showing Service Url, Api Key, Index, Embedding Model (optional, with Create New Embedding Model link), Chunker (default AUTO, with Create New Chunker link), and the start of Verbose (default false)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-basic-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-basic-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-basic-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-basic-v1.0.png'),
     }}
 />
 
@@ -227,13 +252,13 @@ The form opens with **Service URL**, **API Key**, **Index**, **Embedding Model**
 | **Embedding Model** | No | `()` | Any saved [Embedding Provider](embedding-providers.md) connection. Used for query and ingest if provided. Leave empty to rely on Azure AI Search's integrated vectorization. |
 | **Chunker** | No | `ai:AUTO` | `ai:AUTO`, `ai:DISABLE`, or any saved [Chunker](chunkers.md) connection. |
 
-Scrolling further shows Verbose, API Version, Content Field Name, Search Client Connection Config, Index Client Connection Config, and Semantic Configuration Name:
+Scrolling further shows **Embedding Model**, **Chunker**, **Verbose**, and **API Version**:
 
 <ThemedImage
-    alt="Create Azure AI Search Knowledge Base form showing Verbose (default false), Api Version (default 2025-09-01), Content Field Name (default content), Search Client Connection Config (default {}), Index Client Connection Config (default {}), and the start of Semantic Configuration Name."
+    alt="Create Azure AI Search Knowledge Base form showing Embedding Model, Chunker, Verbose, and API Version."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/05-azure-search-mid-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/05-azure-search-mid-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-mid-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-mid-v1.0.png'),
     }}
 />
 
@@ -246,13 +271,23 @@ Scrolling further shows Verbose, API Version, Content Field Name, Search Client 
 | **Index Client Connection Config** | `{}` | Record | Connection configuration for the Azure AI Search index client. See [Standard HTTP Advanced Configurations](model-providers.md#standard-http-advanced-configurations) for available knobs. |
 | **Semantic Configuration Name** | `()` | String or empty | The name of the semantic configuration to use for semantic search. Leave empty for plain vector / keyword search. |
 
+Continue scrolling to configure **Content Field Name**, **Search Client Connection Config**, **Index Client Connection Config**, and **Semantic Configuration Name**:
+
+<ThemedImage
+    alt="Create Azure AI Search Knowledge Base form showing Content Field Name, Search Client Connection Config, Index Client Connection Config, Semantic Configuration Name, and the start of Knowledge Base Name."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-mid-2-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-mid-2-v1.0.png'),
+    }}
+/>
+
 Scrolling to the bottom shows **Knowledge Base Name** and **Result Type**:
 
 <ThemedImage
     alt="Bottom of the Create Azure AI Search Knowledge Base form showing Content Field Name, Search Client Connection Config, Index Client Connection Config, Semantic Configuration Name, Knowledge Base Name set to azureAisearchknowledgebase, and Result Type locked to azure:AiSearchKnowledgeBase."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/06-azure-search-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/06-azure-search-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/04-azure-search-bottom-v1.0.png'),
     }}
 />
 
@@ -262,17 +297,27 @@ Scrolling to the bottom shows **Knowledge Base Name** and **Result Type**:
 
 ## WSO2 Cloud Knowledge Base
 
-A Knowledge Base that's deployed in WSO2 Cloud. If you don't already have a WSO2 Cloud Knowledge Base deployed in your organization, [create the knowledge base in WSO2 Cloud](https://wso2.com/integration-platform/docs/manage/cloud/rag-ingestion/ingestion) first. It is provisioned and managed there.
+A Knowledge Base that's deployed in WSO2 Cloud. If you don't already have a WSO2 Cloud Knowledge Base deployed in your organization, create the knowledge base in WSO2 Cloud first. It is provisioned and managed there.
 
 ### Connect to an existing knowledge base
+
+After you select the **Retrieve** action, click **Create knowledge base** when the project does not already contain a WSO2 Cloud knowledge base:
+
+<ThemedImage
+    alt="Add Tool - Use Knowledge Base panel for WSO2 Cloud showing no knowledge bases in the project and a Create knowledge base button."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-create-v1.0.png'),
+    }}
+/>
 
 Selecting **WSO2 Cloud Knowledge Base** lists the knowledge bases available in your WSO2 Cloud organization, above a **Manually Config WSO2 Cloud Knowledge Base** card. You need to be signed in to WSO2 Cloud with a project selected for the list to appear; if none exist yet, only the manual-config card is shown:
 
 <ThemedImage
     alt="WSO2 Cloud Knowledge Bases picker with a search bar and a Manually Config WSO2 Cloud Knowledge Base card ('Add configurations for the Knowledge Base...'). No existing knowledge bases are listed in this organization."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-list-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-list-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-list-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/07-wso2-cloud-list-v1.0.png'),
     }}
 />
 
@@ -281,8 +326,28 @@ Choosing an existing knowledge base opens the create form with its service URL a
 <ThemedImage
     alt="Create WSO2 Cloud Knowledge Base form with the Service URL and Knowledge Base Authentication Configuration fields already filled in from the selected knowledge base."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/08-wso2-cloud-prefilled-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/08-wso2-cloud-prefilled-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/08-wso2-cloud-prefilled-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/08-wso2-cloud-prefilled-form-v1.0.png'),
+    }}
+/>
+
+The remaining retrieval and HTTP fields stay configurable. Scroll through the form to review **Minimum Similarity Threshold**, the Cohere reranker settings, and **HTTP Version**:
+
+<ThemedImage
+    alt="Create WSO2 Cloud Knowledge Base form for an existing cloud knowledge base showing Minimum Similarity Threshold, Cohere reranker settings, and the start of HTTP Version."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-3-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-3-v1.0.png'),
+    }}
+/>
+
+At the bottom, confirm the generated **Knowledge Base Name** and the `integration:CloudKnowledgeBase` result type:
+
+<ThemedImage
+    alt="Bottom of the Create WSO2 Cloud Knowledge Base form for an existing cloud knowledge base showing Response Limit Configuration, Payload Validation, Advanced Configurations, the generated Knowledge Base Name, and Result Type."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-4-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-4-v1.0.png'),
     }}
 />
 
@@ -293,8 +358,8 @@ Choose **Manually Config WSO2 Cloud Knowledge Base** to open a blank form and en
 <ThemedImage
     alt="Create WSO2 Cloud Knowledge Base form showing Service URL, Knowledge Base Authentication Configuration (default {auth: {token: ''}}), Minimum Similarity Threshold (default 0.7), Cohere Reranker API Key, Cohere Reranker Model, Reranker Top N (default 5), and the start of HTTP Version (default 2.0)."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-v1.0.png'),
     }}
 />
 
@@ -310,10 +375,20 @@ Choose **Manually Config WSO2 Cloud Knowledge Base** to open a blank form and en
 Scrolling further shows the standard HTTP inline fields: **HTTP1 Settings**, **HTTP2 Settings**, **Timeout**, **Forwarded**, **Cache Configuration**, and the start of **Compression**:
 
 <ThemedImage
-    alt="Middle of the Create WSO2 Cloud Knowledge Base form showing HTTP1 Settings (default {}), HTTP2 Settings (default {}), Timeout (default 0.0d), Forwarded (default empty), Cache Configuration (default {}), and the start of Compression (default AUTO)."
+    alt="Middle of the Create WSO2 Cloud Knowledge Base form showing Cohere Reranker Model, Reranker Top N, HTTP Version, HTTP1 Settings, and the start of HTTP2 Settings."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/10-wso2-cloud-manual-mid-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/10-wso2-cloud-manual-mid-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-mid-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-mid-v1.0.png'),
+    }}
+/>
+
+Continue scrolling to configure **Timeout**, **Forwarded**, **Cache Configuration**, **Compression**, and **Response Limit Configuration**:
+
+<ThemedImage
+    alt="Create WSO2 Cloud Knowledge Base form showing Timeout, Forwarded, Cache Configuration, Compression, and the start of Response Limit Configuration."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-mid-2-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-mid-2-v1.0.png'),
     }}
 />
 
@@ -322,8 +397,8 @@ Continuing the scroll shows **Response Limit Configuration** and **Payload Valid
 <ThemedImage
     alt="Bottom of the Create WSO2 Cloud Knowledge Base form showing Response Limit Configuration (default {}), Payload Validation (default false), the collapsed Advanced Configurations toggle, Knowledge Base Name set to integrationCloudknowledgebase, and Result Type locked to integration:CloudKnowledgeBase."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/11-wso2-cloud-manual-bottom-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/11-wso2-cloud-manual-bottom-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-bottom-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/09-wso2-cloud-manual-form-bottom-v1.0.png'),
     }}
 />
 
@@ -332,10 +407,20 @@ Continuing the scroll shows **Response Limit Configuration** and **Payload Valid
 Expanding **Advanced Configurations** shows **Pool Configuration**, **Circuit Breaker Configuration**, **Retry Configuration**, **Secure Socket Configuration**, and **Proxy Configuration**, the same fields as the [Standard HTTP advanced configurations](model-providers.md#standard-http-advanced-configurations) section on the Model Providers page:
 
 <ThemedImage
-    alt="Create WSO2 Cloud Knowledge Base form with Advanced Configurations expanded showing Pool Configuration (default {}), Circuit Breaker Configuration (default {}), Retry Configuration (default {}), Secure Socket Configuration (default {}), and Proxy Configuration (default {})."
+    alt="Create WSO2 Cloud Knowledge Base form with Advanced Configurations expanded showing Pool Configuration, Circuit Breaker Configuration, Retry Configuration, and Secure Socket Configuration."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-v1.0.png'),
+    }}
+/>
+
+At the bottom of the expanded section, configure **Proxy Configuration**, then confirm the knowledge base name and result type:
+
+<ThemedImage
+    alt="Bottom of the expanded Advanced Configurations section showing Secure Socket Configuration, Proxy Configuration, Knowledge Base Name, and Result Type."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-2-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v5.1/knowledge-bases/12-wso2-cloud-advanced-2-v1.0.png'),
     }}
 />
 
