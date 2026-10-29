@@ -52,8 +52,8 @@ Click **Use this** on a sample card. A native file browser appears so you can ch
 <ThemedImage
     alt="Select folder"
     sources={{
-        light: useBaseUrl('/img/explore-samples/select-folder.png'),
-        dark: useBaseUrl('/img/explore-samples/select-folder.png'),
+        light: useBaseUrl('/img/explore-samples/select-folder-v1.0.png'),
+        dark: useBaseUrl('/img/explore-samples/select-folder-v1.0.png'),
     }}
 />
 
