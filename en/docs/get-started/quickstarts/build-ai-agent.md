@@ -27,10 +27,10 @@ An AI agent uses an LLM to understand user queries, reason about them, and call 
 
 A working WSO2 Integrator environment.
 
-<PrereqCard icon="local" title="Local setup" href="/get-started/cloud-setup">
+<PrereqCard icon="local" title="Local setup" href="/get-started/setup">
   Install and launch WSO2 Integrator on your machine.
 </PrereqCard>
-<PrereqCard icon="cloud" title="WSO2 Cloud Account" href="/get-started/cloud-setup" cloud>
+<PrereqCard icon="cloud" title="WSO2 Cloud Account" href="/get-started/setup" cloud>
   For AI assisted development and WSO2 Cloud deployments.
 </PrereqCard>
 
