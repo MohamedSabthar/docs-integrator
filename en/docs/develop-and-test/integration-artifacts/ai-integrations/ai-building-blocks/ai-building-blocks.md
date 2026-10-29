@@ -1,7 +1,7 @@
 ---
 title: AI Building Blocks
-description: The shared connections and stores every AI feature in WSO2 Integrator is built from -- model providers, embedding providers, vector stores, knowledge bases, chunkers, and data loaders.
-keywords: [wso2 integrator, model provider, embedding provider, vector store, knowledge base, chunker, data loader, rag]
+description: The shared connections and stores every AI feature in WSO2 Agent Builder is built from -- model providers, embedding providers, vector stores, knowledge bases, chunkers, and data loaders.
+keywords: [wso2 agent builder, model provider, embedding provider, vector store, knowledge base, chunker, data loader, rag]
 sidebar_label: Building Blocks
 sidebar_position: 0
 slug: /develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks
@@ -11,13 +11,13 @@ wide_layout: true
 
 # AI Building Blocks
 
-Every AI feature in WSO2 Integrator, direct LLM calls, agents, RAG, and natural functions, is composed from the same small set of shared connections and stores. Configure one once, then reuse it wherever it's needed.
+Every AI feature in WSO2 Agent Builder, agents, direct LLM calls, and RAG, is composed from the same small set of shared connections and stores. Configure one once, then reuse it wherever it's needed in your agentic integration.
 
 <PaletteGrid>
 
 <PaletteCard icon="model-providers" href="/develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers">
   <h3 class="palette-card-title">Model Providers</h3>
-  <p class="palette-card-desc">Connect to the LLM behind every prompt: the Default WSO2 provider, OpenAI, Azure OpenAI, Anthropic, Google Vertex, Mistral, DeepSeek, Ollama, and OpenRouter.</p>
+  <p class="palette-card-desc">Connect to the LLM behind every prompt: the Default WSO2 provider, models from WSO2 Agent Manager, OpenAI, Azure OpenAI, Anthropic, Amazon Bedrock, Google Vertex, Mistral, DeepSeek, Ollama, and OpenRouter.</p>
 </PaletteCard>
 
 <PaletteCard icon="embedding-providers" href="/develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/embedding-providers">
