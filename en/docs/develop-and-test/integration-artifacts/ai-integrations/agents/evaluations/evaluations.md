@@ -21,8 +21,18 @@ The feature is built around three stages.
 ## How the stages fit together
 
 1. Chat with your agent and export the session traces into an **evalset**. Use the editor to edit messages, reorder or add turns, and update tool calls.
-2. Create an **evaluation** from the **Test Explorer**. Start from a prebuilt template for common checks such as tool trajectory or LLM-as-judge scoring, or build custom checks in the visual designer. Pick the evalset to score against and set the target pass rate.
+2. Create an **evaluation** from the **Evaluations** button on your agent, or from the **Test Explorer**. Start from a prebuilt template for common checks such as tool trajectory or LLM-as-judge scoring, or build custom checks in the visual designer. Pick the evalset to score against and set the minimum pass rate.
 3. **Run** the evaluation. The report shows pass or fail per case, and the **Evaluation History** view tracks pass rate across runs so you can correlate regressions with the changes that caused them.
+
+## Get help from Copilot
+
+WSO2 Agent Builder Copilot can do much of this work for you:
+
+- **Write an evalset**: In the evaluation form, select **Generate with Copilot** next to **Create Empty Evalset**. It appears when you have no evalset yet, or after you pick one. Copilot writes an evalset for your agent in a new chat, and the form selects it once it is ready.
+- **Write test queries**: For templates that take queries instead of an evalset, select **Generate Queries** and Copilot suggests queries for your agent.
+- **Fix a failing evaluation**: In the **Evaluation Report** or **Evaluation History**, select **Fix with Copilot** on a failed evaluation. Copilot replays the failing turns with your agent, tells you why the evaluation failed, and makes a small fix. It asks you before a larger change and before running the evaluation again.
+
+You can also ask Copilot in the chat to add evaluations for your agent.
 
 ## When to use evaluations
 
