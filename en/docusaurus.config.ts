@@ -151,42 +151,37 @@ const config: Config = {
           title: 'Get Started',
           items: [
             { label: 'Platform Overview', to: '/platform-overview' },
-            { label: 'Setup', to: '/get-started/setup' },
             { label: 'Concepts', to: '/get-started/concepts' },
-            { label: 'Quickstarts', to: '/get-started/quickstarts' },
+            { label: 'Setup', to: '/get-started/setup' },
+            { label: 'Quickstarts', to: '/get-started/quickstarts/build-ai-agent' },
           ],
         },
         {
-          title: 'Section 1',
+          title: 'Editor Tour',
           items: [
-            { label: 'Overview', to: '/section-1' },
-            { label: 'Sub-section 1', to: '/section-1/sub-section-1' },
-            { label: 'Sample Page', to: '/section-1/sub-section-1/sample-page' },
-            { label: 'Sub-section 2', to: '/section-1/sub-section-2' },
+            { label: 'Flow Canvas', to: '/editor/canvases/flow-canvas' },
+            { label: 'Copilot', to: '/editor/copilot' },
+            { label: 'Project View', to: '/editor/views/project-view' },
           ],
         },
         {
-          title: 'Section 2',
+          // Same develop -> deploy -> manage -> observe column as
+          // wso2-integrator's footer. ICP links to the editor's ICP page,
+          // since this branch has no top-level /icp section.
+          title: 'Integration Lifecycle',
           items: [
-            { label: 'Overview', to: '/section-2' },
-            { label: 'Page 1', to: '/section-2/page-1' },
-            { label: 'Page 2', to: '/section-2/page-2' },
+            { label: 'Develop and Test', to: '/develop-and-test' },
+            { label: 'Deploy and Run', to: '/deploy-and-run' },
+            { label: 'Manage', to: '/manage' },
+            { label: 'Observe', to: '/observe' },
+            { label: 'Integration Control Plane', to: '/editor/integration-control-plane' },
           ],
         },
         {
-          title: 'Guides',
+          title: 'Resources',
           items: [
-            { label: 'Overview', to: '/guides' },
-            { label: 'How to Guides', to: '/guides/how-to-guides' },
-            { label: 'Business Use Cases', to: '/guides/business-use-cases' },
-          ],
-        },
-        {
-          title: 'Reference',
-          items: [
-            { label: 'Overview', to: '/reference' },
+            { label: 'Guides', to: '/guides' },
             { label: 'FAQ', to: '/reference/faq' },
-            { label: 'Glossary', to: '/reference/glossary' },
           ],
         },
       ],

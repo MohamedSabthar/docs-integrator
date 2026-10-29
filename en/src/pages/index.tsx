@@ -246,20 +246,6 @@ const sections: SectionCard[] = [
     iconColor: '#B91C1C',
   },
   {
-    title: 'Section 1',
-    description: 'Placeholder top-level section with sample sub-sections, demonstrating the nested-category convention.',
-    link: '/section-1',
-    icon: <IconSection />,
-    iconColor: '#059669',
-  },
-  {
-    title: 'Section 2',
-    description: 'Two plain leaf docs, each with its own sidebar separator label.',
-    link: '/section-2',
-    icon: <IconDevelop />,
-    iconColor: '#26365A',
-  },
-  {
     title: 'Guides',
     description: 'AI agent and MCP guides: business use cases and how-to walkthroughs.',
     link: '/guides',
