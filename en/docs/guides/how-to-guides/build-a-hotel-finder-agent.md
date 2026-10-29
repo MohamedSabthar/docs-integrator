@@ -20,35 +20,53 @@ import TabItem from '@theme/TabItem';
 
 :::info Prerequisites
 
-- [WSO2 Integrator installed](product://integrator/get-started/setup)
+- [WSO2 Agent Builder installed](../../get-started/cloud-setup.md)
 
 :::
 
 <Tabs>
 <TabItem value="ui" label="Visual designer" default>
 
-## Step 1: Create the integration
+## Step 1: Create the agentic integration
 
-1. Open WSO2 Integrator and select **Create** under **Create a Project**.
+1. Open WSO2 Agent Builder and select **Create** under **Start Building your Agent**.
 2. Set **Project name** to `AI-Integrations` and choose a **Location**.
-3. Under **What do you want to build?**, keep **Integration** selected.
-4. Set **Integration name** to `HotelFinder`.
-5. Select **Create**.
+3. Under **What do you want to build?**, keep **Agentic Integration** selected.
+4. Set **Agentic integration name** to `HotelFinder`.
+5. Select **Create Agentic Integration**.
 
 <ThemedImage
-    alt="Create a Project form with Project name set to AI-Integrations, the Integration option selected, and Integration name set to HotelFinder"
+    alt="Create a Project form with Project name set to AI-Integrations, the Agentic Integration option selected, and Agentic integration name set to HotelFinder"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/01-create-integration-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/01-create-integration-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/01-create-integration-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/01-create-integration-v1.0.png'),
     }}
 />
 
-## Step 2: Add and configure an AI chat agent
+## Step 2: Create the agent
 
-The integration opens on the **Design** tab with the WSO2 Integrator Copilot. Bypass it for this quick start and create the artifact manually.
+The integration opens with the WSO2 Agent Builder Copilot, which asks **What should your agent do?** Skip it for this guide and build the agent manually.
 
-1. Select **Add Artifact manually**.
-2. On the Artifacts page, select **Chat Agent Service** under **AI Integration**.
+1. Under **Or start from scratch**, select **Add Agent**.
+
+<ThemedImage
+    alt="HotelFinder integration home page showing the WSO2 Agent Builder Copilot prompt, example agents, and the Add Agent and Add MCP Server buttons under Or start from scratch"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/02-integration-home-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/02-integration-home-v1.0.png'),
+    }}
+/>
+
+2. In the **Add Agent** dialog, select **Create Agent** under **Create New**.
+
+<ThemedImage
+    alt="Add Agent dialog showing the Create Agent, Create Durable Agent, and Create Agent Definition options, and a list of pre-built agents"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/03-add-agent-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/03-add-agent-v1.0.png'),
+    }}
+/>
+
 3. Set **Role** to `HotelFinderAssistant`.
 4. Set **Instructions** to:
 
@@ -67,44 +85,41 @@ The integration opens on the **Design** tab with the WSO2 Integrator Copilot. By
    - Show hotels clearly with price, rating, and key amenities.
    ```
 
-5. Keep **Model** as **Default WSO2 Model Provider**.
+<ThemedImage
+    alt="Create Agent form with Role set to HotelFinderAssistant and the hotel finder instructions filled in"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/04-create-agent-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/04-create-agent-v1.0.png'),
+    }}
+/>
+
+5. Keep the model as the **Default WSO2 Model Provider**, and leave the remaining agent settings at their defaults.
+6. Set **Agent Name** to `HotelFinderAssistant`.
+7. Select **Create Agent**.
 
 <ThemedImage
-    alt="Create Chat Agent Service form with Role and Instructions filled in and Model set to Default WSO2 Model Provider"
+    alt="Bottom of the Create Agent form with Agent Name set to HotelFinderAssistant and the Create Agent button"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/02-create-ai-chat-agent-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/02-create-ai-chat-agent-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/05-name-agent-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/05-name-agent-v1.0.png'),
     }}
 />
 
 :::tip Default model provider
 
-By default, the agent is created with the WSO2 model provider. If you have not [signed in to WSO2 Integrator Copilot](../../editor/copilot/copilot.md) yet, sign in when prompted. No third-party API key is required.
+By default, the agent uses the WSO2 model provider, so no third-party API key is required. Sign in to WSO2 Agent Builder if prompted.
 
 To use a different LLM instead, see [Model providers](../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md) for the full list of supported providers (OpenAI, Anthropic, Azure OpenAI, and others).
 
 :::
 
-6. Leave **Maximum Iterations**, **Verbose**, **Tool Loading Strategy**, and **Execute Tool Calls In Parallel** at their defaults.
-7. Set **Agent Name** to `HotelFinderAssistant`.
-8. Set **Service Base Path** to expose the chat service, for example `/hotel-finder-assistant`.
-9. Select **Create**.
+The agent canvas for `HotelFinderAssistant` opens. The **AI Agent** node is connected to **Default WSO2 Model Provider**, with **Add Trigger** on its left and **Add Tool** at its bottom-right corner.
 
 <ThemedImage
-    alt="Bottom of the Create Chat Agent Service form with Agent Name set to HotelFinderAssistant and Service Base Path set to /hotel-finder-assistant"
+    alt="AI Agent canvas for HotelFinderAssistant connected to the Default WSO2 Model Provider, with Add Trigger, Add Memory, and Add Tool options"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/03-name-and-expose-agent-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/03-name-and-expose-agent-v5.1.png'),
-    }}
-/>
-
-This creates an **AI Agent Service** with a `POST /chat` resource and a `chatAgentListener`, plus the `HotelFinderAssistant` agent under **Agents**. Select **HotelFinderAssistant** under **Agents** to open its canvas: the **AI Agent** node is connected to the model provider, with a `+` button at its bottom-right corner for adding tools.
-
-<ThemedImage
-    alt="AI Agent node for HotelFinderAssistant connected to the model provider, with an Add Memory button and a + icon for adding tools"
-    sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/04-ai-agent-canvas-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/04-ai-agent-canvas-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/06-ai-agent-canvas-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/06-ai-agent-canvas-v1.0.png'),
     }}
 />
 
@@ -112,21 +127,30 @@ This creates an **AI Agent Service** with a `POST /chat` resource and a `chatAge
 
 ### Create the `searchHotels` tool
 
-1. Select the **+** button at the bottom-right corner of the **AI Agent** node.
-2. Select **Create Custom Tool**.
+1. Select **Add Tool** at the bottom-right corner of the **AI Agent** node.
+2. In the **Add Tool** panel, select **Create Custom Tool**.
+
+<ThemedImage
+    alt="Add Tool panel listing Use Connection, Use Function, Use Agent, Use MCP Server, Use Knowledge Base, and Create Custom Tool"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/07-add-tool-panel-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/07-add-tool-panel-v1.0.png'),
+    }}
+/>
+
 3. Set **Name** to `searchHotels`.
 4. Set **Description** to `Searches for hotels in a city`.
-5. Under **Parameters**, select **+ Add Parameter** and add:
+5. Under **Parameters**, select **+ Add Parameter**, add the following parameter, and select **Add**:
 
    | Type | Name | Description |
    |---|---|---|
    | `string` | `city` | City name, e.g. "Paris" or "New York" |
 
-6. Under **Return Type**, select the field and choose **Create New Type**. The **Create New Type** dialog opens:
+6. Select the **Return Type** field and choose **Create New Type**. The **Create New Type** dialog opens:
 
-   a. Set **Kind** to `Record` and **Name** to `Hotel`.
+   a. Keep **Kind** as `Record` and set **Name** to `Hotel`.
 
-   b. Add the following fields:
+   b. Select **+** next to **Fields** to add each of the following fields:
 
    | Name | Type |
    |---|---|
@@ -140,32 +164,29 @@ This creates an **AI Agent Service** with a `POST /chat` resource and a `chatAge
    c. Select **Save**.
 
 <ThemedImage
-    alt="Create New Type dialog open over the Create Custom Tool form, with Kind set to Record and Name set to Hotel, showing all six fields"
+    alt="Create New Type dialog with Kind set to Record and Name set to Hotel, showing all six fields"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/05-create-hotel-type-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/05-create-hotel-type-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/08-create-hotel-type-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/08-create-hotel-type-v1.0.png'),
     }}
 />
 
 7. Set **Return Type** to `Hotel[]`.
-
 8. Set **Description** (return value) to `Hotels available in the city`.
-
-9. Optionally leave **Requires Approval** unchecked. Enabling it pauses the tool before it runs and waits for human approval.
-
+9. Leave **Requires Approval** unchecked. Enabling it pauses the tool before it runs and waits for human approval.
 10. Select **Create Tool**.
 
 <ThemedImage
     alt="Completed Create Custom Tool form for searchHotels showing the city parameter, Hotel[] return type, and return description"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/06-create-search-hotels-tool-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/06-create-search-hotels-tool-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/09-create-search-hotels-tool-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/09-create-search-hotels-tool-v1.0.png'),
     }}
 />
 
 ### Build the `searchHotels` logic
 
-The tool now shows as a node connected to the agent. Select it to open its flow. New tools open with a placeholder: **Start** connected to a **Panic** node (`error("not implemented")`). Replace it with the real logic:
+The tool now appears as a node connected to the agent. Select it to open its flow. New tools open with a placeholder: **Start** connected to a **Panic** node (`error("not implemented")`). Replace it with the real logic:
 
 1. Select **+** on the connector between **Start** and **Panic**, then select **Declare Variable** under **Statement**. Set **Name** to `allHotels` and **Type** to `Hotel[]`. Set the **Expression** to the following hotel array and select **Save**:
 
@@ -184,64 +205,68 @@ The tool now shows as a node connected to the agent. Select it to open its flow.
    :::
 
 <ThemedImage
-    alt="Declare Variable node configured with Name set to allHotels, Type set to Hotel[], and the hotel array set as the Expression"
+    alt="Declare Variable panel with Name set to allHotels, Type set to Hotel[], and the hotel array set as the Expression"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/07-declare-variable-allhotels-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/07-declare-variable-allhotels-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/10-declare-variable-allhotels-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/10-declare-variable-allhotels-v1.0.png'),
     }}
 />
 
-2. Select **+** and select **Declare Variable** under **Statement**. Set **Name** to `hotels` and **Type** to `Hotel[]`. Set the **Expression** to the following and select **Save**:
+2. Select **+** below the `allHotels` node and select **Declare Variable** under **Statement**. Set **Name** to `hotels` and **Type** to `Hotel[]`. Set the **Expression** to the following and select **Save**:
 
    ```ballerina
    allHotels.filter(h => h.city == city)
    ```
 
 <ThemedImage
-    alt="Declare Variable node configured with Name set to hotels, Type set to Hotel[], and the filter expression set as the Expression"
+    alt="Declare Variable panel with Name set to hotels, Type set to Hotel[], and the filter expression set as the Expression"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/08-declare-variable-hotels-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/08-declare-variable-hotels-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/11-declare-variable-hotels-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/11-declare-variable-hotels-v1.0.png'),
     }}
 />
 
-3. Select **+** and select **Return** under **Control**. Set **Expression** to `hotels` and select **Save**.
+3. Select **+** below the `hotels` node and select **Return** under **Control**. Set **Expression** to `hotels` and select **Save**.
 
 <ThemedImage
-    alt="Return node configuration panel with Expression set to hotels"
+    alt="Return panel with Expression set to hotels"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/09-return-hotels-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/09-return-hotels-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/12-return-hotels-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/12-return-hotels-v1.0.png'),
     }}
 />
 
-:::note
+4. The placeholder **Panic** node is now unreachable. Select the **⋮** menu on the **Panic** node and select **Delete**.
 
-The visual designer currently leaves the placeholder `panic error("not implemented")` statement in place after the node you add. It becomes unreachable once your `Return` is in the flow, so it's safe to delete from the pro-code view; leaving it in doesn't affect the build.
-
-:::
+<ThemedImage
+    alt="Completed searchHotels flow with Start, the allHotels and hotels Declare Variable nodes, and the Return node"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/13-search-hotels-flow-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/13-search-hotels-flow-v1.0.png'),
+    }}
+/>
 
 ## Step 4: Add the `checkAvailability` tool
 
 ### Create the `checkAvailability` tool
 
-1. Navigate back to the **HotelFinderAssistant** agent canvas.
-2. Select **+** on the **AI Agent** node and choose **Create Custom Tool**.
+1. Select the back arrow to return to the **HotelFinderAssistant** agent canvas.
+2. Select **Add Tool** on the **AI Agent** node and choose **Create Custom Tool**.
 3. Set **Name** to `checkAvailability`.
 4. Set **Description** to `Checks whether a hotel has rooms available between two dates`.
-5. Under **Parameters**, select **+ Add Parameter** and add:
+5. Under **Parameters**, select **+ Add Parameter** and add each of the following parameters:
 
    | Type | Name | Description |
    |---|---|---|
-   | `string` | `hotelId` | Hotel identifier returned from `searchHotels` |
-   | `string` | `checkIn` | Check-in date in `YYYY-MM-DD` format |
-   | `string` | `checkOut` | Check-out date in `YYYY-MM-DD` format |
+   | `string` | `hotelId` | Hotel identifier returned from searchHotels |
+   | `string` | `checkIn` | Check-in date in YYYY-MM-DD format |
+   | `string` | `checkOut` | Check-out date in YYYY-MM-DD format |
 
-6. Under **Return Type**, select the field and choose **Create New Type**. The **Create New Type** dialog opens:
+6. Select the **Return Type** field and choose **Create New Type**. The **Create New Type** dialog opens:
 
-   a. Set **Kind** to `Record` and **Name** to `Availability`.
+   a. Keep **Kind** as `Record` and set **Name** to `Availability`.
 
-   b. Add the following fields:
+   b. Select **+** next to **Fields** to add each of the following fields:
 
    | Name | Type |
    |---|---|
@@ -254,78 +279,116 @@ The visual designer currently leaves the placeholder `panic error("not implement
    c. Select **Save**.
 
 <ThemedImage
-    alt="Create New Type dialog open over the checkAvailability form, with Kind set to Record and Name set to Availability, showing all five fields"
+    alt="Create New Type dialog with Kind set to Record and Name set to Availability, showing all five fields"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/10-create-availability-type-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/10-create-availability-type-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/14-create-availability-type-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/14-create-availability-type-v1.0.png'),
     }}
 />
 
-7. Set **Return Type** to `Availability`.
-
+7. Make sure **Return Type** is set to `Availability`.
 8. Set **Description** (return value) to `Availability result with total price and nights`.
-
 9. Select **Create Tool**.
 
 <ThemedImage
-    alt="Completed checkAvailability tool form showing hotelId, checkIn, checkOut parameters, Availability return type, and return description, with searchHotels already connected to the agent"
+    alt="Completed checkAvailability tool form showing the hotelId, checkIn, and checkOut parameters, the Availability return type, and the return description"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/11-create-check-availability-tool-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/11-create-check-availability-tool-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/15-create-check-availability-tool-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/15-create-check-availability-tool-v1.0.png'),
     }}
 />
 
 ### Build the `checkAvailability` logic
 
-Open the tool's flow. Select **+** on the connector between **Start** and **Panic**, select **Return** under **Control**, set **Expression** to the following, and select **Save**:
+1. Select the **checkAvailability** node to open its flow.
+2. Select **+** on the connector between **Start** and **Panic**, select **Return** under **Control**, set **Expression** to the following, and select **Save**:
 
-```ballerina
-{
-    hotelId,
-    hotelName: "Grand Plaza Hotel",
-    available: true,
-    totalPrice: 599.97,
-    nights: 3
-}
-```
+   ```ballerina
+   {
+       hotelId,
+       hotelName: "Grand Plaza Hotel",
+       available: true,
+       totalPrice: 599.97,
+       nights: 3
+   }
+   ```
 
-:::note
+   :::note
 
-This returns hardcoded sample data. In a real scenario, you would query a booking system, call an availability API, or connect an [MCP tool](../../develop-and-test/integration-artifacts/ai-integrations/agents/tools.md).
+   This returns hardcoded sample data. In a real scenario, you would query a booking system, call an availability API, or connect an [MCP tool](../../develop-and-test/integration-artifacts/ai-integrations/agents/tools.md).
 
-:::
+   :::
 
 <ThemedImage
-    alt="Return node configuration panel for checkAvailability with the hardcoded Availability record set as the Expression"
+    alt="Return panel for checkAvailability with the hardcoded Availability record set as the Expression"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/12-check-availability-return-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/12-check-availability-return-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/16-check-availability-return-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/16-check-availability-return-v1.0.png'),
     }}
 />
 
-After both tools are created, the agent shows them connected in the design canvas.
+3. Select the **⋮** menu on the **Panic** node and select **Delete**.
+
+Return to the agent canvas. The agent now shows both tools connected.
 
 <ThemedImage
-    alt="AI Chat Agent design view showing the agent node connected to searchHotels and checkAvailability tools with the system prompt visible"
+    alt="HotelFinderAssistant agent canvas showing the AI Agent node connected to the Default WSO2 Model Provider and to the searchHotels and checkAvailability tools"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/13-agent-with-tools-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/13-agent-with-tools-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/17-agent-with-tools-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/17-agent-with-tools-v1.0.png'),
+    }}
+/>
+
+## Step 5: Add a chat trigger
+
+A trigger connects the agent to a channel that calls it. Add an **Agent Chat** trigger to expose the agent as a chat endpoint.
+
+1. Select **Add Trigger** on the left of the **AI Agent** node.
+2. Under **Chat Channels**, select **Agent Chat**.
+
+<ThemedImage
+    alt="Add Trigger dialog showing Chat Channels such as Agent Chat, Google Chat, Telegram, and WhatsApp Business, the HTTP API endpoint, and event sources"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/18-add-trigger-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/18-add-trigger-v1.0.png'),
+    }}
+/>
+
+3. Keep **Service Path** as `/hotel-finder-assistant`.
+4. Select **Create**.
+
+<ThemedImage
+    alt="Agent Chat trigger form with Service Path set to /hotel-finder-assistant"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/19-agent-chat-trigger-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/19-agent-chat-trigger-v1.0.png'),
+    }}
+/>
+
+This creates an **AI Agent Services** entry point with a `POST chat` resource and an `agentChatListener`. The agent canvas now shows the **Agent Chat** trigger connected to the agent.
+
+<ThemedImage
+    alt="Completed HotelFinderAssistant agent canvas with the /hotel-finder-assistant Agent Chat trigger, the model provider, and both tools connected"
+    sources={{
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/20-complete-agent-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/20-complete-agent-v1.0.png'),
     }}
 />
 
 ## Step 6: Run and test
 
-1. Select **Run**.
-2. Once the integration compiles and starts, select **Chat** on the `chat` resource.
-3. Type `Show me hotels in Paris` to check if it works.
+1. Select **Run Integration** at the top-right corner of the editor. Wait until the terminal shows `Running executable`.
+2. Under **Entry Points**, expand **AI Agent Services - /hotel-finder-assistant** and select the `chat` resource. The **Chat Agent Service** flow opens, showing the `agent : run` call to `HotelFinderAssistant` and the **Return** node.
+3. Select **Chat** to open the **Agent Chat** panel.
+4. Type `Show me hotels in Paris` and send it.
 
 The agent calls `searchHotels` and returns the matching Paris options (`Grand Plaza Hotel` and `City Center Inn`, not `Luxury Suites`, which is in New York). Continue the conversation in the same chat session to check availability.
 
 <ThemedImage
-    alt="Agent Chat panel showing the user asking for hotels in Paris, with the agent responding with Grand Plaza Hotel and City Center Inn and asking for check-in and check-out dates"
+    alt="Chat Agent Service flow for the chat resource next to the Agent Chat panel, where the user asks for hotels in Paris and the agent responds with Grand Plaza Hotel and City Center Inn and asks for check-in and check-out dates"
     sources={{
-        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/14-run-and-test-v5.1.png'),
-        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v5.1/14-run-and-test-v5.1.png'),
+        light: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/21-run-and-test-v1.0.png'),
+        dark: useBaseUrl('/img/genai/getting-started/build-a-hotel-finder-agent-v1.0/21-run-and-test-v1.0.png'),
     }}
 />
 
@@ -425,11 +488,11 @@ Create a file named `main.bal`. The `ai:Listener` provides session-scoped chat m
 import ballerina/ai;
 import ballerina/http;
 
-listener ai:Listener chatAgentListener = new (listenOn = check http:getDefaultListener());
+listener ai:Listener agentChatListener = new (listenOn = check http:getDefaultListener());
 
-service /hotel\-finder\-assistant on chatAgentListener {
+service /hotel\-finder\-assistant on agentChatListener {
     resource function post chat(@http:Payload ai:ChatReqMessage request) returns ai:ChatRespMessage|error {
-        string stringResult = check HotelFinderAssistant.run(request.message, request.sessionId);
+        string stringResult = check HotelFinderAssistant.run(request.message, sessionId = request.sessionId);
         return {message: stringResult};
     }
 }
