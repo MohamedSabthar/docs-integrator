@@ -1,11 +1,12 @@
 ---
 sidebar_position: 4
 title: "Building an IT Helpdesk AI Agent with Persistent Memory"
-description: Build an IT helpdesk AI agent that uses persistent MSSQL-backed memory to retain conversation history across requests and service restarts.
+description: Build an IT helpdesk AI agent in WSO2 Agent Builder that uses persistent MSSQL-backed memory to retain conversation history across requests and service restarts.
+keywords: [wso2 agent builder, ai agent, memory, mssql, helpdesk, agent chat]
 slug: /guides/business-use-cases/it-helpdesk-chatbot
 card_icon: agents
-card_summary: A chatbot that remembers context across sessions
-card_keywords: [mssql, database, agent, helpdesk, support]
+card_summary: A chatbot that remembers context across sessions and restarts
+card_keywords: [mssql, database, agent, helpdesk, support, memory]
 ---
 
 import ThemedImage from '@theme/ThemedImage';

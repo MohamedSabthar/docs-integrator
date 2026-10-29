@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: "Build a Hotel Finder Agent"
-description: Build a conversational hotel finder agent with two custom tools and a chat endpoint in WSO2 Integrator.
-keywords: [wso2 integrator, ai agent, hotel finder, custom tools, llm, ballerina ai, genai]
+description: Build a conversational hotel finder agent with two custom tools and a chat endpoint in WSO2 Agent Builder.
+keywords: [wso2 agent builder, ai agent, hotel finder, custom tools, llm, ballerina ai, genai]
 slug: /guides/how-to-guides/build-a-hotel-finder-agent
 card_icon: agents
-card_summary: An agent with two custom tools and session-scoped memory
-card_keywords: [chatbot, conversational, booking, travel, tool calling]
+card_summary: An agent with two custom tools, exposed through an Agent Chat trigger
+card_keywords: [chatbot, conversational, booking, travel, tool calling, agent chat, trigger]
 ---
 
 import ThemedImage from '@theme/ThemedImage';

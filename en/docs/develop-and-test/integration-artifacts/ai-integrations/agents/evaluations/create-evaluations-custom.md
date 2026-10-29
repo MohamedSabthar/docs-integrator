@@ -20,10 +20,12 @@ The example on this page scores the agent against an evalset, so have at least o
 ## Start a new evaluation
 
 1. Open the **Test Explorer** by clicking the test beaker icon in the activity bar.
-2. Click **Add Test** at the top of the **Test Explorer** and choose **Add AI Evaluation**.
+2. Click **Add Test** at the top of the **Test Explorer** and choose **Add AI Evaluation**. If the project has no tests yet, click the **Add AI Evaluation** button in the **Test Explorer** instead.
+
+   You can also start from your agent: open the agent, click **Evaluations**, click **Create Evaluation** (or **New Evaluation** if the agent already has evaluations), and then click **Write a Custom Evaluation** below the templates. The form opens for that agent with **Custom** already chosen, so continue from step 4.
 
 <ThemedImage
-    alt="Test Explorer in the Testing view with the math-tutor evalset listed under Evalsets, ready to add a new AI evaluation."
+    alt="Test Explorer in the Testing view with the Add AI Evaluation button and the weather-agent-tool-trajectory evalset listed under Evalsets."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
@@ -35,7 +37,7 @@ The example on this page scores the agent against an evalset, so have at least o
 5. Fill the rest of the form and click **Save**.
 
 <ThemedImage
-    alt="Create New AI Evaluation form with Custom selected, Use evalset chosen, Evalset File set to math-tutor, and Minimum Pass Rate set to 90%."
+    alt="Create New AI Evaluation form with Custom selected, Use evalset chosen, Evalset File set to weather-agent-tool-trajectory, and Minimum Pass Rate set to 90%."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/create-evaluation-form-custom-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/create-evaluation-form-custom-v1.0.png'),
@@ -49,8 +51,9 @@ The example on this page scores the agent against an evalset, so have at least o
 | **AI Evaluation Name** | A unique name for the evaluation. |
 | **How would you like to build this evaluation?** | Pick **Custom** to build your own evaluation logic. To start from a prebuilt evaluator instead, see [Create evaluations from templates](create-evaluations-templates.md). |
 | **Use an evalset?** | Pick **Use evalset** to score the agent against an evalset, or **No evalset** to define the evaluation without one. |
-| **Evalset File** | The evalset to use. Shown when **Use evalset** is selected. **Create empty evalset** creates a new evalset, and **Open evalset** opens the selected one in the **Evalset Viewer**. |
+| **Evalset File** | The evalset to use. Shown when **Use evalset** is selected. **Create Empty Evalset** creates a new evalset, and **Open Evalset** opens the selected one in the **Evalset Viewer**. When you start from your agent, **Generate with Copilot** has Copilot write an evalset for that agent. |
 | **Minimum Pass Rate (%)** | The percentage of evalset cases that must pass for the run to succeed. |
+| **Runs** | How many times to run the evaluation. |
 
 :::tip
 Consider lowering the **Minimum Pass Rate** below 100%. Agent responses are non-deterministic, so a small amount of run-to-run variation is expected even when the agent is behaving correctly. A threshold around 80–90% tolerates that variance while still catching real regressions.
@@ -64,7 +67,7 @@ Consider lowering the **Minimum Pass Rate** below 100%. Agent responses are non-
 After you click **Save**, the evaluation opens in the visual designer for further configuration. To reopen it later, click the flow icon next to the evaluation in the **Test Explorer**.
 
 <ThemedImage
-    alt="Test Explorer with the flow icon highlighted next to the testToolTrajectory evaluation, opening its visual designer flow on the canvas."
+    alt="Test Explorer with the flow icon highlighted next to the evaluateWeatherAgentToolCalls evaluation, with its visual designer flow on the canvas."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-flow-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/open-evaluation-flow-v1.0.png'),
@@ -134,7 +137,7 @@ Inside the Foreach, add an **Agent** node from the **AI** group in the node pane
 The **Agents** picker opens, listing every agent in the project. Select the one you want to evaluate.
 
 <ThemedImage
-    alt="Agents picker showing the mathTutorAgent listed under Agent."
+    alt="Agents picker showing the weatherAgent listed under Agent."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/agent-picker-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/agent-picker-v1.0.png'),
@@ -145,8 +148,8 @@ This replays each trace's original input against the current agent build and cap
 
 | Field | Value | Notes |
 |---|---|---|
-| **Query** | `trace.userMessage.content.toString()` | Replays the user input from the loop's `trace` variable. |
-| **Session ID** | `thread.id` | Runs the agent in the same session as the original conversation. Under **Advanced Configurations**. |
+| **Query** | `trace.userMessage.content.toString()` | Replays the user input from the loop's `trace` variable. Switch the field to **Expression** first. |
+| **Session ID** | `thread.id` | Runs the agent in the same session as the original conversation. Switch the field to **Expression** first. |
 | **Type Descriptor** | `ai:Trace` | Sets the expected return format. Under **Advanced Configurations**. |
 | **Result** | `actualTrace` (or any name) | The variable the agent's response is stored in. |
 

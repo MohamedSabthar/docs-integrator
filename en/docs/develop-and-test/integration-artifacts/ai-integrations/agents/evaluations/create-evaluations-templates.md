@@ -16,16 +16,18 @@ An **evaluation template** is a prebuilt evaluator for a common AI evaluation pa
 This page walks through the **Tool Trajectory** template, which checks that the agent calls the tools recorded in an evalset. To write your own evaluation logic instead, see [Create custom evaluations](create-evaluations-custom.md).
 
 :::info Prerequisites
-The **Tool Trajectory** template replays an evalset, so have at least one evalset in your project. See [Create evalsets](evalsets.md) to capture or import one.
+The **Tool Trajectory** template replays an evalset, so have at least one evalset in your project. See [Create evalsets](evalsets.md) to capture or import one, or let Copilot write one for you from the form, as described in [Configuring a template](#configuring-a-template).
 :::
 
 ## Start a new evaluation
 
 1. Open the **Test Explorer** by clicking the test beaker icon in the activity bar.
-2. Click **Add Test** at the top of the **Test Explorer** and choose **Add AI Evaluation**.
+2. Click **Add Test** at the top of the **Test Explorer** and choose **Add AI Evaluation**. If the project has no tests yet, click the **Add AI Evaluation** button in the **Test Explorer** instead.
+
+   You can also start from your agent: open the agent, click **Evaluations**, and then click **Create Evaluation** (or **New Evaluation** if the agent already has evaluations). This opens the template browser straight away with the agent already chosen, so continue from [Choose a template](#choose-a-template). On this path the form has no **Target Agent** field, and the back arrow takes you back to the templates.
 
 <ThemedImage
-    alt="Test Explorer in the Testing view with the math-tutor evalset listed under Evalsets, ready to add a new AI evaluation."
+    alt="Test Explorer in the Testing view with the Add AI Evaluation button and the weather-agent-tool-trajectory evalset listed under Evalsets."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/add-ai-evaluation-v1.0.png'),
@@ -67,20 +69,30 @@ For example, choose the **Tool Trajectory** evaluation template. The selected te
 
 | Field | Value | Notes |
 |---|---|---|
-| **Target Agent** | `mathTutorAgent` | The agent under evaluation. |
-| **Evalset File** | `math-tutor` | The evalset to replay. Under **Test input**. This template always evaluates against an evalset. |
+| **Target Agent** | `weatherAgent` | The agent under evaluation. |
+| **Evalset File** | `weather-agent-tool-trajectory` | The evalset to replay. Under **Test input**. This template always evaluates against an evalset. |
 | **Match Mode** | `STRICT` (default) | How the agent's tool calls are compared with the recorded ones. Under **Optional settings**; click **Expand** to change it. |
-| **Minimum Pass Rate (%)** | `90` | The percentage of evalset threads that must pass for the run to succeed. |
+| **Minimum Pass Rate (%)** | `90` (default) | The percentage of evalset threads that must pass for the run to succeed. |
+| **Runs** | `1` (default) | How many times to run the evaluation. |
+| **AI Evaluation Name** | `evaluateWeatherAgentToolTrajectory` | The name of the evaluation. It is filled in for you, and you can change it. |
 
 <ThemedImage
-    alt="Tool Trajectory template configuration card with Target Agent set to mathTutorAgent, Evalset File set to math-tutor, Optional settings, and Minimum Pass Rate set to 90%."
+    alt="Tool Trajectory template configuration card with Target Agent set to weatherAgent, Evalset File set to weather-agent-tool-trajectory, Optional settings, and Minimum Pass Rate set to 90%."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-tool-trajectory-config-v1.0.png'),
     }}
 />
 
-If the project has no evalset yet, click **Create empty evalset** to create one. **Open evalset** opens the selected evalset in the **Evalset Viewer**. To pick a different template, click **Change Template**.
+If the project has no evalset yet, click **Create Empty Evalset** to create one, or click **Generate with Copilot** to have Copilot write one for the selected agent. The **Generate with Copilot** link appears once you have chosen a **Target Agent**. Copilot writes the evalset in a new chat, and the form selects it once it is ready. **Open Evalset** opens the selected evalset in the **Evalset Viewer**. To pick a different template, click **Change Template**.
+
+<ThemedImage
+    alt="The Tool Trajectory form with Generate with Copilot highlighted, and the Copilot chat confirming that it created the weather-agent-tool-trajectory evalset, which the form has selected."
+    sources={{
+        light: useBaseUrl('/img/genai/develop/agents/evaluations/generate-evalset-with-copilot-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/agents/evaluations/generate-evalset-with-copilot-v1.0.png'),
+    }}
+/>
 
 ### Match modes
 
@@ -92,7 +104,7 @@ If the project has no evalset yet, click **Create empty evalset** to create one.
 | `SUPERSET` | The agent makes at least all the recorded tool calls. Extra calls are allowed. |
 
 :::tip
-Consider lowering the **Minimum Pass Rate** below 100%. Agent responses are non-deterministic, so a small amount of run-to-run variation is expected even when the agent is behaving correctly. A threshold around 80–90% tolerates that variance while still catching real regressions.
+Keep the **Minimum Pass Rate** below 100%. Agent responses are non-deterministic, so a small amount of run-to-run variation is expected even when the agent is behaving correctly. The form starts below 100% for that reason. Raise it only when every case must pass.
 :::
 
 ## Save the evaluation
@@ -100,7 +112,7 @@ Consider lowering the **Minimum Pass Rate** below 100%. Agent responses are non-
 Click **Save**. The evaluation opens in the visual designer as a single **AI evaluation** node that shows the template and the target agent, and it appears under **evaluations** in the **Test Explorer**. To change the template settings later, click **Configure**.
 
 <ThemedImage
-    alt="Visual designer showing the evaluateMathTutorAgentToolTrajectory evaluation as an AI evaluation node for the Tool Trajectory template with mathTutorAgent as the target agent."
+    alt="Visual designer showing the evaluateWeatherAgentToolTrajectory evaluation as an AI evaluation node for the Tool Trajectory template with weatherAgent as the target agent."
     sources={{
         light: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node-v1.0.png'),
         dark: useBaseUrl('/img/genai/develop/agents/evaluations/template-eval-node-v1.0.png'),
