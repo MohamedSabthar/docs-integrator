@@ -1,7 +1,7 @@
 ---
 title: Gated Tools or Durable Agentic Workflow
-description: A quick, tick-and-cross comparison of gated tools and durable agentic workflows in WSO2 Integrator, covering capabilities and what each costs to set up.
-keywords: [wso2 integrator, gated tools, durable agentic workflow, human task, approval gate, comparison, human in the loop]
+description: A quick, tick-and-cross comparison of gated tools and durable agentic workflows in WSO2 Agent Builder, covering capabilities and what each costs to set up.
+keywords: [wso2 agent builder, gated tools, durable agentic workflow, human task, approval gate, comparison, human in the loop]
 sidebar_position: 2.6
 slug: /develop-and-test/integration-artifacts/ai-integrations/agents/gated-tools-or-durable-agentic-workflow
 ---
@@ -45,7 +45,7 @@ Both features can pause an AI agent so a person approves a call before it runs. 
 | **Setup effort** | Tick **Requires Approval** on a tool you already have | Stand up Temporal |
 | **Works today with no new infrastructure** | ✓ | ✗ (The module's own lightweight in-memory engine lets you try it with nothing installed, but it doesn't persist. Production needs Temporal) |
 
-If you only need a yes or no before a tool runs and don't want to run a workflow engine, start with gated tools. If you already run durable workflows, or need anything in the capability table above beyond a yes or no, use a durable agent instead.
+If you only need a yes or no before a tool runs and don't want to run a workflow engine, start with gated tools. If you already run durable workflows, or need anything in the capability table above beyond a yes or no, use a durable agent instead. To create one, select **Add Agent** on the agentic integration's overview, then **Create Durable Agent**. See [Build a Durable Agent](../../../../get-started/quickstarts/build-durable-agent.md) for a walkthrough.
 
 By default, **gated tools** need nothing beyond the agent itself. For a pause that survives a restart or resumes on another replica, attach a durable [memory store](memory.md#add-memory-store): PostgreSQL, MSSQL, SQLite, Redis, or Amazon DynamoDB.
 

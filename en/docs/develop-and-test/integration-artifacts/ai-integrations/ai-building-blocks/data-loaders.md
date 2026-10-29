@@ -1,8 +1,8 @@
 ---
 sidebar_position: 7
 title: Data Loaders
-description: Reference for the Data Loaders in WSO2 Integrator that read source documents into ai:Document values, including the Text Data Loader, the AWS S3 Text Data Loader, and the Microsoft SharePoint Text Data Loader with their create form fields and configuration reference.
-keywords: [wso2 integrator, data loader, rag, ai document, aws s3, amazon s3, sharepoint, microsoft graph, knowledge base, ingestion]
+description: Reference for the Data Loaders in WSO2 Agent Builder that read source documents into ai:Document values, including the Text Data Loader, the AWS S3 Text Data Loader, and the Microsoft SharePoint Text Data Loader with their create form fields and configuration reference.
+keywords: [wso2 agent builder, data loader, rag, ai document, aws s3, amazon s3, sharepoint, microsoft graph, knowledge base, ingestion]
 slug: /develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/data-loaders
 ---
 
@@ -11,7 +11,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Data Loaders
 
-A **Data Loader** reads documents from a source and returns them as `ai:Document` values, ready to be chunked, embedded, and indexed by a [Knowledge Base](knowledge-bases.md). It is the entry point of the [RAG ingestion](../rag/rag-ingestion.md) pipeline.
+A **Data Loader** reads documents from a source and returns them as `ai:Document` values, ready to be chunked, embedded, and indexed by a [Knowledge Base](knowledge-bases.md). Use a data loader when you build a custom ingestion flow in WSO2 Integrator. For the recommended workflow, [ingest documents in WSO2 Cloud](../rag/rag-ingestion.md) instead.
 
 ## Available actions
 
@@ -25,13 +25,17 @@ Every data loader exposes one action.
 
 ## Where to find data loaders
 
-In the flow editor, open the **Add Node** panel and go to **AI > RAG > Data Loader**, then click **+ Add Data Loader**. The **Data Loaders** picker lists the available types.
+Open the flow where you want to load documents, for example a function. Then follow these steps:
+
+1. Hover over the line in the flow and select the **+** button to open the node panel.
+2. Under **AI**, expand **RAG** and select **Data Loader**.
+3. Select **+ Add Data Loader**. The **Data Loaders** picker lists the available types.
 
 <ThemedImage
-    alt="Data Loaders picker with a search box, listing Text Data Loader, AWS S3 Text Data Loader (loads text documents from AWS S3 buckets), and Microsoft SharePoint Text Data Loader."
+    alt="Data Loaders picker with a search box, listing the available data loaders with a short description for each. A red box highlights the loader cards."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/01-data-loaders-picker-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/01-data-loaders-picker-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/01-data-loaders-picker-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/01-data-loaders-picker-v1.0.png'),
     }}
 />
 
@@ -45,15 +49,15 @@ In the flow editor, open the **Add Node** panel and go to **AI > RAG > Data Load
 
 ## Text Data Loader
 
-Reads files from the local file system and wraps their content as `ai:Document` values. It loads supported file types as `ai:TextDocument` values.
+Reads files from the local file system and wraps their content as `ai:Document` values. It loads these file types as `ai:TextDocument` values: `pdf`, `docx`, `pptx`, `html`, `htm`, and `md`. A path with any other extension returns an `Unsupported file type` error.
 
 ### Create form
 
 <ThemedImage
-    alt="ai Data Loader create form titled 'Initializes the data loader with the given paths' showing Paths (the paths to the files to load), Data Loader Name (default aiTextdataloader), and Result Type (ai:TextDataLoader)."
+    alt="ai Data Loader create form that initializes the data loader with the given paths, showing Paths (the paths to the files to load, with an Initialize Array link), Data Loader Name (default aiTextdataloader), and Result Type (ai:TextDataLoader). A red box highlights the form."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/02-text-data-loader-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/02-text-data-loader-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/02-text-data-loader-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/02-text-data-loader-form-v1.0.png'),
     }}
 />
 
@@ -63,7 +67,7 @@ Reads files from the local file system and wraps their content as `ai:Document` 
 | **Data Loader Name** | Yes | The variable name for the loader instance. |
 | **Result Type** | Yes | The variable type, set to `ai:TextDataLoader`. |
 
-For an end-to-end example of wiring this loader into an ingestion pipeline, see [RAG ingestion: add a text data loader](../rag/rag-ingestion.md#step-2-add-a-text-data-loader).
+Pass the output of **Load** to the [Knowledge Base **Ingest** action](knowledge-bases.md#available-actions) when building a custom ingestion flow.
 
 ## AWS S3 Text Data Loader
 
@@ -104,10 +108,10 @@ Each object is returned as an `ai:TextDocument` based on its extension. For a ke
 ### Create form
 
 <ThemedImage
-    alt="ai.aws.s3 Data Loader create form titled 'Initializes the AWS S3 data loader' showing Connection Config (a Record, prefilled with an auth record holding empty accessKeyId and secretAccessKey), Data Sources (an Array, with an Initialize Array link), Loader Options (a Record, default {}), Data Loader Name (default s3Textdataloader), and Result Type (s3:TextDataLoader)."
+    alt="ai.aws.s3 Data Loader create form titled 'Initializes the AWS S3 data loader' showing Connection Config (a Record, prefilled with an auth record holding empty accessKeyId and secretAccessKey), Data Sources (an Array, with an Initialize Array link), Loader Options (a Record, default {}), Data Loader Name (default s3Textdataloader), and Result Type (s3:TextDataLoader). A red box highlights the form."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/04-aws-s3-data-loader-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/04-aws-s3-data-loader-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/03-aws-s3-data-loader-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/03-aws-s3-data-loader-form-v1.0.png'),
     }}
 />
 
@@ -192,10 +196,10 @@ Each file is returned as an `ai:TextDocument` based on its MIME type / extension
 ### Create form
 
 <ThemedImage
-    alt="ai.microsoft.sharepoint Data Loader create form titled 'Initializes the SharePoint data loader' showing Share Point Connection Configurations (a Record, default {auth: {clientId: &quot;&quot;, clientSecret: &quot;&quot;}}), Data Sources (an Array), Data Loader Name (default sharepointTextdataloader), and Result Type (sharepoint:TextDataLoader)."
+    alt="ai.microsoft.sharepoint Data Loader create form titled 'Initializes the SharePoint data loader' showing Share Point Connection Configurations (a Record, default {auth: {clientId: &quot;&quot;, clientSecret: &quot;&quot;}}), Data Sources (an Array), Data Loader Name (default sharepointTextdataloader), and Result Type (sharepoint:TextDataLoader). A red box highlights the form."
     sources={{
-        light: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/03-sharepoint-data-loader-form-v5.1.png'),
-        dark: useBaseUrl('/img/genai/develop/components-v5.1/data-loaders/03-sharepoint-data-loader-form-v5.1.png'),
+        light: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/04-sharepoint-data-loader-form-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/components-v1.0/data-loaders/04-sharepoint-data-loader-form-v1.0.png'),
     }}
 />
 

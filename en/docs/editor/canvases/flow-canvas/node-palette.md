@@ -382,7 +382,7 @@ The **AI** section of the node panel lets you build AI-powered integrations dire
 
 | Sub-category | Use it for | Reference |
 |---|---|---|
-| **Direct LLM** | Send a prompt to an LLM and bind the response to a typed variable. | [Direct LLM calls](../../../develop-and-test/integration-artifacts/ai-integrations/direct-llm/direct-llm.md) |
+| **Direct LLM** | Send a prompt to an LLM and bind the response to a typed variable. | [Model providers](../../../develop-and-test/integration-artifacts/ai-integrations/ai-building-blocks/model-providers.md) |
 | **RAG** | Ground LLM responses in your own documents by retrieving relevant chunks at query time. | [RAG](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag.md) |
 | **AI Agent** | Run multi-turn workflows where an LLM plans the next step, calls tools, and uses memory. | [AI agents](../../../develop-and-test/integration-artifacts/ai-integrations/agents/agents.md) |
 
@@ -506,7 +506,7 @@ For the ingestion flow, supported formats, and how to point the loader at a dire
     }}
 />
 
-For the full RAG query flow (retrieve, augment, generate), see [RAG query](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag-query.md).
+For the recommended agent-based workflow, where retrieval is exposed to an AI agent as a tool, see [RAG query with an agent](../../../develop-and-test/integration-artifacts/ai-integrations/rag/rag-query.md).
 
 ### Agent
 
