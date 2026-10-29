@@ -20,8 +20,8 @@ The top menu bar runs across the top edge of the application window and groups t
 <ThemedImage
     alt="Top menu bar"
     sources={{
-        light: useBaseUrl('/img/editor/editor-window/top-menu-bar.png'),
-        dark: useBaseUrl('/img/editor/editor-window/top-menu-bar.png'),
+        light: useBaseUrl('/img/editor/editor-window/top-menu-bar-v1.0.png'),
+        dark: useBaseUrl('/img/editor/editor-window/top-menu-bar-v1.0.png'),
     }}
 />
 
