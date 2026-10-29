@@ -260,6 +260,5 @@ The new types are added to the project and become available everywhere a custom 
 
 - [Type Canvas](../canvases/type-canvas.md): visualize every type in the project and the relationships between them.
 - [Service Designer](../designers/service-designer.md): use the types you defined as request and response payloads for a service.
-- [GraphQL Canvas](../canvases/graphql-canvas.md): expose service classes and records as GraphQL types.
 - [Data Mapper](../designers/data-mapper.md): map fields between the types you defined here.
 - [Flow Canvas](../canvases/flow-canvas/flow-canvas.md): use the types as variables and parameters in a flow.
