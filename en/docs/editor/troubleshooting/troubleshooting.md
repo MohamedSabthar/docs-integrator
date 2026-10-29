@@ -11,31 +11,31 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Diagnose Issues
 
-Use this page when something in the WSO2 Integrator editor isn't behaving the way you expect: a feature doesn't respond, a diagram doesn't load, or an action errors out. Before you file an issue, capture verbose editor output so the team can act on the report.
+Use this page when something in the WSO2 Agent Builder editor isn't behaving the way you expect: a feature doesn't respond, a diagram doesn't load, or an action errors out. Before you file an issue, capture verbose editor output so the team can act on the report.
 
-If the editor shows **WSO2 Integrator cannot start** or **Your project dependencies need to be updated** after you move to Ballerina 2201.14.0, see [Moving to Ballerina 2201.14](moving-to-ballerina-2201-14.md).
+If the editor shows **Your project dependencies need to be updated** when you open a project that was created with an earlier Ballerina version, see [Moving to Ballerina 2201.14](moving-to-ballerina-2201-14.md).
 
 ## Steps : Capture verbose editor output
 
 ### 1. Enable verbose logging
 
-1. Open **Settings** with `Cmd+,` on macOS, or `Ctrl+,` on Windows and Linux.
+1. Open **Settings** with `Cmd+,` on macOS, or `Ctrl+,` on Windows and Linux. You can also run **Preferences: Open User Settings** from the Command Palette.
 
     <ThemedImage
-        alt="Open Settings from the command menu"
+        alt="Preferences: Open User Settings in the Command Palette"
         sources={{
-            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/open-settings-command-v5.1.png'),
-            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/open-settings-command-v5.1.png'),
+            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/open-settings-command-v1.0.png'),
+            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/open-settings-command-v1.0.png'),
         }}
     />
 
 2. In the search box, type `ballerina`.
 
     <ThemedImage
-        alt="Settings page"
+        alt="Settings with ballerina typed in the search box"
         sources={{
-            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/settings-page-v5.1.png'),
-            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/settings-page-v5.1.png'),
+            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/settings-page-v1.0.png'),
+            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/settings-page-v1.0.png'),
         }}
     />
 
@@ -43,6 +43,7 @@ If the editor shows **WSO2 Integrator cannot start** or **Your project dependenc
     - `ballerina.traceLog`: enabled (`true`).
     - `ballerina.debugLog`: enabled (`true`).
     - `ballerina-vscode.trace.server`: `verbose`.
+4. When a message asks you to restart, click **Restart Now** so that the new settings take effect.
 
 ### 2. Open the output panel
 
@@ -53,8 +54,8 @@ If the editor shows **WSO2 Integrator cannot start** or **Your project dependenc
     <ThemedImage
         alt="Select the Ballerina output channel"
         sources={{
-            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/ballerina-output-channel-v5.1.png'),
-            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/ballerina-output-channel-v5.1.png'),
+            light: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/ballerina-output-channel-v1.0.png'),
+            dark: useBaseUrl('/img/editor/troubleshooting/ide-troubleshooting/ballerina-output-channel-v1.0.png'),
         }}
     />
 
@@ -66,7 +67,7 @@ If the editor shows **WSO2 Integrator cannot start** or **Your project dependenc
 
 ## Report the issue
 
-Open a new issue in the [wso2/product-integrator](https://github.com/wso2/product-integrator/issues) repository and include:
+Open a new issue in the [wso2/product-agent-builder](https://github.com/wso2/product-agent-builder/issues) repository and include:
 
 - A short title that describes the symptom.
 - The exact steps you followed to reproduce the issue.
@@ -77,7 +78,4 @@ If the Ballerina channel doesn't show any error, still file the issue. Include t
 
 ## What's next
 
-- [Moving to Ballerina 2201.14](moving-to-ballerina-2201-14.md) - resolve the Ballerina version and dependency screens that appear after you move to Ballerina 2201.14.0.
-- [Errors and stack traces](product://integrator/develop-and-test/troubleshooting/errors-and-stack-traces) - interpret the error text you captured from the Ballerina output channel.
-- [Logging](product://integrator/develop-and-test/troubleshooting/logging) - add log statements once the editor is working again to trace what the integration does at runtime.
-- [Debug Your Integration](product://integrator/develop-and-test/debugging) - set breakpoints and step through the integration after the editor issue is resolved.
+- [Moving to Ballerina 2201.14](moving-to-ballerina-2201-14.md) - resolve the dependency screen that appears when you open a project created with an earlier Ballerina version.

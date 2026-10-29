@@ -1,7 +1,7 @@
 ---
 title: "Copilot in the Background"
 description: "Follow a Copilot run while the panel is closed, using the status bar, the floating status orb, and the mini chat."
-keywords: [wso2 integrator, copilot, background, status orb, mini chat, agent status]
+keywords: [wso2 agent builder, copilot, background, status orb, mini chat, agent status]
 sidebar_position: 3.5
 slug: /editor/copilot/background-copilot
 ---
@@ -34,13 +34,13 @@ While Copilot is working, the status bar shows the current state at a glance.
 | State | What you see |
 |---|---|
 | Running | A spinner and the current step. |
-| Needs your input | **WSO2 Integrator Copilot needs your input**, highlighted in the warning color. |
-| Finished | **WSO2 Integrator Copilot finished**. |
-| Error | **WSO2 Integrator Copilot error**, highlighted in the error color. |
+| Needs your input | **Agent Builder Copilot needs your input**, highlighted in the warning color. |
+| Finished | **Agent Builder Copilot finished**. |
+| Error | **Agent Builder Copilot error**, highlighted in the error color. |
 
 Select the status bar item to open the Copilot panel. The item appears only when the panel is closed and no other Copilot surface is already reporting the status, so it never duplicates something you can already see.
 
-<!-- TODO: capture asset then uncomment. ![The WSO2 Integrator Copilot status bar item showing a running step.](/img/editor/copilot/copilot-status-bar.png) -->
+<!-- TODO: capture asset then uncomment. ![The WSO2 Agent Builder Copilot status bar item showing a running step.](/img/editor/copilot/copilot-status-bar.png) -->
 
 ## Status orb
 
@@ -59,7 +59,7 @@ You can interact with the orb in several ways:
 - **Select** it to open or close the mini chat.
 - **Double-click** it to open the full Copilot panel.
 - **Drag** it anywhere on screen. On release it snaps to the nearest edge position, and Copilot remembers where you left it across reloads.
-- **Hover** it while idle to reveal an input box labeled **How can I help?**. Type your request and press Enter to start the conversation directly in the mini chat.
+- **Hover** it while idle to reveal an input box labeled **How can I help?**. Type your request and press Enter to start the conversation directly in the mini chat. On macOS, you can also press **⌘I** to open the mini chat with its input ready.
 
 ## Mini chat
 
@@ -71,10 +71,10 @@ The mini chat is a compact overlay anchored next to the orb. It mirrors the live
 - If you type a message and then open the full chat, your draft carries over and Copilot does not send it for you.
 
 <ThemedImage
-    alt="The floating orb with its live status label, then the mini chat opening and streaming a response."
+    alt="Hovering the orb to type a question, the mini chat streaming the response while the status bar shows the current step, then the full Copilot panel opened and closed again."
     sources={{
-        light: useBaseUrl('/img/editor/copilot/copilot-ambient-flow.gif'),
-        dark: useBaseUrl('/img/editor/copilot/copilot-ambient-flow.gif'),
+        light: useBaseUrl('/img/editor/copilot/copilot-ambient-flow-v1.0.gif'),
+        dark: useBaseUrl('/img/editor/copilot/copilot-ambient-flow-v1.0.gif'),
     }}
 />
 
