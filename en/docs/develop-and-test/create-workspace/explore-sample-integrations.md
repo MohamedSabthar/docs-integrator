@@ -80,8 +80,8 @@ If you saved the sample inside an existing project folder inside the `WSO2AgentB
    <ThemedImage
        alt="Add to Project dialog"
        sources={{
-           light: useBaseUrl('/img/explore-samples/add-to-project-dialog.png'),
-           dark: useBaseUrl('/img/explore-samples/add-to-project-dialog.png'),
+           light: useBaseUrl('/img/explore-samples/add-to-project-dialog-v1.0.png'),
+           dark: useBaseUrl('/img/explore-samples/add-to-project-dialog-v1.0.png'),
        }}
    />
 
