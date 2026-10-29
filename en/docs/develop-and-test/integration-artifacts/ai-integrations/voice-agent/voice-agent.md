@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Voice Agent
-description: Expose an AI agent over a voice channel in WSO2 Agent Builder by adding a Voice Agent trigger, then deploy it to WSO2 Cloud so callers can talk to it.
+description: Expose an AI agent over a voice channel in WSO2 Agent Builder by adding a Voice Chat trigger, then deploy it to WSO2 Cloud so callers can talk to it.
 slug: /develop-and-test/integration-artifacts/ai-integrations/voice-agent
 ---
 
@@ -10,13 +10,13 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Voice Agent
 
-A **Voice Agent** trigger exposes an [AI agent](../agents/agents.md) over a voice channel. WSO2 Agent Builder hosts the voice connection for you. Your agent receives the caller's speech as transcribed text and returns a text reply. WSO2 Cloud converts that reply to speech and plays it back to the caller, so you never handle audio yourself.
+A **Voice Chat** trigger exposes an [AI agent](../agents/agents.md) over a voice channel. WSO2 Agent Builder hosts the voice connection for you. Your agent receives the caller's speech as transcribed text and returns a text reply. WSO2 Cloud converts that reply to speech and plays it back to the caller, so you never handle audio yourself.
 
 In WSO2 Agent Builder, voice is a trigger on an agent, just like a chat channel.
 
 ## How it differs from an Agent Chat trigger
 
-| | Agent Chat trigger | Voice Agent trigger |
+| | Agent Chat trigger | Voice Chat trigger |
 |---|---|---|
 | Transport | HTTP (REST) | WebSocket |
 | Listener | `ai:Listener` | `integration:CloudVoiceListener` |
@@ -27,9 +27,9 @@ In WSO2 Agent Builder, voice is a trigger on an agent, just like a chat channel.
 
 Both call the same [`ai:Agent`](../agents/agents.md#components-of-an-ai-agent). They differ only in the transport and message format.
 
-## Add a Voice Agent trigger
+## Add a Voice Chat trigger
 
-Before you start, create the agent you want to expose over voice. See [Creating an Agent](../agents/create-an-agent.md) for configuring the system prompt, [tools](../agents/tools.md), and [memory](../agents/memory.md). You can add the Voice Agent trigger to an agent that already has an **Agent Chat** trigger, so the same agent answers both chat and voice.
+Before you start, create the agent you want to expose over voice. See [Creating an Agent](../agents/create-an-agent.md) for configuring the system prompt, [tools](../agents/tools.md), and [memory](../agents/memory.md). You can add the Voice Chat trigger to an agent that already has an **Agent Chat** trigger, so the same agent answers both chat and voice.
 
 This example uses `customerSupportAgent`, a customer support agent that checks order status, explains the return policy, and creates support tickets. It already has an **Agent Chat** trigger at `/customer-support-agent`.
 
@@ -38,28 +38,28 @@ This example uses `customerSupportAgent`, a customer support agent that checks o
 <ThemedImage
     alt="customerSupportAgent canvas with the /customer-support-agent Agent Chat trigger connected to the AI Agent node, and the Add Trigger button below it on the left."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/01-agent-canvas-add-trigger-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/01-agent-canvas-add-trigger-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/01-agent-canvas-add-trigger-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/01-agent-canvas-add-trigger-v1.0.png'),
     }}
 />
 
-2. In the **Add Trigger** dialog, select **Voice Agent** under **Chat Channels**.
+2. In the **Add Trigger** dialog, select **Voice Chat** under **Chat Channels**.
 
 <ThemedImage
-    alt="Add Trigger dialog with Voice Agent highlighted under Chat Channels."
+    alt="Add Trigger dialog with Voice Chat highlighted under Chat Channels, next to Agent Chat and Google Chat."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/02-add-trigger-voice-agent-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/02-add-trigger-voice-agent-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/02-add-trigger-voice-chat-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/02-add-trigger-voice-chat-v1.0.png'),
     }}
 />
 
-3. Attach the trigger to a new or existing cloud voice listener.
+3. In the **Voice Chat** form, attach the trigger to a new or existing cloud voice listener.
 
 <ThemedImage
-    alt="Voice Agent trigger form with Create New Listener selected, Listener Name set to voiceListener, and Port set to 8080 with a toggle between Number and Expression."
+    alt="Voice Chat trigger form with Create New Listener selected, Listener Name set to voiceListener, and Port set to 8080 with a toggle between Number and Expression."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/03-voice-agent-trigger-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/03-voice-agent-trigger-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/03-voice-chat-trigger-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/03-voice-chat-trigger-v1.0.png'),
     }}
 />
 
@@ -68,13 +68,13 @@ This example uses `customerSupportAgent`, a customer support agent that checks o
 | **Listener Name** | Yes | Identifier for the voice listener, for example `voiceListener`. Select **Use existing** instead if you already have one. |
 | **Port** | Yes | The port the listener runs on, as a number or an expression that shares a port with another WebSocket service. |
 
-4. Select **Create**. The canvas now shows both triggers, **Agent Chat** and **Voice Agent Voice Chat**, connected to the same agent. The project explorer lists a **Voice Agent Integration** entry point with an `onChatMessage` event handler.
+4. Select **Create**. The canvas now shows both triggers, **Agent Chat** and **Voice Chat** (labeled **Voice Chat Service**), connected to the same agent. The project explorer lists a **Voice Agent Integration** entry point with an `onChatMessage` event handler.
 
 <ThemedImage
-    alt="customerSupportAgent canvas with both the /customer-support-agent Agent Chat trigger and the Voice Agent Voice Chat trigger connected to the AI Agent node, and Voice Agent Integration with onChatMessage under Entry Points."
+    alt="customerSupportAgent canvas with both the /customer-support-agent Agent Chat trigger and the Voice Chat Service Voice Chat trigger connected to the AI Agent node, and Voice Agent Integration with onChatMessage under Entry Points."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/04-agent-with-voice-trigger-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/04-agent-with-voice-trigger-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/04-agent-with-voice-chat-trigger-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/04-agent-with-voice-chat-trigger-v1.0.png'),
     }}
 />
 
@@ -87,8 +87,8 @@ Under **Entry Points**, expand **Voice Agent Integration** and select `onChatMes
 <ThemedImage
     alt="onChatMessage flow showing Start connected to an agent run node calling customerSupportAgent and producing response, connected to a Return node that returns response."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/05-onchatmessage-flow-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/05-onchatmessage-flow-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/05-onchatmessage-flow-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/05-onchatmessage-flow-v1.0.png'),
     }}
 />
 
@@ -97,8 +97,8 @@ Select the **agent : run** node to see how it's configured: **Query** is bound t
 <ThemedImage
     alt="AI Agent node configuration panel with Query set to message.message, Session ID set to message.sessionId, Context left at its default new record, and Result named response."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/06-ai-agent-config-panel-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/06-ai-agent-config-panel-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/06-ai-agent-config-panel-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/06-ai-agent-config-panel-v1.0.png'),
     }}
 />
 
@@ -107,8 +107,8 @@ Selecting **Voice Agent Integration** itself opens the **Voice Service** view, w
 <ThemedImage
     alt="Voice Service view showing Listener: voiceListener and an Event Handlers section listing a single event named onChatMessage."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/07-voice-service-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/07-voice-service-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/07-voice-service-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/07-voice-service-v1.0.png'),
     }}
 />
 
@@ -143,23 +143,23 @@ The session ID is passed as the session key so the agent's memory tracks each ca
 
 ## Deploy to WSO2 Cloud
 
-The voice listener only accepts calls once it's deployed. Select the **VoiceAgentIntegration** integration in the project explorer to open its **Overview**. The canvas shows both triggers, the **Agent Chat** (`POST /chat`) and the **Voice Agent** (`onChatMessage`), connected to `customerSupportAgent` with its model, memory, and three tools.
+The voice listener only accepts calls once it's deployed. Select the **VoiceAgentIntegration** integration in the project explorer to open its **Overview**. The canvas shows both triggers, the **Agent Chat** (`POST /chat`) and the **Voice Chat** (`onChatMessage`), connected to `customerSupportAgent` with its model, memory, and three tools.
 
 <ThemedImage
-    alt="VoiceAgentIntegration overview canvas showing the /customer-support-agent Agent Chat trigger with POST /chat and the Voice Agent Voice Chat trigger with onChatMessage, both connected to the customerSupportAgent AI Agent with a model, memory, and 3 tools."
+    alt="VoiceAgentIntegration overview canvas showing the /customer-support-agent Agent Chat trigger with POST /chat and the Voice Chat Service Voice Chat trigger with onChatMessage, both connected to the customerSupportAgent AI Agent with a model, memory, and 3 tools."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/08-integration-overview-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/08-integration-overview-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/08-integration-overview-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/08-integration-overview-v1.0.png'),
     }}
 />
 
 Select **Deploy** at the top right. The **Deploy** panel lists the deployment targets (**WSO2 Agent Manager**, **WSO2 Cloud**, **Docker Image**, and **Virtual Machine**) and the **Management** options (**Agent Manager Observability** and **Integration Control Plane**).
 
 <ThemedImage
-    alt="Deploy panel next to the overview canvas, listing WSO2 Agent Manager, WSO2 Cloud, Docker Image, and Virtual Machine under Deploy, and Agent Manager Observability and Integration Control Plane under Management."
+    alt="Deploy panel next to the overview canvas, with WSO2 Agent Manager expanded, listing WSO2 Agent Manager, WSO2 Cloud, Docker Image, and Virtual Machine under Deploy, and Agent Manager Observability and Integration Control Plane under Management."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/09-deploy-panel-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/09-deploy-panel-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/09-deploy-panel-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/09-deploy-panel-v1.0.png'),
     }}
 />
 
@@ -168,8 +168,8 @@ Expand **WSO2 Cloud** and select **Deploy to WSO2 Cloud**. Pick the organization
 <ThemedImage
     alt="Deploy panel with WSO2 Cloud expanded, describing it as a fully managed platform, with a Deploy to WSO2 Cloud button."
     sources={{
-        light: useBaseUrl('/img/genai/develop/voice-agent-v1.0/10-deploy-to-wso2-cloud-v1.0.png'),
-        dark: useBaseUrl('/img/genai/develop/voice-agent-v1.0/10-deploy-to-wso2-cloud-v1.0.png'),
+        light: useBaseUrl('/img/genai/develop/voice-chat-v1.0/10-deploy-to-wso2-cloud-v1.0.png'),
+        dark: useBaseUrl('/img/genai/develop/voice-chat-v1.0/10-deploy-to-wso2-cloud-v1.0.png'),
     }}
 />
 
