@@ -26,12 +26,4 @@ wide_layout: true
   </ul>
 </PaletteCard>
 
-<PaletteCard icon="external" href="https://ballerina.io/learn/">
-  <h3 class="palette-card-title">Ballerina Documentation</h3>
-  <ul class="palette-card-list">
-    <li>Language syntax and standard library API docs</li>
-    <li>Configuration file reference and runnable examples</li>
-  </ul>
-</PaletteCard>
-
 </PaletteGrid>
